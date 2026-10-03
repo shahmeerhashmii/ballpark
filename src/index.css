@@ -46,7 +46,7 @@ html, body {
   line-height: 1.5;
   height: 100%;
   width: 100%;
-  overflow-x: hidden;
+  overflow: hidden;
   user-select: none;
   -webkit-user-select: none;
   touch-action: manipulation;
@@ -77,22 +77,31 @@ html, body {
 
 /* App Shell & Layout */
 .app-shell {
-  min-height: 100dvh;
+  /* 100vh fallback for browsers that don't support dvh */
+  height: 100vh;
+  height: 100dvh;
   display: flex;
   justify-content: center;
   align-items: stretch;
   background-color: var(--color-bg);
+  overflow: hidden;
 }
 
 .app-container {
   width: 100%;
   max-width: 440px;
-  min-height: 100dvh;
+  /* Grow to fill the shell */
+  height: 100%;
+  box-sizing: border-box;
   display: flex;
   flex-direction: column;
   position: relative;
   background-color: var(--color-bg);
-  padding: calc(var(--sat) + 12px) calc(var(--sar) + 16px) calc(var(--sab) + 12px) calc(var(--sal) + 16px);
+  /* Safe-area padding applied ONCE here; all children inherit the inset */
+  padding-top: calc(env(safe-area-inset-top, 0px) + 12px);
+  padding-right: calc(env(safe-area-inset-right, 0px) + 16px);
+  padding-bottom: calc(env(safe-area-inset-bottom, 0px) + 12px);
+  padding-left: calc(env(safe-area-inset-left, 0px) + 16px);
 }
 
 /* Shared Screen Container */
@@ -100,6 +109,7 @@ html, body {
   display: flex;
   flex-direction: column;
   flex: 1;
+  min-height: 0;
   width: 100%;
   justify-content: space-between;
 }
@@ -261,10 +271,12 @@ html, body {
 }
 
 /* QUESTION SCREEN */
+/* Question screen is a flex column that fills the app-container exactly.
+   header → flex:1 middle → footer (keypad pinned at bottom).
+   No independent height/dvh — the parent .app-container already owns the
+   full viewport height including safe-area padding. */
 .question-screen {
-  height: 100dvh;
-  max-height: 100dvh;
-  justify-content: space-between;
+  justify-content: flex-start;
   overflow: hidden;
 }
 
@@ -350,7 +362,10 @@ html, body {
   justify-content: center;
   gap: 16px;
   flex: 1;
+  /* Must have min-height:0 so flex child can shrink when space is tight */
+  min-height: 0;
   padding: 8px 0;
+  overflow: hidden;
 }
 
 .question-text {
@@ -360,11 +375,84 @@ html, body {
   line-height: 1.25;
   color: var(--color-text);
   letter-spacing: -0.3px;
+  /* Allow text to shrink rather than overflow on short screens */
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 5;
 }
 
 @media (min-width: 400px) {
   .question-text {
     font-size: 26px;
+  }
+}
+
+/* ── Compact layout for short screens (iPhone SE, landscape, etc.) ── */
+@media (max-height: 700px) {
+  .question-header {
+    padding-bottom: 4px;
+  }
+
+  /* Shrink timer ring */
+  .timer-wrapper,
+  .timer-circle {
+    width: 46px;
+    height: 46px;
+  }
+
+  .timer-seconds-text {
+    font-size: 16px;
+  }
+
+  /* Smaller question text */
+  .question-text,
+  .question-text.min-width-400 {
+    font-size: 22px;
+  }
+
+  .question-main-content {
+    gap: 10px;
+    padding: 4px 0;
+  }
+
+  /* Tighter number display card */
+  .number-display-card {
+    padding: 10px 16px;
+    min-height: 72px;
+  }
+
+  .entered-digits {
+    font-size: 28px;
+  }
+
+  /* Keypad: 48px keys, tighter gaps */
+  .keypad-container {
+    gap: 5px;
+  }
+
+  .chips-row {
+    gap: 5px;
+  }
+
+  .multiplier-chip {
+    height: 34px;
+    font-size: 13px;
+  }
+
+  .keypad-grid {
+    gap: 5px;
+  }
+
+  .keypad-btn {
+    height: 48px;
+    min-height: 48px;
+    font-size: 20px;
+  }
+
+  .lock-in-btn {
+    height: 48px;
+    font-size: 15px;
   }
 }
 

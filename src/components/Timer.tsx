@@ -86,7 +86,7 @@ export const Timer: React.FC<TimerProps> = ({ startTime, onTimeUp, isRunning = t
   return (
     <div className="timer-wrapper" aria-label={`Time left: ${secondsLeft} seconds`}>
       <div className={`timer-circle ${isPulsing ? 'pulse-urgent' : ''}`}>
-        <svg width="56" height="56" viewBox="0 0 56 56" className="timer-svg">
+        <svg width="100%" height="100%" viewBox="0 0 56 56" className="timer-svg">
           {/* Background track */}
           <circle
             cx="28"
