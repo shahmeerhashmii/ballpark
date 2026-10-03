@@ -205,17 +205,25 @@ export const App: React.FC = () => {
   // Routing checks
   // 1. Before launch date
   if (puzzleMeta.isBeforeStart && !queryParams.has('day')) {
-    return <CountdownScreen daysUntilStart={puzzleMeta.daysUntilStart} />;
+    return (
+      <div className="app-shell">
+        <div className="app-container">
+          <CountdownScreen daysUntilStart={puzzleMeta.daysUntilStart} />
+        </div>
+      </div>
+    );
   }
 
   // 2. Beyond last day
   const maxDayInSet = Math.max(...Object.keys(allQuestions).map(Number));
   if (dayNumber > maxDayInSet) {
     return (
-      <>
-        <EndedScreen stats={stats} onOpenStats={() => setIsStatsOpen(true)} />
-        <StatsModal isOpen={isStatsOpen} onClose={() => setIsStatsOpen(false)} stats={stats} />
-      </>
+      <div className="app-shell">
+        <div className="app-container">
+          <EndedScreen stats={stats} onOpenStats={() => setIsStatsOpen(true)} />
+          <StatsModal isOpen={isStatsOpen} onClose={() => setIsStatsOpen(false)} stats={stats} />
+        </div>
+      </div>
     );
   }
 
