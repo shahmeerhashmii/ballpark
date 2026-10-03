@@ -1,0 +1,37 @@
+{
+  "name": "ballpark",
+  "private": true,
+  "version": "1.0.0",
+  "type": "module",
+  "scripts": {
+    "predev": "tsx scripts/build-questions.ts && tsx scripts/build-icons.ts",
+    "dev": "vite",
+    "prebuild": "tsx scripts/build-questions.ts && tsx scripts/build-icons.ts",
+    "build": "tsc -b && vite build",
+    "lint": "eslint .",
+    "preview": "vite preview",
+    "test": "vitest run"
+  },
+  "dependencies": {
+    "@fontsource/bricolage-grotesque": "^5.2.5",
+    "@fontsource/instrument-sans": "^5.2.5",
+    "@supabase/supabase-js": "^2.49.1",
+    "canvas-confetti": "^1.9.4",
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0"
+  },
+  "devDependencies": {
+    "@resvg/resvg-js": "^2.6.2",
+    "@types/canvas-confetti": "^1.9.0",
+    "@types/node": "^22.13.9",
+    "@types/react": "^19.0.10",
+    "@types/react-dom": "^19.0.4",
+    "@vitejs/plugin-react": "^4.3.4",
+    "exceljs": "^4.4.0",
+    "tsx": "^4.19.3",
+    "typescript": "~5.7.2",
+    "vite": "^6.2.0",
+    "vite-plugin-pwa": "^0.21.1",
+    "vitest": "^3.0.7"
+  }
+}

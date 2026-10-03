@@ -1,0 +1,3740 @@
+{
+  "1": [
+    {
+      "qNum": 1,
+      "category": "Buildings and Engineering",
+      "question": "How tall is the Hoover Dam?",
+      "answer": "cHN9",
+      "unit": "metres",
+      "difficulty": "Medium"
+    },
+    {
+      "qNum": 2,
+      "category": "Movies, Music and Games",
+      "question": "How long is The Godfather?",
+      "answer": "c3Z5",
+      "unit": "minutes",
+      "difficulty": "Medium"
+    },
+    {
+      "qNum": 3,
+      "category": "Geography",
+      "question": "How tall is Aconcagua, the highest mountain in South America?",
+      "answer": "dHh6fQ==",
+      "unit": "metres",
+      "difficulty": "Hard"
+    },
+    {
+      "qNum": 4,
+      "category": "Sports",
+      "question": "How many consecutive games did Cal Ripken Jr. play?",
+      "answer": "cHd/fg==",
+      "unit": "games",
+      "difficulty": "Hard"
+    },
+    {
+      "qNum": 5,
+      "category": "Distance of the Day",
+      "question": "How far is it in a straight line from Iqaluit to New York?",
+      "answer": "cHR1fA==",
+      "unit": "km",
+      "difficulty": "Medium"
+    }
+  ],
+  "2": [
+    {
+      "qNum": 1,
+      "category": "Animals and Nature",
+      "question": "How many eggs does a modern laying hen produce in a year?",
+      "answer": "cXF8",
+      "unit": "eggs",
+      "difficulty": "Medium"
+    },
+    {
+      "qNum": 2,
+      "category": "Canada",
+      "question": "How many litres of maple sap does it take to make 1 litre of maple syrup?",
+      "answer": "dnE=",
+      "unit": "litres",
+      "difficulty": "Medium"
+    },
+    {
+      "qNum": 3,
+      "category": "Space and Science",
+      "question": "How many centimetres does the Moon drift away from Earth each year?",
+      "answer": "cW90",
+      "unit": "cm",
+      "difficulty": "Hard"
+    },
+    {
+      "qNum": 4,
+      "category": "History",
+      "question": "How long was the Oregon Trail?",
+      "answer": "cXV1fA==",
+      "unit": "km",
+      "difficulty": "Hard"
+    },
+    {
+      "qNum": 5,
+      "category": "Distance of the Day",
+      "question": "How far is it in a straight line from Karachi to Singapore?",
+      "answer": "dnZ4fA==",
+      "unit": "km",
+      "difficulty": "Medium"
+    }
+  ],
+  "3": [
+    {
+      "qNum": 1,
+      "category": "Buildings and Engineering",
+      "question": "How tall was the Saturn V rocket that launched Apollo 11?",
+      "answer": "c3B9",
+      "unit": "metres",
+      "difficulty": "Medium"
+    },
+    {
+      "qNum": 2,
+      "category": "Sports",
+      "question": "How many Stanley Cups have the Montreal Canadiens won?",
+      "answer": "cHU=",
+      "unit": "Stanley Cups",
+      "difficulty": "Medium"
+    },
+    {
+      "qNum": 3,
+      "category": "Geography",
+      "question": "How big is Italy?",
+      "answer": "cXF9f2Rx",
+      "unit": "km²",
+      "difficulty": "Hard"
+    },
+    {
+      "qNum": 4,
+      "category": "Movies, Music and Games",
+      "question": "How many possible positions does a Rubik's Cube have?",
+      "answer": "dnI=",
+      "unit": "quintillion",
+      "difficulty": "Hard"
+    },
+    {
+      "qNum": 5,
+      "category": "Distance of the Day",
+      "question": "How far is it in a straight line from Vancouver to Ottawa?",
+      "answer": "cXR4fA==",
+      "unit": "km",
+      "difficulty": "Medium"
+    }
+  ],
+  "4": [
+    {
+      "qNum": 1,
+      "category": "Space and Science",
+      "question": "What is Earth's diameter?",
+      "answer": "c3N7eGI=",
+      "unit": "km",
+      "difficulty": "Medium"
+    },
+    {
+      "qNum": 2,
+      "category": "Human Body",
+      "question": "How long are all the blood vessels in an adult body, laid end to end?",
+      "answer": "c3F8fGBx",
+      "unit": "km",
+      "difficulty": "Medium"
+    },
+    {
+      "qNum": 3,
+      "category": "Animals and Nature",
+      "question": "How wide can a giant squid's eye be?",
+      "answer": "cHY=",
+      "unit": "cm",
+      "difficulty": "Hard"
+    },
+    {
+      "qNum": 4,
+      "category": "History",
+      "question": "How many years did it take to build Notre-Dame de Paris?",
+      "answer": "c3l+",
+      "unit": "years",
+      "difficulty": "Hard"
+    },
+    {
+      "qNum": 5,
+      "category": "Distance of the Day",
+      "question": "How far is it in a straight line from Reykjavik to Auckland?",
+      "answer": "c3d7dGA=",
+      "unit": "km",
+      "difficulty": "Hard"
+    }
+  ],
+  "5": [
+    {
+      "qNum": 1,
+      "category": "Geography",
+      "question": "How tall is the Matterhorn?",
+      "answer": "dnV7dA==",
+      "unit": "metres",
+      "difficulty": "Medium"
+    },
+    {
+      "qNum": 2,
+      "category": "Sports",
+      "question": "How heavy is the Stanley Cup?",
+      "answer": "c3RieQ==",
+      "unit": "kg",
+      "difficulty": "Medium"
+    },
+    {
+      "qNum": 3,
+      "category": "Movies, Music and Games",
+      "question": "How many episodes of Friends were made?",
+      "answer": "cHJ6",
+      "unit": "episodes",
+      "difficulty": "Medium"
+    },
+    {
+      "qNum": 4,
+      "category": "Buildings and Engineering",
+      "question": "How tall is Jinping-I, the world's tallest dam?",
+      "answer": "cXF5",
+      "unit": "metres",
+      "difficulty": "Hard"
+    },
+    {
+      "qNum": 5,
+      "category": "Distance of the Day",
+      "question": "How far is it in a straight line from Vancouver to Los Angeles?",
+      "answer": "c3Z4fA==",
+      "unit": "km",
+      "difficulty": "Medium"
+    }
+  ],
+  "6": [
+    {
+      "qNum": 1,
+      "category": "Space and Science",
+      "question": "How fast does light travel?",
+      "answer": "cHh1e2lz",
+      "unit": "km per second",
+      "difficulty": "Medium"
+    },
+    {
+      "qNum": 2,
+      "category": "Canada",
+      "question": "How big is Lake Ontario?",
+      "answer": "c3l1emA=",
+      "unit": "km²",
+      "difficulty": "Medium"
+    },
+    {
+      "qNum": 3,
+      "category": "Human Body",
+      "question": "How many muscles are in the human face?",
+      "answer": "dnI=",
+      "unit": "muscles",
+      "difficulty": "Medium"
+    },
+    {
+      "qNum": 4,
+      "category": "Animals and Nature",
+      "question": "How loud can a blue whale's call be?",
+      "answer": "c3l0",
+      "unit": "decibels",
+      "difficulty": "Hard"
+    },
+    {
+      "qNum": 5,
+      "category": "Distance of the Day",
+      "question": "How far is it in a straight line from Madrid to Bangkok?",
+      "answer": "c3F9dGA=",
+      "unit": "km",
+      "difficulty": "Hard"
+    }
+  ],
+  "7": [
+    {
+      "qNum": 1,
+      "category": "Buildings and Engineering",
+      "question": "How tall are the presidents' faces on Mount Rushmore?",
+      "answer": "c3k=",
+      "unit": "metres",
+      "difficulty": "Medium"
+    },
+    {
+      "qNum": 2,
+      "category": "Sports",
+      "question": "How many career home runs did Hank Aaron hit?",
+      "answer": "dXR5",
+      "unit": "home runs",
+      "difficulty": "Medium"
+    },
+    {
+      "qNum": 3,
+      "category": "Movies, Music and Games",
+      "question": "How long is Queen's Bohemian Rhapsody?",
+      "answer": "cXR4",
+      "unit": "seconds",
+      "difficulty": "Medium"
+    },
+    {
+      "qNum": 4,
+      "category": "Geography",
+      "question": "How tall is Mauna Kea, measured from its base on the ocean floor?",
+      "answer": "c3F+fWA=",
+      "unit": "metres",
+      "difficulty": "Hard"
+    },
+    {
+      "qNum": 5,
+      "category": "Distance of the Day",
+      "question": "How far is it in a straight line from St. John's to Paris?",
+      "answer": "cXh1fA==",
+      "unit": "km",
+      "difficulty": "Medium"
+    }
+  ],
+  "8": [
+    {
+      "qNum": 1,
+      "category": "Canada",
+      "question": "How long is the Confederation Bridge to Prince Edward Island?",
+      "answer": "c3NidQ==",
+      "unit": "km",
+      "difficulty": "Medium"
+    },
+    {
+      "qNum": 2,
+      "category": "Space and Science",
+      "question": "How far does light travel in one year?",
+      "answer": "e294eg==",
+      "unit": "trillion km",
+      "difficulty": "Hard"
+    },
+    {
+      "qNum": 3,
+      "category": "Animals and Nature",
+      "question": "How fast can a peregrine falcon dive?",
+      "answer": "cXl1",
+      "unit": "km/h",
+      "difficulty": "Hard"
+    },
+    {
+      "qNum": 4,
+      "category": "History",
+      "question": "How many Allied troops landed in Normandy on D-Day?",
+      "answer": "c3R6fGBx",
+      "unit": "troops",
+      "difficulty": "Hard"
+    },
+    {
+      "qNum": 5,
+      "category": "Distance of the Day",
+      "question": "How far is it in a straight line from Miami to Auckland?",
+      "answer": "c3N1e2A=",
+      "unit": "km",
+      "difficulty": "Hard"
+    }
+  ],
+  "9": [
+    {
+      "qNum": 1,
+      "category": "Movies, Music and Games",
+      "question": "How many keys are on a standard piano?",
+      "answer": "enk=",
+      "unit": "keys",
+      "difficulty": "Easy"
+    },
+    {
+      "qNum": 2,
+      "category": "Geography",
+      "question": "How tall is Angel Falls in Venezuela, the world's tallest waterfall?",
+      "answer": "e3Z1",
+      "unit": "metres",
+      "difficulty": "Medium"
+    },
+    {
+      "qNum": 3,
+      "category": "Buildings and Engineering",
+      "question": "How tall is the Statue of Liberty, from the ground to the tip of the torch?",
+      "answer": "e3I=",
+      "unit": "metres",
+      "difficulty": "Medium"
+    },
+    {
+      "qNum": 4,
+      "category": "Sports",
+      "question": "How many points did Bobby Orr score in the 1970-71 season, a record for a defenceman?",
+      "answer": "c3J1",
+      "unit": "points",
+      "difficulty": "Hard"
+    },
+    {
+      "qNum": 5,
+      "category": "Distance of the Day",
+      "question": "How far is it in a straight line from Edmonton to Cape Town?",
+      "answer": "c3R6dWA=",
+      "unit": "km",
+      "difficulty": "Hard"
+    }
+  ],
+  "10": [
+    {
+      "qNum": 1,
+      "category": "Human Body",
+      "question": "How old was Jeanne Calment, the oldest person ever verified?",
+      "answer": "c3N+",
+      "unit": "years",
+      "difficulty": "Easy"
+    },
+    {
+      "qNum": 2,
+      "category": "History",
+      "question": "How many years did Louis XIV reign as King of France, the longest of any European monarch?",
+      "answer": "dXM=",
+      "unit": "years",
+      "difficulty": "Medium"
+    },
+    {
+      "qNum": 3,
+      "category": "Space and Science",
+      "question": "How many hours did Apollo 11's lunar module spend on the Moon's surface?",
+      "answer": "cHBieg==",
+      "unit": "hours",
+      "difficulty": "Hard"
+    },
+    {
+      "qNum": 4,
+      "category": "Animals and Nature",
+      "question": "How much food does an adult elephant eat in a day?",
+      "answer": "c3R8",
+      "unit": "kg",
+      "difficulty": "Hard"
+    },
+    {
+      "qNum": 5,
+      "category": "Distance of the Day",
+      "question": "How far is it in a straight line from Miami to Mexico City?",
+      "answer": "cHF7fA==",
+      "unit": "km",
+      "difficulty": "Medium"
+    }
+  ],
+  "11": [
+    {
+      "qNum": 1,
+      "category": "Sports",
+      "question": "How many points did Kobe Bryant score in his highest-scoring NBA game?",
+      "answer": "enA=",
+      "unit": "points",
+      "difficulty": "Easy"
+    },
+    {
+      "qNum": 2,
+      "category": "Geography",
+      "question": "How long is the Rhine River?",
+      "answer": "c3N/fA==",
+      "unit": "km",
+      "difficulty": "Medium"
+    },
+    {
+      "qNum": 3,
+      "category": "Buildings and Engineering",
+      "question": "How tall are the Petronas Towers in Kuala Lumpur?",
+      "answer": "dnR+",
+      "unit": "metres",
+      "difficulty": "Medium"
+    },
+    {
+      "qNum": 4,
+      "category": "Movies, Music and Games",
+      "question": "How long is the original Toy Story?",
+      "answer": "enA=",
+      "unit": "minutes",
+      "difficulty": "Medium"
+    },
+    {
+      "qNum": 5,
+      "category": "Distance of the Day",
+      "question": "How far is it in a straight line from Edmonton to Tokyo?",
+      "answer": "dXl7fA==",
+      "unit": "km",
+      "difficulty": "Medium"
+    }
+  ],
+  "12": [
+    {
+      "qNum": 1,
+      "category": "Space and Science",
+      "question": "How old is the universe?",
+      "answer": "c3JidA==",
+      "unit": "billion years",
+      "difficulty": "Medium"
+    },
+    {
+      "qNum": 2,
+      "category": "Human Body",
+      "question": "How many times does your heart beat in a day?",
+      "answer": "c3F8fGBx",
+      "unit": "beats",
+      "difficulty": "Medium"
+    },
+    {
+      "qNum": 3,
+      "category": "Animals and Nature",
+      "question": "How many bird species are there in the world?",
+      "answer": "c3B8fGA=",
+      "unit": "species",
+      "difficulty": "Hard"
+    },
+    {
+      "qNum": 4,
+      "category": "History",
+      "question": "How many words long is Lincoln's Gettysburg Address?",
+      "answer": "cHZ+",
+      "unit": "words",
+      "difficulty": "Hard"
+    },
+    {
+      "qNum": 5,
+      "category": "Distance of the Day",
+      "question": "How far is it in a straight line from Moscow to Istanbul?",
+      "answer": "c3Z6fA==",
+      "unit": "km",
+      "difficulty": "Medium"
+    }
+  ],
+  "13": [
+    {
+      "qNum": 1,
+      "category": "Buildings and Engineering",
+      "question": "How wide is the wingspan of an Airbus A380?",
+      "answer": "enE=",
+      "unit": "metres",
+      "difficulty": "Medium"
+    },
+    {
+      "qNum": 2,
+      "category": "Sports",
+      "question": "How long is a tennis court?",
+      "answer": "dXk=",
+      "unit": "feet",
+      "difficulty": "Medium"
+    },
+    {
+      "qNum": 3,
+      "category": "Movies, Music and Games",
+      "question": "How tall is the Mona Lisa painting?",
+      "answer": "dXY=",
+      "unit": "cm",
+      "difficulty": "Medium"
+    },
+    {
+      "qNum": 4,
+      "category": "Geography",
+      "question": "How tall is Mount Kosciuszko, the highest point in mainland Australia?",
+      "answer": "cHN+dA==",
+      "unit": "metres",
+      "difficulty": "Hard"
+    },
+    {
+      "qNum": 5,
+      "category": "Distance of the Day",
+      "question": "How far is it in a straight line from Edmonton to London?",
+      "answer": "dHl8fA==",
+      "unit": "km",
+      "difficulty": "Medium"
+    }
+  ],
+  "14": [
+    {
+      "qNum": 1,
+      "category": "Space and Science",
+      "question": "How high above Earth does the International Space Station orbit?",
+      "answer": "dnF8",
+      "unit": "km",
+      "difficulty": "Medium"
+    },
+    {
+      "qNum": 2,
+      "category": "Animals and Nature",
+      "question": "How many teeth does a great white shark have in its mouth at one time?",
+      "answer": "cXF8",
+      "unit": "teeth",
+      "difficulty": "Medium"
+    },
+    {
+      "qNum": 3,
+      "category": "Canada",
+      "question": "How long is the Mackenzie River system, Canada's longest?",
+      "answer": "dnN4fQ==",
+      "unit": "km",
+      "difficulty": "Hard"
+    },
+    {
+      "qNum": 4,
+      "category": "Human Body",
+      "question": "How many protein-coding genes do humans have?",
+      "answer": "cHF8fGA=",
+      "unit": "genes",
+      "difficulty": "Hard"
+    },
+    {
+      "qNum": 5,
+      "category": "Distance of the Day",
+      "question": "How far is it in a straight line from Moscow to Beijing?",
+      "answer": "d3Z1fA==",
+      "unit": "km",
+      "difficulty": "Medium"
+    }
+  ],
+  "15": [
+    {
+      "qNum": 1,
+      "category": "Sports",
+      "question": "How many home runs did Barry Bonds hit in his record 2001 season?",
+      "answer": "dXI=",
+      "unit": "home runs",
+      "difficulty": "Easy"
+    },
+    {
+      "qNum": 2,
+      "category": "Buildings and Engineering",
+      "question": "How tall is the London Eye?",
+      "answer": "c3J5",
+      "unit": "metres",
+      "difficulty": "Medium"
+    },
+    {
+      "qNum": 3,
+      "category": "Geography",
+      "question": "How big is Japan?",
+      "answer": "cXZ7dWd0",
+      "unit": "km²",
+      "difficulty": "Hard"
+    },
+    {
+      "qNum": 4,
+      "category": "Movies, Music and Games",
+      "question": "How many words are in Shakespeare's complete works, roughly?",
+      "answer": "enl4fGBx",
+      "unit": "words",
+      "difficulty": "Hard"
+    },
+    {
+      "qNum": 5,
+      "category": "Distance of the Day",
+      "question": "How far is it in a straight line from Winnipeg to Honolulu?",
+      "answer": "dHB/fA==",
+      "unit": "km",
+      "difficulty": "Medium"
+    }
+  ],
+  "16": [
+    {
+      "qNum": 1,
+      "category": "Space and Science",
+      "question": "How many years does Halley's Comet take to orbit the Sun?",
+      "answer": "dXc=",
+      "unit": "years",
+      "difficulty": "Medium"
+    },
+    {
+      "qNum": 2,
+      "category": "Animals and Nature",
+      "question": "How heavy was the largest bald eagle nest ever recorded?",
+      "answer": "cHZ8fA==",
+      "unit": "kg",
+      "difficulty": "Hard"
+    },
+    {
+      "qNum": 3,
+      "category": "History",
+      "question": "How many words were in the original US Constitution, before amendments?",
+      "answer": "dnR4fw==",
+      "unit": "words",
+      "difficulty": "Hard"
+    },
+    {
+      "qNum": 4,
+      "category": "Canada",
+      "question": "How big is Banff National Park?",
+      "answer": "dHd4fQ==",
+      "unit": "km²",
+      "difficulty": "Hard"
+    },
+    {
+      "qNum": 5,
+      "category": "Distance of the Day",
+      "question": "How far is it in a straight line from Chicago to Honolulu?",
+      "answer": "dHl4fA==",
+      "unit": "km",
+      "difficulty": "Medium"
+    }
+  ],
+  "17": [
+    {
+      "qNum": 1,
+      "category": "Buildings and Engineering",
+      "question": "How long is the Suez Canal?",
+      "answer": "c3h/",
+      "unit": "km",
+      "difficulty": "Medium"
+    },
+    {
+      "qNum": 2,
+      "category": "Sports",
+      "question": "How many rebounds did Wilt Chamberlain grab in his record single game?",
+      "answer": "d3Q=",
+      "unit": "rebounds",
+      "difficulty": "Medium"
+    },
+    {
+      "qNum": 3,
+      "category": "Movies, Music and Games",
+      "question": "How many copies has Michael Jackson's Thriller sold worldwide, by common estimates?",
+      "answer": "dXE=",
+      "unit": "million copies",
+      "difficulty": "Medium"
+    },
+    {
+      "qNum": 4,
+      "category": "Geography",
+      "question": "How deep is Lake Baikal at its deepest point?",
+      "answer": "c3d4fg==",
+      "unit": "metres",
+      "difficulty": "Hard"
+    },
+    {
+      "qNum": 5,
+      "category": "Distance of the Day",
+      "question": "How far is it in a straight line from Vancouver to Auckland?",
+      "answer": "c3B/emA=",
+      "unit": "km",
+      "difficulty": "Hard"
+    }
+  ],
+  "18": [
+    {
+      "qNum": 1,
+      "category": "Human Body",
+      "question": "How many bones are in the human foot?",
+      "answer": "cHc=",
+      "unit": "bones",
+      "difficulty": "Medium"
+    },
+    {
+      "qNum": 2,
+      "category": "Space and Science",
+      "question": "At what temperature does tungsten melt?",
+      "answer": "cXV+fg==",
+      "unit": "°C",
+      "difficulty": "Hard"
+    },
+    {
+      "qNum": 3,
+      "category": "Animals and Nature",
+      "question": "How many potentially active volcanoes are there on land?",
+      "answer": "c3J5fA==",
+      "unit": "volcanoes",
+      "difficulty": "Hard"
+    },
+    {
+      "qNum": 4,
+      "category": "History",
+      "question": "How many days did World War I last, from the first declaration of war to the armistice?",
+      "answer": "c3R6ew==",
+      "unit": "days",
+      "difficulty": "Hard"
+    },
+    {
+      "qNum": 5,
+      "category": "Distance of the Day",
+      "question": "How far is it in a straight line from Paris to Seoul?",
+      "answer": "enh7fA==",
+      "unit": "km",
+      "difficulty": "Hard"
+    }
+  ],
+  "19": [
+    {
+      "qNum": 1,
+      "category": "Buildings and Engineering",
+      "question": "How long is the Panama Canal?",
+      "answer": "enM=",
+      "unit": "km",
+      "difficulty": "Medium"
+    },
+    {
+      "qNum": 2,
+      "category": "Sports",
+      "question": "How many games long was Joe DiMaggio's record hitting streak?",
+      "answer": "d3c=",
+      "unit": "games",
+      "difficulty": "Medium"
+    },
+    {
+      "qNum": 3,
+      "category": "Geography",
+      "question": "How many islands make up the Philippines?",
+      "answer": "dXd4fQ==",
+      "unit": "islands",
+      "difficulty": "Hard"
+    },
+    {
+      "qNum": 4,
+      "category": "Movies, Music and Games",
+      "question": "How many episodes of Seinfeld were made?",
+      "answer": "c3l8",
+      "unit": "episodes",
+      "difficulty": "Hard"
+    },
+    {
+      "qNum": 5,
+      "category": "Distance of the Day",
+      "question": "How far is it in a straight line from Winnipeg to Buenos Aires?",
+      "answer": "c3F9eGA=",
+      "unit": "km",
+      "difficulty": "Hard"
+    }
+  ],
+  "20": [
+    {
+      "qNum": 1,
+      "category": "Space and Science",
+      "question": "How fast does Earth's surface spin at the equator?",
+      "answer": "c3d7fA==",
+      "unit": "km/h",
+      "difficulty": "Hard"
+    },
+    {
+      "qNum": 2,
+      "category": "Animals and Nature",
+      "question": "How much can some bamboo species grow in a single day?",
+      "answer": "e3A=",
+      "unit": "cm",
+      "difficulty": "Hard"
+    },
+    {
+      "qNum": 3,
+      "category": "Canada",
+      "question": "How big is Great Bear Lake, the largest lake entirely in Canada?",
+      "answer": "cXB9eWM=",
+      "unit": "km²",
+      "difficulty": "Hard"
+    },
+    {
+      "qNum": 4,
+      "category": "Human Body",
+      "question": "How much do fingernails grow in a month?",
+      "answer": "cW95",
+      "unit": "mm",
+      "difficulty": "Hard"
+    },
+    {
+      "qNum": 5,
+      "category": "Distance of the Day",
+      "question": "How far is it in a straight line from Los Angeles to Buenos Aires?",
+      "answer": "e3l5fA==",
+      "unit": "km",
+      "difficulty": "Hard"
+    }
+  ],
+  "21": [
+    {
+      "qNum": 1,
+      "category": "Geography",
+      "question": "How long is the Grand Canyon?",
+      "answer": "dnV6",
+      "unit": "km",
+      "difficulty": "Medium"
+    },
+    {
+      "qNum": 2,
+      "category": "Buildings and Engineering",
+      "question": "How tall was Kingda Ka, the tallest roller coaster ever built?",
+      "answer": "c3J1",
+      "unit": "metres",
+      "difficulty": "Medium"
+    },
+    {
+      "qNum": 3,
+      "category": "Movies, Music and Games",
+      "question": "How many Oscars did Titanic (1997) win?",
+      "answer": "c3A=",
+      "unit": "Oscars",
+      "difficulty": "Medium"
+    },
+    {
+      "qNum": 4,
+      "category": "Sports",
+      "question": "How wide is the hole on a golf green?",
+      "answer": "c3F0",
+      "unit": "mm",
+      "difficulty": "Hard"
+    },
+    {
+      "qNum": 5,
+      "category": "Distance of the Day",
+      "question": "How far is it in a straight line from Iqaluit to Bangkok?",
+      "answer": "c3B/eWA=",
+      "unit": "km",
+      "difficulty": "Hard"
+    }
+  ],
+  "22": [
+    {
+      "qNum": 1,
+      "category": "Animals and Nature",
+      "question": "How hot can a lightning bolt get?",
+      "answer": "cXF8fGA=",
+      "unit": "°C",
+      "difficulty": "Medium"
+    },
+    {
+      "qNum": 2,
+      "category": "History",
+      "question": "How many terracotta warriors are estimated to guard the tomb of China's first emperor?",
+      "answer": "enF8fA==",
+      "unit": "warriors",
+      "difficulty": "Medium"
+    },
+    {
+      "qNum": 3,
+      "category": "Space and Science",
+      "question": "At what temperature does iron melt?",
+      "answer": "c3R/dA==",
+      "unit": "°C",
+      "difficulty": "Hard"
+    },
+    {
+      "qNum": 4,
+      "category": "Canada",
+      "question": "How big is Quebec?",
+      "answer": "c3R4fmB0ZA==",
+      "unit": "km²",
+      "difficulty": "Hard"
+    },
+    {
+      "qNum": 5,
+      "category": "Distance of the Day",
+      "question": "How far is it in a straight line from Mexico City to Madrid?",
+      "answer": "e3F6fA==",
+      "unit": "km",
+      "difficulty": "Hard"
+    }
+  ],
+  "23": [
+    {
+      "qNum": 1,
+      "category": "Movies, Music and Games",
+      "question": "How many Pokémon were in the original Pokémon Red and Blue?",
+      "answer": "c3R9",
+      "unit": "Pokémon",
+      "difficulty": "Easy"
+    },
+    {
+      "qNum": 2,
+      "category": "Buildings and Engineering",
+      "question": "How many spectators could the Colosseum in Rome hold?",
+      "answer": "d3F8fGA=",
+      "unit": "people",
+      "difficulty": "Medium"
+    },
+    {
+      "qNum": 3,
+      "category": "Geography",
+      "question": "What is the average depth of the world's oceans?",
+      "answer": "cXd0fg==",
+      "unit": "metres",
+      "difficulty": "Hard"
+    },
+    {
+      "qNum": 4,
+      "category": "Sports",
+      "question": "How many points did Michael Jordan score in his NBA regular-season career?",
+      "answer": "cXN+dWI=",
+      "unit": "points",
+      "difficulty": "Hard"
+    },
+    {
+      "qNum": 5,
+      "category": "Distance of the Day",
+      "question": "How far is it in a straight line from Edmonton to Nairobi?",
+      "answer": "c3J6fGA=",
+      "unit": "km",
+      "difficulty": "Hard"
+    }
+  ],
+  "24": [
+    {
+      "qNum": 1,
+      "category": "Space and Science",
+      "question": "How hot is the surface of Venus?",
+      "answer": "dnd5",
+      "unit": "°C",
+      "difficulty": "Medium"
+    },
+    {
+      "qNum": 2,
+      "category": "History",
+      "question": "How many people signed the US Declaration of Independence?",
+      "answer": "d3c=",
+      "unit": "signers",
+      "difficulty": "Medium"
+    },
+    {
+      "qNum": 3,
+      "category": "Animals and Nature",
+      "question": "How old is Methuselah, one of the world's oldest known trees?",
+      "answer": "dnl5fA==",
+      "unit": "years",
+      "difficulty": "Hard"
+    },
+    {
+      "qNum": 4,
+      "category": "Human Body",
+      "question": "How much blood does the heart pump in a day?",
+      "answer": "dXR8fA==",
+      "unit": "litres",
+      "difficulty": "Hard"
+    },
+    {
+      "qNum": 5,
+      "category": "Distance of the Day",
+      "question": "How far is it in a straight line from New York to Rome?",
+      "answer": "dHl1fA==",
+      "unit": "km",
+      "difficulty": "Medium"
+    }
+  ],
+  "25": [
+    {
+      "qNum": 1,
+      "category": "Buildings and Engineering",
+      "question": "How tall is Seattle's Space Needle?",
+      "answer": "c3l4",
+      "unit": "metres",
+      "difficulty": "Medium"
+    },
+    {
+      "qNum": 2,
+      "category": "Sports",
+      "question": "How many regular-season points did Wayne Gretzky finish his NHL career with?",
+      "answer": "cHl5ew==",
+      "unit": "points",
+      "difficulty": "Medium"
+    },
+    {
+      "qNum": 3,
+      "category": "Movies, Music and Games",
+      "question": "How many episodes of The Office (US) were made?",
+      "answer": "cHF9",
+      "unit": "episodes",
+      "difficulty": "Medium"
+    },
+    {
+      "qNum": 4,
+      "category": "Geography",
+      "question": "How big is the Caspian Sea?",
+      "answer": "cXZ9fGBx",
+      "unit": "km²",
+      "difficulty": "Hard"
+    },
+    {
+      "qNum": 5,
+      "category": "Distance of the Day",
+      "question": "How far is it in a straight line from Halifax to Paris?",
+      "answer": "dnl1fA==",
+      "unit": "km",
+      "difficulty": "Medium"
+    }
+  ],
+  "26": [
+    {
+      "qNum": 1,
+      "category": "Canada",
+      "question": "How long is the CFL playing field between the goal lines?",
+      "answer": "c3B8",
+      "unit": "yards",
+      "difficulty": "Medium"
+    },
+    {
+      "qNum": 2,
+      "category": "Human Body",
+      "question": "How much does human hair grow in a year?",
+      "answer": "c3Q=",
+      "unit": "cm",
+      "difficulty": "Medium"
+    },
+    {
+      "qNum": 3,
+      "category": "Space and Science",
+      "question": "How many hours does sunlight take to reach Pluto, on average?",
+      "answer": "d295",
+      "unit": "hours",
+      "difficulty": "Hard"
+    },
+    {
+      "qNum": 4,
+      "category": "Animals and Nature",
+      "question": "How heavy is a blue whale's heart?",
+      "answer": "c3l8",
+      "unit": "kg",
+      "difficulty": "Hard"
+    },
+    {
+      "qNum": 5,
+      "category": "Distance of the Day",
+      "question": "How far is it in a straight line from Cape Town to Tokyo?",
+      "answer": "c3V7f2A=",
+      "unit": "km",
+      "difficulty": "Hard"
+    }
+  ],
+  "27": [
+    {
+      "qNum": 1,
+      "category": "Geography",
+      "question": "How tall is Victoria Falls at its highest point?",
+      "answer": "c3F0",
+      "unit": "metres",
+      "difficulty": "Medium"
+    },
+    {
+      "qNum": 2,
+      "category": "Movies, Music and Games",
+      "question": "How long is Avatar (2009)?",
+      "answer": "c3d+",
+      "unit": "minutes",
+      "difficulty": "Medium"
+    },
+    {
+      "qNum": 3,
+      "category": "Buildings and Engineering",
+      "question": "How long is the Three Gorges Dam?",
+      "answer": "cHJ/eQ==",
+      "unit": "metres",
+      "difficulty": "Hard"
+    },
+    {
+      "qNum": 4,
+      "category": "Sports",
+      "question": "How many points did Kareem Abdul-Jabbar score in his NBA regular-season career?",
+      "answer": "cXl/dGc=",
+      "unit": "points",
+      "difficulty": "Hard"
+    },
+    {
+      "qNum": 5,
+      "category": "Distance of the Day",
+      "question": "How far is it in a straight line from Iqaluit to Rio de Janeiro?",
+      "answer": "e3l1fA==",
+      "unit": "km",
+      "difficulty": "Hard"
+    }
+  ],
+  "28": [
+    {
+      "qNum": 1,
+      "category": "Canada",
+      "question": "How tall is the Horseshoe Falls at Niagara?",
+      "answer": "d3Y=",
+      "unit": "metres",
+      "difficulty": "Medium"
+    },
+    {
+      "qNum": 2,
+      "category": "Space and Science",
+      "question": "How many times heavier is the Sun than Earth?",
+      "answer": "cXJ/fGBx",
+      "unit": "times",
+      "difficulty": "Hard"
+    },
+    {
+      "qNum": 3,
+      "category": "Animals and Nature",
+      "question": "How many species of bats are there?",
+      "answer": "c3V8fA==",
+      "unit": "species",
+      "difficulty": "Hard"
+    },
+    {
+      "qNum": 4,
+      "category": "History",
+      "question": "How many people lived in Pompeii when Vesuvius erupted?",
+      "answer": "c3B8fGA=",
+      "unit": "people",
+      "difficulty": "Hard"
+    },
+    {
+      "qNum": 5,
+      "category": "Distance of the Day",
+      "question": "How far is it in a straight line from Chicago to Delhi?",
+      "answer": "c3N8fmA=",
+      "unit": "km",
+      "difficulty": "Hard"
+    }
+  ],
+  "29": [
+    {
+      "qNum": 1,
+      "category": "Movies, Music and Games",
+      "question": "How many episodes of Game of Thrones were made?",
+      "answer": "dXI=",
+      "unit": "episodes",
+      "difficulty": "Medium"
+    },
+    {
+      "qNum": 2,
+      "category": "Geography",
+      "question": "How many lakes does Finland have (larger than 500 m²)?",
+      "answer": "c3l7dGh5",
+      "unit": "lakes",
+      "difficulty": "Hard"
+    },
+    {
+      "qNum": 3,
+      "category": "Buildings and Engineering",
+      "question": "How many roof tiles cover the Sydney Opera House?",
+      "answer": "c3F5emBxZA==",
+      "unit": "tiles",
+      "difficulty": "Hard"
+    },
+    {
+      "qNum": 4,
+      "category": "Sports",
+      "question": "How many games did Gordie Howe play in the NHL?",
+      "answer": "c3Z6ew==",
+      "unit": "games",
+      "difficulty": "Hard"
+    },
+    {
+      "qNum": 5,
+      "category": "Distance of the Day",
+      "question": "How far is it in a straight line from Toronto to Rio de Janeiro?",
+      "answer": "enN7fA==",
+      "unit": "km",
+      "difficulty": "Hard"
+    }
+  ],
+  "30": [
+    {
+      "qNum": 1,
+      "category": "Space and Science",
+      "question": "How many people have walked on the Moon?",
+      "answer": "c3M=",
+      "unit": "people",
+      "difficulty": "Easy"
+    },
+    {
+      "qNum": 2,
+      "category": "Human Body",
+      "question": "How long is the small intestine?",
+      "answer": "dA==",
+      "unit": "metres",
+      "difficulty": "Medium"
+    },
+    {
+      "qNum": 3,
+      "category": "Animals and Nature",
+      "question": "How many times per minute can a hummingbird's heart beat?",
+      "answer": "c3N6fA==",
+      "unit": "beats",
+      "difficulty": "Hard"
+    },
+    {
+      "qNum": 4,
+      "category": "History",
+      "question": "How many hours did the full Apollo 11 mission last, from launch to splashdown?",
+      "answer": "c3h5",
+      "unit": "hours",
+      "difficulty": "Hard"
+    },
+    {
+      "qNum": 5,
+      "category": "Distance of the Day",
+      "question": "How far is it in a straight line from Paris to Dubai?",
+      "answer": "d3N5fA==",
+      "unit": "km",
+      "difficulty": "Medium"
+    }
+  ],
+  "31": [
+    {
+      "qNum": 1,
+      "category": "Sports",
+      "question": "How long is an NFL field, including both end zones?",
+      "answer": "c3N8",
+      "unit": "yards",
+      "difficulty": "Easy"
+    },
+    {
+      "qNum": 2,
+      "category": "Geography",
+      "question": "How big is Lake Superior?",
+      "answer": "enN9fGA=",
+      "unit": "km²",
+      "difficulty": "Medium"
+    },
+    {
+      "qNum": 3,
+      "category": "Movies, Music and Games",
+      "question": "How long is The Lord of the Rings: The Return of the King (theatrical cut)?",
+      "answer": "cHF9",
+      "unit": "minutes",
+      "difficulty": "Medium"
+    },
+    {
+      "qNum": 4,
+      "category": "Buildings and Engineering",
+      "question": "How many steps does it take to climb to the Eiffel Tower's second floor?",
+      "answer": "dHZ4",
+      "unit": "steps",
+      "difficulty": "Hard"
+    },
+    {
+      "qNum": 5,
+      "category": "Distance of the Day",
+      "question": "How far is it in a straight line from Toronto to Beijing?",
+      "answer": "c3F5dWA=",
+      "unit": "km",
+      "difficulty": "Hard"
+    }
+  ],
+  "32": [
+    {
+      "qNum": 1,
+      "category": "Canada",
+      "question": "How long is the land and water border between Canada and the US?",
+      "answer": "enl1fQ==",
+      "unit": "km",
+      "difficulty": "Medium"
+    },
+    {
+      "qNum": 2,
+      "category": "History",
+      "question": "How long was the Silk Road trade network?",
+      "answer": "dHV8fA==",
+      "unit": "km",
+      "difficulty": "Medium"
+    },
+    {
+      "qNum": 3,
+      "category": "Space and Science",
+      "question": "How fast does sound travel through water?",
+      "answer": "c3V0fA==",
+      "unit": "metres per second",
+      "difficulty": "Hard"
+    },
+    {
+      "qNum": 4,
+      "category": "Animals and Nature",
+      "question": "How far does an Arctic tern fly on its yearly migration?",
+      "answer": "dXB8fGA=",
+      "unit": "km",
+      "difficulty": "Hard"
+    },
+    {
+      "qNum": 5,
+      "category": "Distance of the Day",
+      "question": "How far is it in a straight line from Lima to Mumbai?",
+      "answer": "c3d7fGA=",
+      "unit": "km",
+      "difficulty": "Hard"
+    }
+  ],
+  "33": [
+    {
+      "qNum": 1,
+      "category": "Geography",
+      "question": "How wide is the Strait of Dover, the narrowest part of the English Channel?",
+      "answer": "cXI=",
+      "unit": "km",
+      "difficulty": "Medium"
+    },
+    {
+      "qNum": 2,
+      "category": "Buildings and Engineering",
+      "question": "How long is Icon of the Seas, the world's largest cruise ship?",
+      "answer": "cXd5",
+      "unit": "metres",
+      "difficulty": "Medium"
+    },
+    {
+      "qNum": 3,
+      "category": "Movies, Music and Games",
+      "question": "How long is Oppenheimer?",
+      "answer": "c3l8",
+      "unit": "minutes",
+      "difficulty": "Medium"
+    },
+    {
+      "qNum": 4,
+      "category": "Sports",
+      "question": "How many receiving yards did Jerry Rice gain in his NFL career?",
+      "answer": "cHN0dWU=",
+      "unit": "yards",
+      "difficulty": "Hard"
+    },
+    {
+      "qNum": 5,
+      "category": "Distance of the Day",
+      "question": "How far is it in a straight line from Halifax to Anchorage?",
+      "answer": "d3d8fA==",
+      "unit": "km",
+      "difficulty": "Medium"
+    }
+  ],
+  "34": [
+    {
+      "qNum": 1,
+      "category": "Animals and Nature",
+      "question": "How heavy is an adult male African elephant?",
+      "answer": "dHF8fA==",
+      "unit": "kg",
+      "difficulty": "Medium"
+    },
+    {
+      "qNum": 2,
+      "category": "Space and Science",
+      "question": "How many Earth days does Venus take to spin once on its axis?",
+      "answer": "cHV/",
+      "unit": "days",
+      "difficulty": "Hard"
+    },
+    {
+      "qNum": 3,
+      "category": "Canada",
+      "question": "How big is Ontario?",
+      "answer": "c3F7emN4Zw==",
+      "unit": "km²",
+      "difficulty": "Hard"
+    },
+    {
+      "qNum": 4,
+      "category": "Food and Everyday Life",
+      "question": "How spicy can a habanero pepper get?",
+      "answer": "cXR8fGBx",
+      "unit": "Scoville heat units",
+      "difficulty": "Hard"
+    },
+    {
+      "qNum": 5,
+      "category": "Distance of the Day",
+      "question": "How far is it in a straight line from Los Angeles to Bangkok?",
+      "answer": "c3J/fGA=",
+      "unit": "km",
+      "difficulty": "Hard"
+    }
+  ],
+  "35": [
+    {
+      "qNum": 1,
+      "category": "Geography",
+      "question": "How tall is K2, the world's second highest mountain?",
+      "answer": "end9fQ==",
+      "unit": "metres",
+      "difficulty": "Medium"
+    },
+    {
+      "qNum": 2,
+      "category": "Sports",
+      "question": "How many touchdown passes did Peyton Manning throw in his record 2013 season?",
+      "answer": "d3Q=",
+      "unit": "touchdowns",
+      "difficulty": "Medium"
+    },
+    {
+      "qNum": 3,
+      "category": "Buildings and Engineering",
+      "question": "How much does the Eiffel Tower weigh?",
+      "answer": "c3F9fGA=",
+      "unit": "tonnes",
+      "difficulty": "Hard"
+    },
+    {
+      "qNum": 4,
+      "category": "Movies, Music and Games",
+      "question": "How many competitive Oscars did Walt Disney win, the most of any person?",
+      "answer": "cHM=",
+      "unit": "Oscars",
+      "difficulty": "Hard"
+    },
+    {
+      "qNum": 5,
+      "category": "Distance of the Day",
+      "question": "How far is it in a straight line from Iqaluit to Mecca?",
+      "answer": "enZ4fA==",
+      "unit": "km",
+      "difficulty": "Hard"
+    }
+  ],
+  "36": [
+    {
+      "qNum": 1,
+      "category": "Food and Everyday Life",
+      "question": "How many grams of sugar are in a 355 mL can of Coca-Cola?",
+      "answer": "cXg=",
+      "unit": "grams",
+      "difficulty": "Easy"
+    },
+    {
+      "qNum": 2,
+      "category": "Space and Science",
+      "question": "What is the atomic number of uranium?",
+      "answer": "e3M=",
+      "unit": "",
+      "difficulty": "Medium"
+    },
+    {
+      "qNum": 3,
+      "category": "Human Body",
+      "question": "How long is the adult spinal cord?",
+      "answer": "dnQ=",
+      "unit": "cm",
+      "difficulty": "Hard"
+    },
+    {
+      "qNum": 4,
+      "category": "Animals and Nature",
+      "question": "How many times per second does a honeybee beat its wings?",
+      "answer": "cHJ8",
+      "unit": "beats",
+      "difficulty": "Hard"
+    },
+    {
+      "qNum": 5,
+      "category": "Distance of the Day",
+      "question": "How far is it in a straight line from Miami to Nairobi?",
+      "answer": "c3N7emA=",
+      "unit": "km",
+      "difficulty": "Hard"
+    }
+  ],
+  "37": [
+    {
+      "qNum": 1,
+      "category": "Movies, Music and Games",
+      "question": "How many sonnets did Shakespeare write?",
+      "answer": "c3R4",
+      "unit": "sonnets",
+      "difficulty": "Medium"
+    },
+    {
+      "qNum": 2,
+      "category": "Geography",
+      "question": "How long is the Great Wall of China, counting all its branches?",
+      "answer": "cHB9dWY=",
+      "unit": "km",
+      "difficulty": "Hard"
+    },
+    {
+      "qNum": 3,
+      "category": "Buildings and Engineering",
+      "question": "How long is the Gotthard Base Tunnel in Switzerland, the world's longest rail tunnel?",
+      "answer": "d3Y=",
+      "unit": "km",
+      "difficulty": "Hard"
+    },
+    {
+      "qNum": 4,
+      "category": "Sports",
+      "question": "How many hits did Ichiro Suzuki get in his record 2004 season?",
+      "answer": "cHd+",
+      "unit": "hits",
+      "difficulty": "Hard"
+    },
+    {
+      "qNum": 5,
+      "category": "Distance of the Day",
+      "question": "How far is it in a straight line from Ottawa to Buenos Aires?",
+      "answer": "e3F7fA==",
+      "unit": "km",
+      "difficulty": "Hard"
+    }
+  ],
+  "38": [
+    {
+      "qNum": 1,
+      "category": "Space and Science",
+      "question": "How many elements are on the periodic table?",
+      "answer": "c3B0",
+      "unit": "elements",
+      "difficulty": "Easy"
+    },
+    {
+      "qNum": 2,
+      "category": "History",
+      "question": "How many years did Queen Elizabeth II reign?",
+      "answer": "dXE=",
+      "unit": "years",
+      "difficulty": "Easy"
+    },
+    {
+      "qNum": 3,
+      "category": "Canada",
+      "question": "How many steps are in the CN Tower's stairwell?",
+      "answer": "c3Z7eg==",
+      "unit": "steps",
+      "difficulty": "Hard"
+    },
+    {
+      "qNum": 4,
+      "category": "Human Body",
+      "question": "How many sweat glands does the average person have?",
+      "answer": "cXF8fGBxYg==",
+      "unit": "sweat glands",
+      "difficulty": "Hard"
+    },
+    {
+      "qNum": 5,
+      "category": "Distance of the Day",
+      "question": "How far is it in a straight line from Beijing to Tokyo?",
+      "answer": "cHF1fA==",
+      "unit": "km",
+      "difficulty": "Medium"
+    }
+  ],
+  "39": [
+    {
+      "qNum": 1,
+      "category": "Geography",
+      "question": "How many member states does the United Nations have?",
+      "answer": "c3h/",
+      "unit": "countries",
+      "difficulty": "Easy"
+    },
+    {
+      "qNum": 2,
+      "category": "Sports",
+      "question": "How tall is the Green Monster wall at Fenway Park?",
+      "answer": "cXY=",
+      "unit": "feet",
+      "difficulty": "Medium"
+    },
+    {
+      "qNum": 3,
+      "category": "Movies, Music and Games",
+      "question": "How long is The Dark Knight?",
+      "answer": "c3R+",
+      "unit": "minutes",
+      "difficulty": "Medium"
+    },
+    {
+      "qNum": 4,
+      "category": "Buildings and Engineering",
+      "question": "How many stone blocks make up the Great Pyramid of Giza?",
+      "answer": "cHJ8fGBxYg==",
+      "unit": "blocks",
+      "difficulty": "Hard"
+    },
+    {
+      "qNum": 5,
+      "category": "Distance of the Day",
+      "question": "How far is it in a straight line from Halifax to Beijing?",
+      "answer": "c3F6fWA=",
+      "unit": "km",
+      "difficulty": "Hard"
+    }
+  ],
+  "40": [
+    {
+      "qNum": 1,
+      "category": "Animals and Nature",
+      "question": "How many trees are there on Earth?",
+      "answer": "cXF8fA==",
+      "unit": "billion trees",
+      "difficulty": "Medium"
+    },
+    {
+      "qNum": 2,
+      "category": "Canada",
+      "question": "How long is the Trans-Canada Highway?",
+      "answer": "dXl+fQ==",
+      "unit": "km",
+      "difficulty": "Medium"
+    },
+    {
+      "qNum": 3,
+      "category": "Human Body",
+      "question": "How many hairs are on the average human head?",
+      "answer": "c3F8fGBx",
+      "unit": "hairs",
+      "difficulty": "Medium"
+    },
+    {
+      "qNum": 4,
+      "category": "Space and Science",
+      "question": "What is the Moon's diameter?",
+      "answer": "cXV7eA==",
+      "unit": "km",
+      "difficulty": "Hard"
+    },
+    {
+      "qNum": 5,
+      "category": "Distance of the Day",
+      "question": "How far is it in a straight line from Seoul to Sydney?",
+      "answer": "enJ/fA==",
+      "unit": "km",
+      "difficulty": "Hard"
+    }
+  ],
+  "41": [
+    {
+      "qNum": 1,
+      "category": "Geography",
+      "question": "How tall is Mont Blanc, the highest peak in the Alps?",
+      "answer": "dnl8eg==",
+      "unit": "metres",
+      "difficulty": "Medium"
+    },
+    {
+      "qNum": 2,
+      "category": "Buildings and Engineering",
+      "question": "How long is the ring of the Large Hadron Collider?",
+      "answer": "cHY=",
+      "unit": "km",
+      "difficulty": "Medium"
+    },
+    {
+      "qNum": 3,
+      "category": "Sports",
+      "question": "How long is a cricket pitch?",
+      "answer": "cHM=",
+      "unit": "yards",
+      "difficulty": "Medium"
+    },
+    {
+      "qNum": 4,
+      "category": "Movies, Music and Games",
+      "question": "How much did the Eras Tour earn in total ticket sales?",
+      "answer": "cHF7ew==",
+      "unit": "million US dollars",
+      "difficulty": "Hard"
+    },
+    {
+      "qNum": 5,
+      "category": "Distance of the Day",
+      "question": "How far is it in a straight line from Halifax to Tokyo?",
+      "answer": "c3F7dGA=",
+      "unit": "km",
+      "difficulty": "Hard"
+    }
+  ],
+  "42": [
+    {
+      "qNum": 1,
+      "category": "Food and Everyday Life",
+      "question": "At what temperature does a popcorn kernel pop?",
+      "answer": "c3l8",
+      "unit": "°C",
+      "difficulty": "Medium"
+    },
+    {
+      "qNum": 2,
+      "category": "History",
+      "question": "Roughly how many years did it take to build the Great Pyramid of Giza?",
+      "answer": "cHE=",
+      "unit": "years",
+      "difficulty": "Medium"
+    },
+    {
+      "qNum": 3,
+      "category": "Space and Science",
+      "question": "What is Jupiter's diameter?",
+      "answer": "c3J1dGJx",
+      "unit": "km",
+      "difficulty": "Hard"
+    },
+    {
+      "qNum": 4,
+      "category": "Human Body",
+      "question": "How many base pairs are in the human genome?",
+      "answer": "cW99",
+      "unit": "billion",
+      "difficulty": "Hard"
+    },
+    {
+      "qNum": 5,
+      "category": "Distance of the Day",
+      "question": "How far is it in a straight line from Anchorage to Bangkok?",
+      "answer": "e3d0fA==",
+      "unit": "km",
+      "difficulty": "Hard"
+    }
+  ],
+  "43": [
+    {
+      "qNum": 1,
+      "category": "Geography",
+      "question": "How long is the Danube River?",
+      "answer": "cHl5fA==",
+      "unit": "km",
+      "difficulty": "Medium"
+    },
+    {
+      "qNum": 2,
+      "category": "Buildings and Engineering",
+      "question": "How tall is Elizabeth Tower, home of Big Ben?",
+      "answer": "e3c=",
+      "unit": "metres",
+      "difficulty": "Medium"
+    },
+    {
+      "qNum": 3,
+      "category": "Sports",
+      "question": "How many goals did Wayne Gretzky score in the 1981-82 NHL season?",
+      "answer": "e3M=",
+      "unit": "goals",
+      "difficulty": "Medium"
+    },
+    {
+      "qNum": 4,
+      "category": "Movies, Music and Games",
+      "question": "How many strings does a concert pedal harp have?",
+      "answer": "dnY=",
+      "unit": "strings",
+      "difficulty": "Hard"
+    },
+    {
+      "qNum": 5,
+      "category": "Distance of the Day",
+      "question": "How far is it in a straight line from Whitehorse to Karachi?",
+      "answer": "c3F+dWA=",
+      "unit": "km",
+      "difficulty": "Hard"
+    }
+  ],
+  "44": [
+    {
+      "qNum": 1,
+      "category": "Space and Science",
+      "question": "What is the atomic number of gold?",
+      "answer": "dXg=",
+      "unit": "",
+      "difficulty": "Medium"
+    },
+    {
+      "qNum": 2,
+      "category": "Canada",
+      "question": "What percentage of the world's maple syrup comes from Quebec?",
+      "answer": "dXM=",
+      "unit": "%",
+      "difficulty": "Medium"
+    },
+    {
+      "qNum": 3,
+      "category": "Food and Everyday Life",
+      "question": "How much caffeine is in a single shot of espresso?",
+      "answer": "dHI=",
+      "unit": "mg",
+      "difficulty": "Medium"
+    },
+    {
+      "qNum": 4,
+      "category": "Animals and Nature",
+      "question": "What is the hottest air temperature ever recorded on Earth?",
+      "answer": "d3diew==",
+      "unit": "°C",
+      "difficulty": "Medium"
+    },
+    {
+      "qNum": 5,
+      "category": "Distance of the Day",
+      "question": "How far is it in a straight line from Lahore to Seoul?",
+      "answer": "dnl8fA==",
+      "unit": "km",
+      "difficulty": "Medium"
+    }
+  ],
+  "45": [
+    {
+      "qNum": 1,
+      "category": "Geography",
+      "question": "How tall is Mount Fuji?",
+      "answer": "cXZ7eg==",
+      "unit": "metres",
+      "difficulty": "Medium"
+    },
+    {
+      "qNum": 2,
+      "category": "Movies, Music and Games",
+      "question": "How long is Shrek?",
+      "answer": "e3E=",
+      "unit": "minutes",
+      "difficulty": "Medium"
+    },
+    {
+      "qNum": 3,
+      "category": "Buildings and Engineering",
+      "question": "How tall is the Shanghai Tower?",
+      "answer": "dHJ+",
+      "unit": "metres",
+      "difficulty": "Hard"
+    },
+    {
+      "qNum": 4,
+      "category": "Sports",
+      "question": "How many rushing yards did Eric Dickerson gain in his record 1984 season?",
+      "answer": "cHB8eQ==",
+      "unit": "yards",
+      "difficulty": "Hard"
+    },
+    {
+      "qNum": 5,
+      "category": "Distance of the Day",
+      "question": "How far is it in a straight line from Halifax to Seoul?",
+      "answer": "c3F0fWA=",
+      "unit": "km",
+      "difficulty": "Hard"
+    }
+  ],
+  "46": [
+    {
+      "qNum": 1,
+      "category": "Space and Science",
+      "question": "What is the atomic number of silver?",
+      "answer": "dnY=",
+      "unit": "",
+      "difficulty": "Medium"
+    },
+    {
+      "qNum": 2,
+      "category": "Food and Everyday Life",
+      "question": "How many teaspoons are in one cup?",
+      "answer": "dnk=",
+      "unit": "teaspoons",
+      "difficulty": "Medium"
+    },
+    {
+      "qNum": 3,
+      "category": "Animals and Nature",
+      "question": "How long is the Great Barrier Reef?",
+      "answer": "cHJ8fA==",
+      "unit": "km",
+      "difficulty": "Medium"
+    },
+    {
+      "qNum": 4,
+      "category": "History",
+      "question": "How many houses were destroyed in the Great Fire of London in 1666?",
+      "answer": "c3J+fGA=",
+      "unit": "houses",
+      "difficulty": "Hard"
+    },
+    {
+      "qNum": 5,
+      "category": "Distance of the Day",
+      "question": "How far is it in a straight line from Honolulu to Cape Town?",
+      "answer": "c3l5e2A=",
+      "unit": "km",
+      "difficulty": "Hard"
+    }
+  ],
+  "47": [
+    {
+      "qNum": 1,
+      "category": "Buildings and Engineering",
+      "question": "How tall is the Christ the Redeemer statue, not counting its pedestal?",
+      "answer": "cXE=",
+      "unit": "metres",
+      "difficulty": "Medium"
+    },
+    {
+      "qNum": 2,
+      "category": "Sports",
+      "question": "How many perfect 10s did Nadia Comaneci score at the 1976 Olympics?",
+      "answer": "dQ==",
+      "unit": "perfect 10s",
+      "difficulty": "Medium"
+    },
+    {
+      "qNum": 3,
+      "category": "Movies, Music and Games",
+      "question": "How long is Avengers: Endgame?",
+      "answer": "c3l9",
+      "unit": "minutes",
+      "difficulty": "Medium"
+    },
+    {
+      "qNum": 4,
+      "category": "Geography",
+      "question": "How big is the Sahara Desert?",
+      "answer": "e3N8fGBxYg==",
+      "unit": "km²",
+      "difficulty": "Hard"
+    },
+    {
+      "qNum": 5,
+      "category": "Distance of the Day",
+      "question": "How far is it in a straight line from St. John's to Karachi?",
+      "answer": "e3h6fA==",
+      "unit": "km",
+      "difficulty": "Hard"
+    }
+  ],
+  "48": [
+    {
+      "qNum": 1,
+      "category": "Space and Science",
+      "question": "How old is Earth?",
+      "answer": "dm95eA==",
+      "unit": "billion years",
+      "difficulty": "Medium"
+    },
+    {
+      "qNum": 2,
+      "category": "Canada",
+      "question": "How many islands make up the Thousand Islands?",
+      "answer": "c3l6eA==",
+      "unit": "islands",
+      "difficulty": "Medium"
+    },
+    {
+      "qNum": 3,
+      "category": "History",
+      "question": "How many people died when the Titanic sank?",
+      "answer": "c3R8fA==",
+      "unit": "people",
+      "difficulty": "Medium"
+    },
+    {
+      "qNum": 4,
+      "category": "Human Body",
+      "question": "How many hours did Randy Gardner go without sleep in his famous 1964 experiment?",
+      "answer": "cHd4",
+      "unit": "hours",
+      "difficulty": "Hard"
+    },
+    {
+      "qNum": 5,
+      "category": "Distance of the Day",
+      "question": "How far is it in a straight line from Karachi to Lahore?",
+      "answer": "c3F/fA==",
+      "unit": "km",
+      "difficulty": "Easy"
+    }
+  ],
+  "49": [
+    {
+      "qNum": 1,
+      "category": "Geography",
+      "question": "How far below sea level is Badwater Basin in Death Valley?",
+      "answer": "enc=",
+      "unit": "metres",
+      "difficulty": "Medium"
+    },
+    {
+      "qNum": 2,
+      "category": "Movies, Music and Games",
+      "question": "How many episodes of Breaking Bad were made?",
+      "answer": "dHM=",
+      "unit": "episodes",
+      "difficulty": "Medium"
+    },
+    {
+      "qNum": 3,
+      "category": "Buildings and Engineering",
+      "question": "How long is the Golden Gate Bridge in total?",
+      "answer": "cHZ/ew==",
+      "unit": "metres",
+      "difficulty": "Hard"
+    },
+    {
+      "qNum": 4,
+      "category": "Sports",
+      "question": "How many people does Wimbledon's Centre Court seat?",
+      "answer": "c3V1e2k=",
+      "unit": "seats",
+      "difficulty": "Hard"
+    },
+    {
+      "qNum": 5,
+      "category": "Distance of the Day",
+      "question": "How far is it in a straight line from Halifax to Cairo?",
+      "answer": "enF6fA==",
+      "unit": "km",
+      "difficulty": "Hard"
+    }
+  ],
+  "50": [
+    {
+      "qNum": 1,
+      "category": "Human Body",
+      "question": "How many teeth does a full adult set have, including wisdom teeth?",
+      "answer": "cXM=",
+      "unit": "teeth",
+      "difficulty": "Easy"
+    },
+    {
+      "qNum": 2,
+      "category": "Space and Science",
+      "question": "How many Earth days long is a year on Mercury?",
+      "answer": "enk=",
+      "unit": "days",
+      "difficulty": "Medium"
+    },
+    {
+      "qNum": 3,
+      "category": "Food and Everyday Life",
+      "question": "How tall is a standard interior door in North America?",
+      "answer": "cHF/",
+      "unit": "cm",
+      "difficulty": "Medium"
+    },
+    {
+      "qNum": 4,
+      "category": "History",
+      "question": "How many of Magellan's crew made it back on the first voyage around the world?",
+      "answer": "c3k=",
+      "unit": "survivors",
+      "difficulty": "Hard"
+    },
+    {
+      "qNum": 5,
+      "category": "Distance of the Day",
+      "question": "How far is it in a straight line from Nairobi to Beijing?",
+      "answer": "e3N9fA==",
+      "unit": "km",
+      "difficulty": "Hard"
+    }
+  ],
+  "51": [
+    {
+      "qNum": 1,
+      "category": "Geography",
+      "question": "How long is the Nile River?",
+      "answer": "dHd5fA==",
+      "unit": "km",
+      "difficulty": "Medium"
+    },
+    {
+      "qNum": 2,
+      "category": "Buildings and Engineering",
+      "question": "How tall is the Leaning Tower of Pisa?",
+      "answer": "d3c=",
+      "unit": "metres",
+      "difficulty": "Medium"
+    },
+    {
+      "qNum": 3,
+      "category": "Movies, Music and Games",
+      "question": "How long is Interstellar?",
+      "answer": "c3d1",
+      "unit": "minutes",
+      "difficulty": "Medium"
+    },
+    {
+      "qNum": 4,
+      "category": "Sports",
+      "question": "How many points did Wilt Chamberlain score in the 1961-62 NBA season?",
+      "answer": "dnF+dQ==",
+      "unit": "points",
+      "difficulty": "Hard"
+    },
+    {
+      "qNum": 5,
+      "category": "Distance of the Day",
+      "question": "How far is it in a straight line from Toronto to Mexico City?",
+      "answer": "cXN6fA==",
+      "unit": "km",
+      "difficulty": "Medium"
+    }
+  ],
+  "52": [
+    {
+      "qNum": 1,
+      "category": "Space and Science",
+      "question": "How fast does the International Space Station travel?",
+      "answer": "cHl8fGA=",
+      "unit": "km/h",
+      "difficulty": "Medium"
+    },
+    {
+      "qNum": 2,
+      "category": "Animals and Nature",
+      "question": "How long can a blue whale grow?",
+      "answer": "cXE=",
+      "unit": "metres",
+      "difficulty": "Medium"
+    },
+    {
+      "qNum": 3,
+      "category": "Canada",
+      "question": "How tall is Mount Logan, Canada's highest mountain?",
+      "answer": "d3h5dQ==",
+      "unit": "metres",
+      "difficulty": "Medium"
+    },
+    {
+      "qNum": 4,
+      "category": "History",
+      "question": "How many years was Marco Polo away from Venice on his travels?",
+      "answer": "cHU=",
+      "unit": "years",
+      "difficulty": "Hard"
+    },
+    {
+      "qNum": 5,
+      "category": "Distance of the Day",
+      "question": "How far is it in a straight line from Mecca to Sydney?",
+      "answer": "c3J+f2A=",
+      "unit": "km",
+      "difficulty": "Hard"
+    }
+  ],
+  "53": [
+    {
+      "qNum": 1,
+      "category": "Sports",
+      "question": "How long is a marathon?",
+      "answer": "dnNifWl0",
+      "unit": "km",
+      "difficulty": "Easy"
+    },
+    {
+      "qNum": 2,
+      "category": "Geography",
+      "question": "How tall is Mount Kilimanjaro?",
+      "answer": "d3l1eQ==",
+      "unit": "metres",
+      "difficulty": "Medium"
+    },
+    {
+      "qNum": 3,
+      "category": "Buildings and Engineering",
+      "question": "How fast could the Concorde fly?",
+      "answer": "cHB0fA==",
+      "unit": "km/h",
+      "difficulty": "Medium"
+    },
+    {
+      "qNum": 4,
+      "category": "Movies, Music and Games",
+      "question": "How many shows did Taylor Swift play on the Eras Tour?",
+      "answer": "c3V1",
+      "unit": "shows",
+      "difficulty": "Medium"
+    },
+    {
+      "qNum": 5,
+      "category": "Distance of the Day",
+      "question": "How far is it in a straight line from Calgary to Istanbul?",
+      "answer": "e3B7fA==",
+      "unit": "km",
+      "difficulty": "Hard"
+    }
+  ],
+  "54": [
+    {
+      "qNum": 1,
+      "category": "Space and Science",
+      "question": "How many Earth days long is a year on Mars?",
+      "answer": "dHl7",
+      "unit": "days",
+      "difficulty": "Medium"
+    },
+    {
+      "qNum": 2,
+      "category": "Human Body",
+      "question": "How many days does a red blood cell live?",
+      "answer": "c3N8",
+      "unit": "days",
+      "difficulty": "Medium"
+    },
+    {
+      "qNum": 3,
+      "category": "Canada",
+      "question": "How big is Hudson Bay?",
+      "answer": "c3N/fGBxYg==",
+      "unit": "km²",
+      "difficulty": "Hard"
+    },
+    {
+      "qNum": 4,
+      "category": "Animals and Nature",
+      "question": "How many flowers do bees need to visit to make 1 pound of honey?",
+      "answer": "cHF8fGBxYg==",
+      "unit": "flowers",
+      "difficulty": "Hard"
+    },
+    {
+      "qNum": 5,
+      "category": "Distance of the Day",
+      "question": "How far is it in a straight line from Miami to Sydney?",
+      "answer": "c3R8f2A=",
+      "unit": "km",
+      "difficulty": "Hard"
+    }
+  ],
+  "55": [
+    {
+      "qNum": 1,
+      "category": "Geography",
+      "question": "How many time zones does Russia span?",
+      "answer": "c3A=",
+      "unit": "time zones",
+      "difficulty": "Medium"
+    },
+    {
+      "qNum": 2,
+      "category": "Movies, Music and Games",
+      "question": "How long is Forrest Gump?",
+      "answer": "c3V+",
+      "unit": "minutes",
+      "difficulty": "Medium"
+    },
+    {
+      "qNum": 3,
+      "category": "Buildings and Engineering",
+      "question": "How many windows does the Empire State Building have?",
+      "answer": "dHR9eA==",
+      "unit": "windows",
+      "difficulty": "Hard"
+    },
+    {
+      "qNum": 4,
+      "category": "Sports",
+      "question": "How many career hits did Pete Rose collect?",
+      "answer": "dnN5eg==",
+      "unit": "hits",
+      "difficulty": "Hard"
+    },
+    {
+      "qNum": 5,
+      "category": "Distance of the Day",
+      "question": "How far is it in a straight line from Ottawa to New York?",
+      "answer": "d3V8",
+      "unit": "km",
+      "difficulty": "Easy"
+    }
+  ],
+  "56": [
+    {
+      "qNum": 1,
+      "category": "Space and Science",
+      "question": "How fast does sound travel through air at 20°C?",
+      "answer": "cXV/",
+      "unit": "metres per second",
+      "difficulty": "Medium"
+    },
+    {
+      "qNum": 2,
+      "category": "Food and Everyday Life",
+      "question": "How many litres of water does a 10-minute shower use, with a standard showerhead?",
+      "answer": "e3Q=",
+      "unit": "litres",
+      "difficulty": "Hard"
+    },
+    {
+      "qNum": 3,
+      "category": "Animals and Nature",
+      "question": "How many scent receptors does a dog's nose have?",
+      "answer": "cXF8fGBxYntv",
+      "unit": "receptors",
+      "difficulty": "Hard"
+    },
+    {
+      "qNum": 4,
+      "category": "History",
+      "question": "How many days were in Napoleon's 'Hundred Days' return to power?",
+      "answer": "c3B9",
+      "unit": "days",
+      "difficulty": "Hard"
+    },
+    {
+      "qNum": 5,
+      "category": "Distance of the Day",
+      "question": "How far is it in a straight line from Miami to Mecca?",
+      "answer": "c3B6dWA=",
+      "unit": "km",
+      "difficulty": "Hard"
+    }
+  ],
+  "57": [
+    {
+      "qNum": 1,
+      "category": "Movies, Music and Games",
+      "question": "How many keys are on a standard full-size computer keyboard?",
+      "answer": "c3F4",
+      "unit": "keys",
+      "difficulty": "Medium"
+    },
+    {
+      "qNum": 2,
+      "category": "Geography",
+      "question": "How tall is Mount Elbrus, the highest mountain in Europe?",
+      "answer": "d3d4fg==",
+      "unit": "metres",
+      "difficulty": "Hard"
+    },
+    {
+      "qNum": 3,
+      "category": "Buildings and Engineering",
+      "question": "How long are all the corridors in the Pentagon combined?",
+      "answer": "cHk=",
+      "unit": "km",
+      "difficulty": "Hard"
+    },
+    {
+      "qNum": 4,
+      "category": "Sports",
+      "question": "How long was the first Tour de France in 1903?",
+      "answer": "cHV+dA==",
+      "unit": "km",
+      "difficulty": "Hard"
+    },
+    {
+      "qNum": 5,
+      "category": "Distance of the Day",
+      "question": "How far is it in a straight line from Toronto to Nairobi?",
+      "answer": "c3N9dGA=",
+      "unit": "km",
+      "difficulty": "Hard"
+    }
+  ],
+  "58": [
+    {
+      "qNum": 1,
+      "category": "Human Body",
+      "question": "How many days does a full-term human pregnancy last, on average?",
+      "answer": "cHl8",
+      "unit": "days",
+      "difficulty": "Medium"
+    },
+    {
+      "qNum": 2,
+      "category": "Canada",
+      "question": "How fast do the CN Tower's glass elevators travel?",
+      "answer": "cHM=",
+      "unit": "km/h",
+      "difficulty": "Medium"
+    },
+    {
+      "qNum": 3,
+      "category": "Space and Science",
+      "question": "How many Earth years does Neptune take to orbit the Sun?",
+      "answer": "c3d5",
+      "unit": "years",
+      "difficulty": "Medium"
+    },
+    {
+      "qNum": 4,
+      "category": "Food and Everyday Life",
+      "question": "How many words does the Oxford English Dictionary define?",
+      "answer": "dHF8fGBx",
+      "unit": "words",
+      "difficulty": "Hard"
+    },
+    {
+      "qNum": 5,
+      "category": "Distance of the Day",
+      "question": "How far is it in a straight line from Honolulu to Mumbai?",
+      "answer": "c3N1fGA=",
+      "unit": "km",
+      "difficulty": "Hard"
+    }
+  ],
+  "59": [
+    {
+      "qNum": 1,
+      "category": "Geography",
+      "question": "How wide is the Strait of Gibraltar at its narrowest point?",
+      "answer": "c3U=",
+      "unit": "km",
+      "difficulty": "Medium"
+    },
+    {
+      "qNum": 2,
+      "category": "Buildings and Engineering",
+      "question": "How fast does Formula Rossa, the world's fastest roller coaster, go?",
+      "answer": "cHV8",
+      "unit": "km/h",
+      "difficulty": "Medium"
+    },
+    {
+      "qNum": 3,
+      "category": "Sports",
+      "question": "How far is it from the pitcher's mound to home plate in MLB?",
+      "answer": "dHFieQ==",
+      "unit": "feet",
+      "difficulty": "Medium"
+    },
+    {
+      "qNum": 4,
+      "category": "Movies, Music and Games",
+      "question": "How long is the movie Titanic (1997)?",
+      "answer": "c3h4",
+      "unit": "minutes",
+      "difficulty": "Medium"
+    },
+    {
+      "qNum": 5,
+      "category": "Distance of the Day",
+      "question": "How far is it in a straight line from Edmonton to Mexico City?",
+      "answer": "cXh1fA==",
+      "unit": "km",
+      "difficulty": "Medium"
+    }
+  ],
+  "60": [
+    {
+      "qNum": 1,
+      "category": "Space and Science",
+      "question": "How far is the Moon from Earth, on average?",
+      "answer": "cXl4eGBx",
+      "unit": "km",
+      "difficulty": "Medium"
+    },
+    {
+      "qNum": 2,
+      "category": "Canada",
+      "question": "How long is the Rideau Canal Skateway in Ottawa?",
+      "answer": "dW90",
+      "unit": "km",
+      "difficulty": "Medium"
+    },
+    {
+      "qNum": 3,
+      "category": "Food and Everyday Life",
+      "question": "How long is a sheet of A4 paper?",
+      "answer": "cHh7",
+      "unit": "mm",
+      "difficulty": "Medium"
+    },
+    {
+      "qNum": 4,
+      "category": "History",
+      "question": "How many years did the Western Roman Empire last, from Augustus to its fall in 476?",
+      "answer": "d3F/",
+      "unit": "years",
+      "difficulty": "Hard"
+    },
+    {
+      "qNum": 5,
+      "category": "Distance of the Day",
+      "question": "How far is it in a straight line from Nairobi to Tokyo?",
+      "answer": "c3B+eWA=",
+      "unit": "km",
+      "difficulty": "Hard"
+    }
+  ],
+  "61": [
+    {
+      "qNum": 1,
+      "category": "Buildings and Engineering",
+      "question": "How tall is One World Trade Center, including its spire?",
+      "answer": "c3Z7eg==",
+      "unit": "feet",
+      "difficulty": "Medium"
+    },
+    {
+      "qNum": 2,
+      "category": "Movies, Music and Games",
+      "question": "How long is Home Alone?",
+      "answer": "c3F/",
+      "unit": "minutes",
+      "difficulty": "Medium"
+    },
+    {
+      "qNum": 3,
+      "category": "Geography",
+      "question": "How high above sea level is Quito, Ecuador's capital?",
+      "answer": "cHl5fA==",
+      "unit": "metres",
+      "difficulty": "Hard"
+    },
+    {
+      "qNum": 4,
+      "category": "Sports",
+      "question": "How many points did Mario Lemieux score in his NHL regular-season career?",
+      "answer": "c3Z+fw==",
+      "unit": "points",
+      "difficulty": "Hard"
+    },
+    {
+      "qNum": 5,
+      "category": "Distance of the Day",
+      "question": "How far is it in a straight line from Ottawa to Chicago?",
+      "answer": "c3F4fA==",
+      "unit": "km",
+      "difficulty": "Easy"
+    }
+  ],
+  "62": [
+    {
+      "qNum": 1,
+      "category": "Human Body",
+      "question": "How many vertebrae are in the human spine?",
+      "answer": "cXI=",
+      "unit": "vertebrae",
+      "difficulty": "Medium"
+    },
+    {
+      "qNum": 2,
+      "category": "Animals and Nature",
+      "question": "How many species of sharks are there?",
+      "answer": "d3V8",
+      "unit": "species",
+      "difficulty": "Hard"
+    },
+    {
+      "qNum": 3,
+      "category": "Space and Science",
+      "question": "How many Earth days long is a year on Jupiter?",
+      "answer": "dnJ/fw==",
+      "unit": "days",
+      "difficulty": "Hard"
+    },
+    {
+      "qNum": 4,
+      "category": "Canada",
+      "question": "How big is Canada?",
+      "answer": "e3h0eGZ2Yg==",
+      "unit": "km²",
+      "difficulty": "Hard"
+    },
+    {
+      "qNum": 5,
+      "category": "Distance of the Day",
+      "question": "How far is it in a straight line from Cairo to Mecca?",
+      "answer": "c3N1fA==",
+      "unit": "km",
+      "difficulty": "Easy"
+    }
+  ],
+  "63": [
+    {
+      "qNum": 1,
+      "category": "Sports",
+      "question": "How many regular-season goals did Wayne Gretzky score in his NHL career?",
+      "answer": "enh4",
+      "unit": "goals",
+      "difficulty": "Medium"
+    },
+    {
+      "qNum": 2,
+      "category": "Movies, Music and Games",
+      "question": "How long is Back to the Future?",
+      "answer": "c3B6",
+      "unit": "minutes",
+      "difficulty": "Medium"
+    },
+    {
+      "qNum": 3,
+      "category": "Geography",
+      "question": "How big is India?",
+      "answer": "cXN0e2J3YQ==",
+      "unit": "km²",
+      "difficulty": "Hard"
+    },
+    {
+      "qNum": 4,
+      "category": "Buildings and Engineering",
+      "question": "How many rivets hold the Eiffel Tower together?",
+      "answer": "cHR8fGBxYg==",
+      "unit": "rivets",
+      "difficulty": "Hard"
+    },
+    {
+      "qNum": 5,
+      "category": "Distance of the Day",
+      "question": "How far is it in a straight line from Calgary to Cairo?",
+      "answer": "c3F/dGA=",
+      "unit": "km",
+      "difficulty": "Hard"
+    }
+  ],
+  "64": [
+    {
+      "qNum": 1,
+      "category": "Animals and Nature",
+      "question": "How fast can a cheetah run?",
+      "answer": "c3B8",
+      "unit": "km/h",
+      "difficulty": "Medium"
+    },
+    {
+      "qNum": 2,
+      "category": "History",
+      "question": "How many years did the Hundred Years' War actually last?",
+      "answer": "c3B6",
+      "unit": "years",
+      "difficulty": "Medium"
+    },
+    {
+      "qNum": 3,
+      "category": "Human Body",
+      "question": "How much blood do your kidneys filter in a day?",
+      "answer": "c3l8",
+      "unit": "litres",
+      "difficulty": "Hard"
+    },
+    {
+      "qNum": 4,
+      "category": "Food and Everyday Life",
+      "question": "How many litres of water does it take to produce one cup of coffee, including growing the beans?",
+      "answer": "c3V8",
+      "unit": "litres",
+      "difficulty": "Hard"
+    },
+    {
+      "qNum": 5,
+      "category": "Distance of the Day",
+      "question": "How far is it in a straight line from Mexico City to Lahore?",
+      "answer": "c3V/fWA=",
+      "unit": "km",
+      "difficulty": "Hard"
+    }
+  ],
+  "65": [
+    {
+      "qNum": 1,
+      "category": "Geography",
+      "question": "How tall is Mount Everest?",
+      "answer": "enl4dQ==",
+      "unit": "metres",
+      "difficulty": "Easy"
+    },
+    {
+      "qNum": 2,
+      "category": "Sports",
+      "question": "How many points did Wilt Chamberlain score in his famous single NBA game?",
+      "answer": "c3F8",
+      "unit": "points",
+      "difficulty": "Easy"
+    },
+    {
+      "qNum": 3,
+      "category": "Buildings and Engineering",
+      "question": "How many rooms does Buckingham Palace have?",
+      "answer": "dXZ5",
+      "unit": "rooms",
+      "difficulty": "Medium"
+    },
+    {
+      "qNum": 4,
+      "category": "Movies, Music and Games",
+      "question": "How many oil paintings did Vincent van Gogh create?",
+      "answer": "end8",
+      "unit": "paintings",
+      "difficulty": "Hard"
+    },
+    {
+      "qNum": 5,
+      "category": "Distance of the Day",
+      "question": "How far is it in a straight line from Edmonton to Beijing?",
+      "answer": "enR0fA==",
+      "unit": "km",
+      "difficulty": "Hard"
+    }
+  ],
+  "66": [
+    {
+      "qNum": 1,
+      "category": "Animals and Nature",
+      "question": "How far can a monarch butterfly migrate?",
+      "answer": "dnl8fA==",
+      "unit": "km",
+      "difficulty": "Medium"
+    },
+    {
+      "qNum": 2,
+      "category": "Human Body",
+      "question": "How many colours can the human eye tell apart?",
+      "answer": "c3F8fGBxYg==",
+      "unit": "colours",
+      "difficulty": "Medium"
+    },
+    {
+      "qNum": 3,
+      "category": "Food and Everyday Life",
+      "question": "How many kernels are on an average ear of corn?",
+      "answer": "enF8",
+      "unit": "kernels",
+      "difficulty": "Medium"
+    },
+    {
+      "qNum": 4,
+      "category": "History",
+      "question": "How many clauses were in the original Magna Carta of 1215?",
+      "answer": "dHI=",
+      "unit": "clauses",
+      "difficulty": "Hard"
+    },
+    {
+      "qNum": 5,
+      "category": "Distance of the Day",
+      "question": "How far is it in a straight line from Nairobi to Dubai?",
+      "answer": "cXR5fA==",
+      "unit": "km",
+      "difficulty": "Medium"
+    }
+  ],
+  "67": [
+    {
+      "qNum": 1,
+      "category": "Buildings and Engineering",
+      "question": "How tall is the Eiffel Tower?",
+      "answer": "cXJ8",
+      "unit": "metres",
+      "difficulty": "Medium"
+    },
+    {
+      "qNum": 2,
+      "category": "Sports",
+      "question": "How long is an NHL rink?",
+      "answer": "cHF8",
+      "unit": "feet",
+      "difficulty": "Medium"
+    },
+    {
+      "qNum": 3,
+      "category": "Movies, Music and Games",
+      "question": "How many stickers are on a standard 3x3 Rubik's Cube?",
+      "answer": "d3U=",
+      "unit": "stickers",
+      "difficulty": "Medium"
+    },
+    {
+      "qNum": 4,
+      "category": "Geography",
+      "question": "How big is Antarctica?",
+      "answer": "c3V+fGBxYns=",
+      "unit": "km²",
+      "difficulty": "Hard"
+    },
+    {
+      "qNum": 5,
+      "category": "Distance of the Day",
+      "question": "How far is it in a straight line from Ottawa to Whitehorse?",
+      "answer": "dnB4fA==",
+      "unit": "km",
+      "difficulty": "Medium"
+    }
+  ],
+  "68": [
+    {
+      "qNum": 1,
+      "category": "Canada",
+      "question": "How many Stanley Cups have the Toronto Maple Leafs won?",
+      "answer": "c3I=",
+      "unit": "Stanley Cups",
+      "difficulty": "Easy"
+    },
+    {
+      "qNum": 2,
+      "category": "Space and Science",
+      "question": "How far is the Sun from Earth, on average?",
+      "answer": "c3V1YmY=",
+      "unit": "million km",
+      "difficulty": "Medium"
+    },
+    {
+      "qNum": 3,
+      "category": "Food and Everyday Life",
+      "question": "How many seeds are on the outside of an average strawberry?",
+      "answer": "cHF8",
+      "unit": "seeds",
+      "difficulty": "Medium"
+    },
+    {
+      "qNum": 4,
+      "category": "History",
+      "question": "How many passengers sailed on the Mayflower?",
+      "answer": "c3F+",
+      "unit": "passengers",
+      "difficulty": "Medium"
+    },
+    {
+      "qNum": 5,
+      "category": "Distance of the Day",
+      "question": "How far is it in a straight line from Paris to Delhi?",
+      "answer": "dHR1fA==",
+      "unit": "km",
+      "difficulty": "Medium"
+    }
+  ],
+  "69": [
+    {
+      "qNum": 1,
+      "category": "Sports",
+      "question": "How far apart are the bases in MLB?",
+      "answer": "e3E=",
+      "unit": "feet",
+      "difficulty": "Easy"
+    },
+    {
+      "qNum": 2,
+      "category": "Movies, Music and Games",
+      "question": "How long is Inception?",
+      "answer": "c3V0",
+      "unit": "minutes",
+      "difficulty": "Medium"
+    },
+    {
+      "qNum": 3,
+      "category": "Geography",
+      "question": "How big is the state of Texas?",
+      "answer": "dHh5emZz",
+      "unit": "km²",
+      "difficulty": "Hard"
+    },
+    {
+      "qNum": 4,
+      "category": "Buildings and Engineering",
+      "question": "How long is the main span of Turkey's 1915 Çanakkale Bridge, the longest suspension span in the world?",
+      "answer": "cHF+fw==",
+      "unit": "metres",
+      "difficulty": "Hard"
+    },
+    {
+      "qNum": 5,
+      "category": "Distance of the Day",
+      "question": "How far is it in a straight line from Whitehorse to Dubai?",
+      "answer": "c3F4fWA=",
+      "unit": "km",
+      "difficulty": "Hard"
+    }
+  ],
+  "70": [
+    {
+      "qNum": 1,
+      "category": "Human Body",
+      "question": "How many bones is a newborn baby born with, roughly?",
+      "answer": "cXF8",
+      "unit": "bones",
+      "difficulty": "Medium"
+    },
+    {
+      "qNum": 2,
+      "category": "Canada",
+      "question": "How high can the tides get in the Bay of Fundy?",
+      "answer": "c3c=",
+      "unit": "metres",
+      "difficulty": "Medium"
+    },
+    {
+      "qNum": 3,
+      "category": "Animals and Nature",
+      "question": "How tall is Hyperion, the world's tallest known tree?",
+      "answer": "c3B6",
+      "unit": "metres",
+      "difficulty": "Medium"
+    },
+    {
+      "qNum": 4,
+      "category": "Space and Science",
+      "question": "How fast does Earth travel around the Sun?",
+      "answer": "c3F7fGBx",
+      "unit": "km/h",
+      "difficulty": "Hard"
+    },
+    {
+      "qNum": 5,
+      "category": "Distance of the Day",
+      "question": "How far is it in a straight line from Nairobi to Lahore?",
+      "answer": "d3J0fA==",
+      "unit": "km",
+      "difficulty": "Medium"
+    }
+  ],
+  "71": [
+    {
+      "qNum": 1,
+      "category": "Geography",
+      "question": "How deep is the deepest point of the Mariana Trench?",
+      "answer": "c3F1f2U=",
+      "unit": "metres",
+      "difficulty": "Medium"
+    },
+    {
+      "qNum": 2,
+      "category": "Sports",
+      "question": "How many career home runs did Babe Ruth hit?",
+      "answer": "dXB4",
+      "unit": "home runs",
+      "difficulty": "Medium"
+    },
+    {
+      "qNum": 3,
+      "category": "Movies, Music and Games",
+      "question": "How many official James Bond films have been made by Eon Productions?",
+      "answer": "cHQ=",
+      "unit": "films",
+      "difficulty": "Medium"
+    },
+    {
+      "qNum": 4,
+      "category": "Buildings and Engineering",
+      "question": "How many passengers is an Airbus A380 certified to carry?",
+      "answer": "enR/",
+      "unit": "passengers",
+      "difficulty": "Hard"
+    },
+    {
+      "qNum": 5,
+      "category": "Distance of the Day",
+      "question": "How far is it in a straight line from Winnipeg to Chicago?",
+      "answer": "c3B5fA==",
+      "unit": "km",
+      "difficulty": "Easy"
+    }
+  ],
+  "72": [
+    {
+      "qNum": 1,
+      "category": "Food and Everyday Life",
+      "question": "How much caffeine is in a 250 mL can of Red Bull?",
+      "answer": "enE=",
+      "unit": "mg",
+      "difficulty": "Easy"
+    },
+    {
+      "qNum": 2,
+      "category": "Animals and Nature",
+      "question": "What is the wingspan of a wandering albatross?",
+      "answer": "cW95",
+      "unit": "metres",
+      "difficulty": "Medium"
+    },
+    {
+      "qNum": 3,
+      "category": "Space and Science",
+      "question": "How far away is Proxima Centauri, the nearest star to the Sun?",
+      "answer": "dm9+eA==",
+      "unit": "light-years",
+      "difficulty": "Medium"
+    },
+    {
+      "qNum": 4,
+      "category": "History",
+      "question": "How long was the Pony Express route?",
+      "answer": "cXB8fA==",
+      "unit": "km",
+      "difficulty": "Hard"
+    },
+    {
+      "qNum": 5,
+      "category": "Distance of the Day",
+      "question": "How far is it in a straight line from London to Sydney?",
+      "answer": "c3d1dWA=",
+      "unit": "km",
+      "difficulty": "Hard"
+    }
+  ],
+  "73": [
+    {
+      "qNum": 1,
+      "category": "Buildings and Engineering",
+      "question": "How long was the Titanic?",
+      "answer": "cHd1",
+      "unit": "metres",
+      "difficulty": "Medium"
+    },
+    {
+      "qNum": 2,
+      "category": "Geography",
+      "question": "How big is Australia?",
+      "answer": "dXd1fmBzZg==",
+      "unit": "km²",
+      "difficulty": "Hard"
+    },
+    {
+      "qNum": 3,
+      "category": "Canada",
+      "question": "How long is Yonge Street in Toronto?",
+      "answer": "d3c=",
+      "unit": "km",
+      "difficulty": "Hard"
+    },
+    {
+      "qNum": 4,
+      "category": "Human Body",
+      "question": "How many neurons are in the human brain?",
+      "answer": "enc=",
+      "unit": "billion neurons",
+      "difficulty": "Hard"
+    },
+    {
+      "qNum": 5,
+      "category": "Distance of the Day",
+      "question": "How far is it in a straight line from Toronto to Reykjavik?",
+      "answer": "dnB1fA==",
+      "unit": "km",
+      "difficulty": "Medium"
+    }
+  ],
+  "74": [
+    {
+      "qNum": 1,
+      "category": "Space and Science",
+      "question": "How many Earths could fit inside the Sun?",
+      "answer": "c3J8fGBxYg==",
+      "unit": "Earths",
+      "difficulty": "Medium"
+    },
+    {
+      "qNum": 2,
+      "category": "Sports",
+      "question": "How many rushing yards did Emmitt Smith gain in his NFL career?",
+      "answer": "c3l/eWU=",
+      "unit": "yards",
+      "difficulty": "Hard"
+    },
+    {
+      "qNum": 3,
+      "category": "Animals and Nature",
+      "question": "How long can a Greenland shark live?",
+      "answer": "dnF8",
+      "unit": "years",
+      "difficulty": "Hard"
+    },
+    {
+      "qNum": 4,
+      "category": "Food and Everyday Life",
+      "question": "How many litres of water does it take to produce 1 kg of beef?",
+      "answer": "c3R4fGA=",
+      "unit": "litres",
+      "difficulty": "Hard"
+    },
+    {
+      "qNum": 5,
+      "category": "Distance of the Day",
+      "question": "How far is it in a straight line from Anchorage to Mumbai?",
+      "answer": "c3F/fWA=",
+      "unit": "km",
+      "difficulty": "Hard"
+    }
+  ],
+  "75": [
+    {
+      "qNum": 1,
+      "category": "Geography",
+      "question": "How tall is Denali in Alaska?",
+      "answer": "dHB1fA==",
+      "unit": "metres",
+      "difficulty": "Medium"
+    },
+    {
+      "qNum": 2,
+      "category": "Movies, Music and Games",
+      "question": "How many tiles come in a standard English Scrabble set?",
+      "answer": "c3F8",
+      "unit": "tiles",
+      "difficulty": "Medium"
+    },
+    {
+      "qNum": 3,
+      "category": "Buildings and Engineering",
+      "question": "How tall is the Taj Mahal?",
+      "answer": "dXI=",
+      "unit": "metres",
+      "difficulty": "Hard"
+    },
+    {
+      "qNum": 4,
+      "category": "Canada",
+      "question": "How big is Nunavut?",
+      "answer": "cHF1f2F4Yg==",
+      "unit": "km²",
+      "difficulty": "Hard"
+    },
+    {
+      "qNum": 5,
+      "category": "Distance of the Day",
+      "question": "How far is it in a straight line from Toronto to Montreal?",
+      "answer": "d3F8",
+      "unit": "km",
+      "difficulty": "Easy"
+    }
+  ],
+  "76": [
+    {
+      "qNum": 1,
+      "category": "Sports",
+      "question": "How many career home runs did Barry Bonds hit?",
+      "answer": "dXd+",
+      "unit": "home runs",
+      "difficulty": "Medium"
+    },
+    {
+      "qNum": 2,
+      "category": "History",
+      "question": "How long was the Berlin Wall?",
+      "answer": "c3R5",
+      "unit": "km",
+      "difficulty": "Medium"
+    },
+    {
+      "qNum": 3,
+      "category": "Human Body",
+      "question": "How heavy is the average adult human brain?",
+      "answer": "c3V8fA==",
+      "unit": "grams",
+      "difficulty": "Medium"
+    },
+    {
+      "qNum": 4,
+      "category": "Animals and Nature",
+      "question": "How heavy is an ostrich egg?",
+      "answer": "c3V8fA==",
+      "unit": "grams",
+      "difficulty": "Medium"
+    },
+    {
+      "qNum": 5,
+      "category": "Distance of the Day",
+      "question": "How far is it in a straight line from Anchorage to Dubai?",
+      "answer": "c3F9eGA=",
+      "unit": "km",
+      "difficulty": "Hard"
+    }
+  ],
+  "77": [
+    {
+      "qNum": 1,
+      "category": "Buildings and Engineering",
+      "question": "How tall is the Burj Khalifa?",
+      "answer": "enN0",
+      "unit": "metres",
+      "difficulty": "Easy"
+    },
+    {
+      "qNum": 2,
+      "category": "Movies, Music and Games",
+      "question": "How many spaces are on a Monopoly board?",
+      "answer": "dnE=",
+      "unit": "spaces",
+      "difficulty": "Medium"
+    },
+    {
+      "qNum": 3,
+      "category": "Geography",
+      "question": "How big is Greenland?",
+      "answer": "cHB6emB5ZA==",
+      "unit": "km²",
+      "difficulty": "Hard"
+    },
+    {
+      "qNum": 4,
+      "category": "Canada",
+      "question": "How big is Algonquin Provincial Park?",
+      "answer": "dXd5fw==",
+      "unit": "km²",
+      "difficulty": "Hard"
+    },
+    {
+      "qNum": 5,
+      "category": "Distance of the Day",
+      "question": "How far is it in a straight line from Vancouver to Mumbai?",
+      "answer": "c3N+eWA=",
+      "unit": "km",
+      "difficulty": "Hard"
+    }
+  ],
+  "78": [
+    {
+      "qNum": 1,
+      "category": "Food and Everyday Life",
+      "question": "How many cups of tea are drunk in the UK every day?",
+      "answer": "c3F8",
+      "unit": "million cups",
+      "difficulty": "Medium"
+    },
+    {
+      "qNum": 2,
+      "category": "Space and Science",
+      "question": "How hot is the surface of the Sun?",
+      "answer": "d3R8fA==",
+      "unit": "°C",
+      "difficulty": "Medium"
+    },
+    {
+      "qNum": 3,
+      "category": "Sports",
+      "question": "How far is the NBA three-point line at the top of the arc?",
+      "answer": "cHJie2U=",
+      "unit": "feet",
+      "difficulty": "Medium"
+    },
+    {
+      "qNum": 4,
+      "category": "Human Body",
+      "question": "What percentage of the body's energy does the brain use?",
+      "answer": "cHE=",
+      "unit": "%",
+      "difficulty": "Medium"
+    },
+    {
+      "qNum": 5,
+      "category": "Distance of the Day",
+      "question": "How far is it in a straight line from Rome to Mecca?",
+      "answer": "cXV+fA==",
+      "unit": "km",
+      "difficulty": "Medium"
+    }
+  ],
+  "79": [
+    {
+      "qNum": 1,
+      "category": "Geography",
+      "question": "How big is Vatican City?",
+      "answer": "dng=",
+      "unit": "hectares",
+      "difficulty": "Medium"
+    },
+    {
+      "qNum": 2,
+      "category": "Buildings and Engineering",
+      "question": "How tall was the Great Pyramid of Giza when it was built?",
+      "answer": "c3V6YmY=",
+      "unit": "metres",
+      "difficulty": "Medium"
+    },
+    {
+      "qNum": 3,
+      "category": "History",
+      "question": "How many days did World War II last, from Germany's invasion of Poland to Japan's formal surrender?",
+      "answer": "cHB1fw==",
+      "unit": "days",
+      "difficulty": "Hard"
+    },
+    {
+      "qNum": 4,
+      "category": "Animals and Nature",
+      "question": "How many eyes can a scallop have?",
+      "answer": "cHF8",
+      "unit": "eyes",
+      "difficulty": "Hard"
+    },
+    {
+      "qNum": 5,
+      "category": "Distance of the Day",
+      "question": "How far is it in a straight line from Toronto to Lahore?",
+      "answer": "c3B+eGA=",
+      "unit": "km",
+      "difficulty": "Hard"
+    }
+  ],
+  "80": [
+    {
+      "qNum": 1,
+      "category": "Sports",
+      "question": "How many three-pointers did Stephen Curry make in the 2015-16 regular season?",
+      "answer": "dnF+",
+      "unit": "three-pointers",
+      "difficulty": "Medium"
+    },
+    {
+      "qNum": 2,
+      "category": "Canada",
+      "question": "How big is Prince Edward Island?",
+      "answer": "d3d6fA==",
+      "unit": "km²",
+      "difficulty": "Medium"
+    },
+    {
+      "qNum": 3,
+      "category": "Space and Science",
+      "question": "What is the density of gold?",
+      "answer": "c3hifw==",
+      "unit": "g/cm³",
+      "difficulty": "Hard"
+    },
+    {
+      "qNum": 4,
+      "category": "Food and Everyday Life",
+      "question": "How many grapes go into a bottle of wine?",
+      "answer": "dXF8",
+      "unit": "grapes",
+      "difficulty": "Hard"
+    },
+    {
+      "qNum": 5,
+      "category": "Distance of the Day",
+      "question": "How far is it in a straight line from Mexico City to Rome?",
+      "answer": "c3F+eGA=",
+      "unit": "km",
+      "difficulty": "Hard"
+    }
+  ],
+  "81": [
+    {
+      "qNum": 1,
+      "category": "Buildings and Engineering",
+      "question": "How long is the Trans-Siberian Railway from Moscow to Vladivostok?",
+      "answer": "e3N0dQ==",
+      "unit": "km",
+      "difficulty": "Medium"
+    },
+    {
+      "qNum": 2,
+      "category": "Movies, Music and Games",
+      "question": "How long is Jurassic Park (1993)?",
+      "answer": "c3N7",
+      "unit": "minutes",
+      "difficulty": "Medium"
+    },
+    {
+      "qNum": 3,
+      "category": "Human Body",
+      "question": "How tall was Robert Wadlow, the tallest person ever recorded?",
+      "answer": "cHZ+",
+      "unit": "cm",
+      "difficulty": "Medium"
+    },
+    {
+      "qNum": 4,
+      "category": "Geography",
+      "question": "How big is Lake Victoria?",
+      "answer": "dHl0fGA=",
+      "unit": "km²",
+      "difficulty": "Hard"
+    },
+    {
+      "qNum": 5,
+      "category": "Distance of the Day",
+      "question": "How far is it in a straight line from Calgary to Mumbai?",
+      "answer": "c3N9dWA=",
+      "unit": "km",
+      "difficulty": "Hard"
+    }
+  ],
+  "82": [
+    {
+      "qNum": 1,
+      "category": "History",
+      "question": "How many years did the Berlin Wall stand?",
+      "answer": "cHk=",
+      "unit": "years",
+      "difficulty": "Easy"
+    },
+    {
+      "qNum": 2,
+      "category": "Food and Everyday Life",
+      "question": "How many shapes of pasta are there, by common estimates?",
+      "answer": "cXR8",
+      "unit": "shapes",
+      "difficulty": "Medium"
+    },
+    {
+      "qNum": 3,
+      "category": "Canada",
+      "question": "How long is Canada's coastline, the longest in the world?",
+      "answer": "cHV/fGRz",
+      "unit": "km",
+      "difficulty": "Hard"
+    },
+    {
+      "qNum": 4,
+      "category": "Sports",
+      "question": "How many assists did Wayne Gretzky record in his NHL regular-season career?",
+      "answer": "c3h6fw==",
+      "unit": "assists",
+      "difficulty": "Hard"
+    },
+    {
+      "qNum": 5,
+      "category": "Distance of the Day",
+      "question": "How far is it in a straight line from Nairobi to Mecca?",
+      "answer": "cHR4fA==",
+      "unit": "km",
+      "difficulty": "Medium"
+    }
+  ],
+  "83": [
+    {
+      "qNum": 1,
+      "category": "Human Body",
+      "question": "How many bones does an adult human have?",
+      "answer": "cHF6",
+      "unit": "bones",
+      "difficulty": "Easy"
+    },
+    {
+      "qNum": 2,
+      "category": "Geography",
+      "question": "How big is Iceland?",
+      "answer": "c3F/fGBx",
+      "unit": "km²",
+      "difficulty": "Medium"
+    },
+    {
+      "qNum": 3,
+      "category": "Buildings and Engineering",
+      "question": "How many floors does the Empire State Building have?",
+      "answer": "c3F+",
+      "unit": "floors",
+      "difficulty": "Medium"
+    },
+    {
+      "qNum": 4,
+      "category": "Animals and Nature",
+      "question": "How many times does lightning strike Earth every second?",
+      "answer": "dnU=",
+      "unit": "strikes",
+      "difficulty": "Medium"
+    },
+    {
+      "qNum": 5,
+      "category": "Distance of the Day",
+      "question": "How far is it in a straight line from Whitehorse to Rio de Janeiro?",
+      "answer": "c3N/fmA=",
+      "unit": "km",
+      "difficulty": "Hard"
+    }
+  ],
+  "84": [
+    {
+      "qNum": 1,
+      "category": "History",
+      "question": "How many years did Queen Victoria reign?",
+      "answer": "dHI=",
+      "unit": "years",
+      "difficulty": "Medium"
+    },
+    {
+      "qNum": 2,
+      "category": "Movies, Music and Games",
+      "question": "How long is The Lion King (1994)?",
+      "answer": "enk=",
+      "unit": "minutes",
+      "difficulty": "Medium"
+    },
+    {
+      "qNum": 3,
+      "category": "Space and Science",
+      "question": "How many seconds does sunlight take to reach Earth?",
+      "answer": "dnh1",
+      "unit": "seconds",
+      "difficulty": "Medium"
+    },
+    {
+      "qNum": 4,
+      "category": "Food and Everyday Life",
+      "question": "How many litres of milk does it take to make 1 kg of cheese?",
+      "answer": "c3E=",
+      "unit": "litres",
+      "difficulty": "Medium"
+    },
+    {
+      "qNum": 5,
+      "category": "Distance of the Day",
+      "question": "How far is it in a straight line from Anchorage to Moscow?",
+      "answer": "dHh1fA==",
+      "unit": "km",
+      "difficulty": "Medium"
+    }
+  ],
+  "85": [
+    {
+      "qNum": 1,
+      "category": "Sports",
+      "question": "How many Olympic medals did Michael Phelps win in his career?",
+      "answer": "cHk=",
+      "unit": "medals",
+      "difficulty": "Easy"
+    },
+    {
+      "qNum": 2,
+      "category": "Geography",
+      "question": "How many countries share a land border with China?",
+      "answer": "c3U=",
+      "unit": "countries",
+      "difficulty": "Medium"
+    },
+    {
+      "qNum": 3,
+      "category": "Buildings and Engineering",
+      "question": "How long is the main span of the Golden Gate Bridge?",
+      "answer": "c3N0fA==",
+      "unit": "metres",
+      "difficulty": "Medium"
+    },
+    {
+      "qNum": 4,
+      "category": "Canada",
+      "question": "How many lakes are there in Ontario?",
+      "answer": "cHR8fGBx",
+      "unit": "lakes",
+      "difficulty": "Medium"
+    },
+    {
+      "qNum": 5,
+      "category": "Distance of the Day",
+      "question": "How far is it in a straight line from Montreal to Calgary?",
+      "answer": "cXF+fA==",
+      "unit": "km",
+      "difficulty": "Medium"
+    }
+  ],
+  "86": [
+    {
+      "qNum": 1,
+      "category": "Movies, Music and Games",
+      "question": "How many songs did The Beatles take to number one on the US Billboard Hot 100?",
+      "answer": "cHE=",
+      "unit": "songs",
+      "difficulty": "Medium"
+    },
+    {
+      "qNum": 2,
+      "category": "History",
+      "question": "How many people watched the Apollo 11 Moon landing on TV?",
+      "answer": "dHF8",
+      "unit": "million people",
+      "difficulty": "Medium"
+    },
+    {
+      "qNum": 3,
+      "category": "Human Body",
+      "question": "How many bones are in the human hand and wrist?",
+      "answer": "cHY=",
+      "unit": "bones",
+      "difficulty": "Medium"
+    },
+    {
+      "qNum": 4,
+      "category": "Space and Science",
+      "question": "What is the Sun's diameter?",
+      "answer": "c3J1fWBxYg==",
+      "unit": "km",
+      "difficulty": "Hard"
+    },
+    {
+      "qNum": 5,
+      "category": "Distance of the Day",
+      "question": "How far is it in a straight line from Chicago to Buenos Aires?",
+      "answer": "e3F9fA==",
+      "unit": "km",
+      "difficulty": "Hard"
+    }
+  ],
+  "87": [
+    {
+      "qNum": 1,
+      "category": "Food and Everyday Life",
+      "question": "How many steps does it take the average adult to walk 1 km?",
+      "answer": "c3J8fA==",
+      "unit": "steps",
+      "difficulty": "Medium"
+    },
+    {
+      "qNum": 2,
+      "category": "Geography",
+      "question": "How big is Russia?",
+      "answer": "c3Z8dWhzZn0=",
+      "unit": "km²",
+      "difficulty": "Hard"
+    },
+    {
+      "qNum": 3,
+      "category": "Animals and Nature",
+      "question": "How many days is an African elephant pregnant for?",
+      "answer": "dHR8",
+      "unit": "days",
+      "difficulty": "Hard"
+    },
+    {
+      "qNum": 4,
+      "category": "Buildings and Engineering",
+      "question": "How long is the main span of the Brooklyn Bridge?",
+      "answer": "dnl6",
+      "unit": "metres",
+      "difficulty": "Hard"
+    },
+    {
+      "qNum": 5,
+      "category": "Distance of the Day",
+      "question": "How far is it in a straight line from Whitehorse to Cairo?",
+      "answer": "e3l5fA==",
+      "unit": "km",
+      "difficulty": "Hard"
+    }
+  ],
+  "88": [
+    {
+      "qNum": 1,
+      "category": "Canada",
+      "question": "How tall is the CN Tower?",
+      "answer": "d3R/",
+      "unit": "metres",
+      "difficulty": "Easy"
+    },
+    {
+      "qNum": 2,
+      "category": "Movies, Music and Games",
+      "question": "How long is Led Zeppelin's Stairway to Heaven?",
+      "answer": "dnl+",
+      "unit": "seconds",
+      "difficulty": "Medium"
+    },
+    {
+      "qNum": 3,
+      "category": "Human Body",
+      "question": "How many breaths does an adult take in a day?",
+      "answer": "cHN8fGA=",
+      "unit": "breaths",
+      "difficulty": "Medium"
+    },
+    {
+      "qNum": 4,
+      "category": "Sports",
+      "question": "How many regular-season passing yards did Tom Brady throw for in his NFL career?",
+      "answer": "enh+fWQ=",
+      "unit": "yards",
+      "difficulty": "Hard"
+    },
+    {
+      "qNum": 5,
+      "category": "Distance of the Day",
+      "question": "How far is it in a straight line from Mecca to Singapore?",
+      "answer": "dXN7fA==",
+      "unit": "km",
+      "difficulty": "Medium"
+    }
+  ],
+  "89": [
+    {
+      "qNum": 1,
+      "category": "Geography",
+      "question": "How many countries are in Africa?",
+      "answer": "d3U=",
+      "unit": "countries",
+      "difficulty": "Easy"
+    },
+    {
+      "qNum": 2,
+      "category": "Animals and Nature",
+      "question": "How many legs does the leggiest millipede ever found have?",
+      "answer": "c3J8eg==",
+      "unit": "legs",
+      "difficulty": "Medium"
+    },
+    {
+      "qNum": 3,
+      "category": "History",
+      "question": "How many years did the Byzantine Empire last, from the founding of Constantinople to its fall?",
+      "answer": "c3B+fw==",
+      "unit": "years",
+      "difficulty": "Hard"
+    },
+    {
+      "qNum": 4,
+      "category": "Space and Science",
+      "question": "What is the atomic number of lead?",
+      "answer": "enM=",
+      "unit": "",
+      "difficulty": "Hard"
+    },
+    {
+      "qNum": 5,
+      "category": "Distance of the Day",
+      "question": "How far is it in a straight line from Iqaluit to Madrid?",
+      "answer": "dnl4fA==",
+      "unit": "km",
+      "difficulty": "Medium"
+    }
+  ]
+}
