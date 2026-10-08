@@ -46,10 +46,15 @@ html, body {
   line-height: 1.5;
   height: 100%;
   width: 100%;
-  overflow: hidden;
+  /* overflow:hidden clips scroll on Android browser chrome; use clip on x only */
+  overflow-x: hidden;
+  overflow-y: hidden;
   user-select: none;
   -webkit-user-select: none;
   touch-action: manipulation;
+  /* Prevent font inflation on Android */
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
 }
 
 /* Reduced Motion Override */
@@ -116,6 +121,15 @@ html, body {
   min-height: 0;
   width: 100%;
   justify-content: space-between;
+}
+
+/* ── Shared screen footer (pinned above safe area) ── */
+.question-footer,
+.reveal-footer,
+.results-footer {
+  flex-shrink: 0;
+  padding-top: 8px;
+  width: 100%;
 }
 
 /* Buttons */
@@ -195,8 +209,15 @@ html, body {
 
 .home-top-bar {
   display: flex;
-  justify-content: flex-end;
+  justify-content: space-between;
   align-items: center;
+}
+
+/* Invisible spacer keeps the stats icon right-aligned
+   while leaving room for a future left-side element */
+.home-top-bar-spacer {
+  min-width: 48px;
+  min-height: 48px;
 }
 
 .home-content {
@@ -586,14 +607,21 @@ html, body {
 
 /* REVEAL SCREEN */
 .reveal-screen {
-  gap: 16px;
-  overflow-y: auto;
+  gap: 0;
+  /* Do NOT set overflow here — let the main area scroll */
 }
 
 .reveal-main-content {
   display: flex;
   flex-direction: column;
   gap: 16px;
+  flex: 1;
+  min-height: 0;
+  overflow-y: auto;
+  /* add a small gap between scrollable content and the pinned footer */
+  padding-bottom: 8px;
+  /* Momentum scrolling on iOS */
+  -webkit-overflow-scrolling: touch;
 }
 
 .reveal-question-context {
@@ -741,7 +769,8 @@ html, body {
 
 .dist-bar-row {
   display: grid;
-  grid-template-columns: 85px 1fr 35px;
+  /* Allow the label column to shrink on very narrow viewports */
+  grid-template-columns: minmax(0, 85px) 1fr 35px;
   align-items: center;
   gap: 8px;
   font-size: 12px;
@@ -785,8 +814,7 @@ html, body {
 
 /* RESULTS SCREEN */
 .results-screen {
-  gap: 16px;
-  overflow-y: auto;
+  gap: 0;
 }
 
 .results-header {
@@ -809,6 +837,11 @@ html, body {
   align-items: center;
   text-align: center;
   gap: 14px;
+  flex: 1;
+  min-height: 0;
+  overflow-y: auto;
+  padding-bottom: 8px;
+  -webkit-overflow-scrolling: touch;
 }
 
 .target-graphic-wrapper {
@@ -1059,12 +1092,15 @@ html, body {
   border-radius: 24px 24px 0 0;
   width: 100%;
   max-width: 440px;
+  /* vh fallback for browsers that don't support dvh */
+  max-height: 85vh;
   max-height: 85dvh;
   padding: 16px 20px calc(var(--sab) + 20px) 20px;
   display: flex;
   flex-direction: column;
   animation: slideUp 0.25s cubic-bezier(0.16, 1, 0.3, 1);
   overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
 }
 
 @keyframes fadeIn {
@@ -1193,7 +1229,8 @@ html, body {
 /* STATS MODAL */
 .stats-metrics-grid {
   display: grid;
-  grid-template-columns: repeat(5, 1fr);
+  /* 5 equal columns; allow them to be as narrow as 48px before wrapping */
+  grid-template-columns: repeat(5, minmax(0, 1fr));
   gap: 6px;
 }
 
@@ -1229,7 +1266,8 @@ html, body {
 
 .dist-chart-row {
   display: grid;
-  grid-template-columns: 140px 1fr;
+  /* Use a flexible min so the label never overflows on narrow screens */
+  grid-template-columns: minmax(0, 140px) 1fr;
   align-items: center;
   gap: 8px;
   font-size: 12px;
@@ -1237,6 +1275,9 @@ html, body {
 
 .dist-chart-label {
   color: var(--color-text-muted);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
 
 .dist-chart-track {
@@ -1268,7 +1309,8 @@ html, body {
 /* INSTALL BANNER */
 .install-banner {
   position: fixed;
-  bottom: calc(var(--sab) + 12px);
+  /* Sit just above the home bar / navigation bar on Android */
+  bottom: calc(var(--sab) + 16px);
   left: 50%;
   transform: translateX(-50%);
   width: calc(100% - 32px);
@@ -1281,7 +1323,7 @@ html, body {
   align-items: center;
   justify-content: space-between;
   gap: 12px;
-  z-index: 50;
+  z-index: 200;
   box-shadow: 0 8px 24px rgba(0, 0, 0, 0.5);
 }
 

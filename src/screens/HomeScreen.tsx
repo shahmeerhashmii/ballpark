@@ -23,6 +23,8 @@ export const HomeScreen: React.FC<HomeScreenProps> = ({
   return (
     <div className="screen-container home-screen">
       <header className="home-top-bar">
+        {/* Invisible spacer balances the stats icon on the right */}
+        <div className="home-top-bar-spacer" aria-hidden="true" />
         <button
           type="button"
           className="icon-button"
