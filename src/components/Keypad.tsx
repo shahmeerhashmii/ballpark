@@ -9,6 +9,7 @@ interface KeypadProps {
   onMultiplierChange: (multiplier: Multiplier) => void;
   onLockIn: () => void;
   disabled?: boolean;
+  lockInLabel?: string;
 }
 
 export function computeNumericValue(inputString: string, multiplier: Multiplier): number {
@@ -37,6 +38,7 @@ export const Keypad: React.FC<KeypadProps> = ({
   onMultiplierChange,
   onLockIn,
   disabled = false,
+  lockInLabel = 'Swing',
 }) => {
   const handleDigit = (digit: string) => {
     if (disabled) return;
@@ -204,7 +206,7 @@ export const Keypad: React.FC<KeypadProps> = ({
         disabled={!isLockInEnabled}
         onClick={onLockIn}
       >
-        Lock In
+        {lockInLabel}
       </button>
     </div>
   );
