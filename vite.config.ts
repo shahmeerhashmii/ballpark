@@ -10,10 +10,11 @@ export default defineConfig({
     VitePWA({
       registerType: 'autoUpdate',
       includeAssets: ['favicon.svg', 'favicon-32.png', 'apple-touch-icon.png', 'logo.svg'],
+      // the share-preview image is only for link previews, so keep it out of the offline cache
       manifest: {
         name: 'Ballpark',
         short_name: 'Ballpark',
-        description: 'Five guesses a day. Closest wins.',
+        description: 'Guess the number. Hit it out of the park.',
         theme_color: '#0B0B0B',
         background_color: '#0B0B0B',
         display: 'standalone',
@@ -45,6 +46,9 @@ export default defineConfig({
         skipWaiting: true,
         clientsClaim: true,
         globPatterns: ['**/*.{js,css,html,svg,png,ico,json,woff,woff2}'],
+        globIgnores: ['**/og-image.png'],
+        // daily reminder handlers (push notifications and Android periodic sync)
+        importScripts: ['push-sw.js'],
         runtimeCaching: [
           {
             urlPattern: /^https:\/\/fonts\.googleapis\.com\/.*/i,

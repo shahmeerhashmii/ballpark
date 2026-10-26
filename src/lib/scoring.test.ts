@@ -1,95 +1,142 @@
 import { describe, it, expect } from 'vitest';
-import { calculateScore, getRating } from './scoring';
+import {
+  calculateScore,
+  accuracyPoints,
+  getRating,
+  getTier,
+  buildRangeChoices,
+  scoreRangePick,
+  getHintRange,
+  pointsToFeet,
+} from './scoring';
 
-describe('Scoring Logic', () => {
+describe('Distance scoring', () => {
   const answer = 1000;
 
-  it('awards 100 for exact match', () => {
-    expect(calculateScore(1000, answer)).toMatchObject({ points: 100, bandLabel: 'Exact' });
-    expect(calculateScore(1000.05, answer)).toMatchObject({ points: 100, bandLabel: 'Exact' });
+  it('gives a perfect 450 ft for an exact guess', () => {
+    const r = calculateScore(1000, answer);
+    expect(r.points).toBe(100);
+    expect(r.feet).toBe(450);
+    expect(r.tier).toBe('park');
   });
 
-  it('awards 90 for within 10%', () => {
-    expect(calculateScore(1050, answer).points).toBe(90);
-    expect(calculateScore(950, answer).points).toBe(90);
-    expect(calculateScore(1100, answer).points).toBe(90); // exact 10% edge
-    expect(calculateScore(900, answer).points).toBe(90);  // exact 10% edge
+  it('treats double and half the same', () => {
+    expect(accuracyPoints(2000, answer)).toBe(accuracyPoints(500, answer));
+    expect(accuracyPoints(1250, answer)).toBe(accuracyPoints(800, answer));
   });
 
-  it('awards 75 for within 15%', () => {
-    expect(calculateScore(1120, answer).points).toBe(75);
-    expect(calculateScore(880, answer).points).toBe(75);
-    expect(calculateScore(1150, answer).points).toBe(75); // exact 15% edge
-    expect(calculateScore(850, answer).points).toBe(75);  // exact 15% edge
+  it('clears the wall within 10%', () => {
+    expect(calculateScore(1100, answer).tier).toBe('park');
+    expect(calculateScore(910, answer).tier).toBe('park');
+    expect(calculateScore(1100, answer).feet).toBeGreaterThan(400);
   });
 
-  it('awards 60 for within 30%', () => {
-    expect(calculateScore(1200, answer).points).toBe(60);
-    expect(calculateScore(800, answer).points).toBe(60);
-    expect(calculateScore(1300, answer).points).toBe(60); // exact 30% edge
-    expect(calculateScore(700, answer).points).toBe(60);  // exact 30% edge
+  it('maps the tier edges', () => {
+    expect(calculateScore(1250, answer).tier).toBe('deep');
+    expect(calculateScore(1500, answer).tier).toBe('solid');
+    expect(calculateScore(2000, answer).tier).toBe('play');
+    expect(calculateScore(4000, answer).tier).toBe('caught');
+    expect(calculateScore(4100, answer).tier).toBe('miss');
+    expect(calculateScore(0, answer).tier).toBe('miss');
   });
 
-  it('awards 50 for within 40%', () => {
-    expect(calculateScore(1350, answer).points).toBe(50);
-    expect(calculateScore(650, answer).points).toBe(50);
-    expect(calculateScore(1400, answer).points).toBe(50); // exact 40% edge
-    expect(calculateScore(600, answer).points).toBe(50);  // exact 40% edge
+  it('gets less generous as you get further away', () => {
+    let last = 101;
+    for (const g of [1000, 1050, 1150, 1300, 1700, 2500, 3500, 5000]) {
+      const p = accuracyPoints(g, answer);
+      expect(p).toBeLessThanOrEqual(last);
+      last = p;
+    }
   });
 
-  it('awards 30 for within 50%', () => {
-    expect(calculateScore(1450, answer).points).toBe(30);
-    expect(calculateScore(550, answer).points).toBe(30);
-    expect(calculateScore(1500, answer).points).toBe(30); // exact 50% edge
-    expect(calculateScore(500, answer).points).toBe(30);  // exact 50% edge
+  it('makes later swings and hints worth less', () => {
+    expect(calculateScore(1000, answer, { swingNumber: 2 }).points).toBe(85);
+    expect(calculateScore(1000, answer, { swingNumber: 3 }).points).toBe(70);
+    expect(calculateScore(1000, answer, { hintUsed: true }).points).toBe(85);
+    expect(calculateScore(1000, answer, { swingNumber: 3 }).tier).toBe('deep');
   });
 
-  it('awards 15 for within 75%', () => {
-    expect(calculateScore(1600, answer).points).toBe(15);
-    expect(calculateScore(400, answer).points).toBe(15);
-    expect(calculateScore(1750, answer).points).toBe(15); // exact 75% edge
-    expect(calculateScore(250, answer).points).toBe(15);  // exact 75% edge
+  it('reports direction', () => {
+    expect(calculateScore(1500, answer).direction).toBe('high');
+    expect(calculateScore(500, answer).direction).toBe('low');
+    expect(calculateScore(1000, answer).direction).toBe('exact');
   });
 
-  it('awards 10 for within 80%', () => {
-    expect(calculateScore(1780, answer).points).toBe(10);
-    expect(calculateScore(220, answer).points).toBe(10);
-    expect(calculateScore(1800, answer).points).toBe(10); // exact 80% edge
-    expect(calculateScore(200, answer).points).toBe(10);  // exact 80% edge
-  });
-
-  it('awards 5 for within 90%', () => {
-    expect(calculateScore(1850, answer).points).toBe(5);
-    expect(calculateScore(150, answer).points).toBe(5);
-    expect(calculateScore(1900, answer).points).toBe(5); // exact 90% edge
-    expect(calculateScore(100, answer).points).toBe(5);  // exact 90% edge
-  });
-
-  it('awards 1 for within 99%', () => {
-    expect(calculateScore(1950, answer).points).toBe(1);
-    expect(calculateScore(50, answer).points).toBe(1);
-    expect(calculateScore(1990, answer).points).toBe(1); // exact 99% edge
-    expect(calculateScore(10, answer).points).toBe(1);   // exact 99% edge
-  });
-
-  it('awards 0 for more than 99% off', () => {
-    expect(calculateScore(2000, answer).points).toBe(0);
-    expect(calculateScore(2500, answer).points).toBe(0);
-    expect(calculateScore(5, answer).points).toBe(0);
+  it('keeps tiers consistent with feet', () => {
+    expect(pointsToFeet(89)).toBeGreaterThan(400);
+    expect(pointsToFeet(88)).toBeLessThanOrEqual(400);
+    expect(getTier(0).key).toBe('miss');
   });
 });
 
-describe('Ratings Logic', () => {
-  it('correctly maps scores to ratings', () => {
-    expect(getRating(500).title).toBe('Bullseye');
-    expect(getRating(450).title).toBe('Bullseye');
-    expect(getRating(449).title).toBe('Right in the ballpark');
-    expect(getRating(350).title).toBe('Right in the ballpark');
-    expect(getRating(349).title).toBe('Somewhere in the parking lot');
-    expect(getRating(250).title).toBe('Somewhere in the parking lot');
-    expect(getRating(249).title).toBe('Wrong stadium');
-    expect(getRating(150).title).toBe('Wrong stadium');
-    expect(getRating(149).title).toBe('Different sport');
-    expect(getRating(0).title).toBe('Different sport');
+describe('Ratings', () => {
+  it('maps total feet to a rating', () => {
+    expect(getRating(2250).title).toBe('Out of the park');
+    expect(getRating(1600).title).toBe('Right in the ballpark');
+    expect(getRating(1200).title).toBe('Somewhere in the parking lot');
+    expect(getRating(700).title).toBe('Wrong stadium');
+    expect(getRating(100).title).toBe('Different sport');
+  });
+});
+
+describe('Easy mode ranges', () => {
+  const answers = [1, 2, 3, 4, 7, 7.5, 11, 42, 49, 221, 1000, 6962, 2632, 48000, 3_500_000, 8_100_000_000];
+
+  it('always puts the answer inside the correct range', () => {
+    for (const a of answers) {
+      for (let seed = 1; seed < 40; seed++) {
+        const c = buildRangeChoices(a, seed);
+        const opt = c.options[c.correctIndex];
+        expect(a).toBeGreaterThanOrEqual(opt.low);
+        if (opt.inclusive) {
+          expect(a).toBeLessThanOrEqual(opt.high);
+          for (let i = 1; i < 4; i++) expect(c.options[i].low).toBe(c.options[i - 1].high + 1);
+          expect(c.options[0].low).toBeGreaterThanOrEqual(0);
+        } else {
+          expect(a).toBeLessThan(opt.high);
+          for (let i = 1; i < 4; i++) expect(c.options[i].low).toBeCloseTo(c.options[i - 1].high);
+        }
+      }
+    }
+  });
+
+  it('is the same for the same seed', () => {
+    expect(buildRangeChoices(221, 77)).toEqual(buildRangeChoices(221, 77));
+  });
+
+  it('scores the right range as a solid hit', () => {
+    const c = buildRangeChoices(221, 5);
+    expect(scoreRangePick(c.correctIndex, c, 221, 221).tier).toBe('solid');
+  });
+});
+
+describe('Hint', () => {
+  it('gives a power of ten bracket', () => {
+    expect(getHintRange(221)).toEqual({ low: 100, high: 1000 });
+    expect(getHintRange(6962)).toEqual({ low: 1000, high: 10000 });
+  });
+});
+
+describe('Easy mode outcomes', () => {
+  it('shows a right pick as right, never as a weak hit', async () => {
+    const { getEasyOutcome, getEasyRating, EASY_CORRECT_POINTS, EASY_CLOSE_POINTS } = await import('./scoring');
+    expect(getEasyOutcome(EASY_CORRECT_POINTS).key).toBe('right');
+    expect(getEasyOutcome(EASY_CLOSE_POINTS).key).toBe('close');
+    expect(getEasyOutcome(0).key).toBe('wrong');
+    expect(getEasyRating(5)).toBe('Perfect game');
+    expect(getEasyRating(4)).toBe('Right in the ballpark');
+  });
+});
+
+describe('Easy mode fairness', () => {
+  it('spreads the right answer evenly across the four choices', () => {
+    const pos = [0, 0, 0, 0];
+    for (let day = 1; day <= 300; day++) {
+      for (let q = 1; q <= 4; q++) {
+        for (const a of [5, 12, 30, 221, 6961]) pos[buildRangeChoices(a, day * 1000 + q * 31 + 5).correctIndex]++;
+      }
+    }
+    const total = pos.reduce((x, y) => x + y, 0);
+    for (const p of pos) expect(p / total).toBeGreaterThan(0.15);
   });
 });

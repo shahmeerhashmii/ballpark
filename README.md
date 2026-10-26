@@ -1,6 +1,6 @@
 # Ballpark
 
-> Five guesses a day. Closest wins.
+> Guess the number. Hit it out of the park.
 
 **Live URL:** [https://shahmeerhashmii.github.io/ballpark/](https://shahmeerhashmii.github.io/ballpark/)
 
@@ -107,6 +107,30 @@ Ballpark supports real-time aggregate community stats with zero authentication r
 6. For GitHub Pages deployment, add these as repository secrets:
    - `VITE_SUPABASE_URL`
    - `VITE_SUPABASE_ANON_KEY`
+
+---
+
+## Reports, reminders and the link preview
+
+### Answer reports
+Players can tap **"Something wrong with this answer? Report it"** on any answer screen.
+Reports go to the `answer_reports` table in Supabase (run the latest `supabase/schema.sql`).
+Read them in the Supabase dashboard under **Table editor > answer_reports**.
+
+### Daily reminder notifications
+Reminders work in the installed app (on iPhone, Ballpark must be added to the Home Screen first).
+One-time setup:
+1. Generate keys: `npx web-push generate-vapid-keys`
+2. In Supabase, set secrets: `supabase secrets set VAPID_PUBLIC_KEY=... VAPID_PRIVATE_KEY=... VAPID_SUBJECT=mailto:you@example.com`
+3. Deploy the sender: `supabase functions deploy daily-reminder`
+4. Turn on the `pg_cron` and `pg_net` extensions and run the hourly schedule at the bottom of `supabase/schema.sql`.
+5. Add the public key as the GitHub secret `VITE_VAPID_PUBLIC_KEY` (and in `.env` for local testing).
+
+Without these steps, installed Android Chrome still gets a basic reminder through periodic background sync.
+
+### Link preview image
+`public/og-image.png` is the picture shown when the link is shared. Its source is `scripts/og-image.html`;
+edit it and re-render at 1200x630 (instructions are at the top of that file).
 
 ---
 

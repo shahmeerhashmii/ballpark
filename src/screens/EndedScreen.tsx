@@ -30,13 +30,13 @@ export const EndedScreen: React.FC<EndedScreenProps> = ({ stats, onOpenStats }) 
           </div>
           <div className="metric-box">
             <span className="metric-val">
-              {stats.gamesPlayed > 0 ? Math.round(stats.totalScore / stats.gamesPlayed) : 0}
+              {stats.classicGames > 0 ? Math.round(stats.totalFeet / stats.classicGames).toLocaleString('en-US') : 0}
             </span>
-            <span className="metric-lbl">Avg Score</span>
+            <span className="metric-lbl">Avg ft</span>
           </div>
           <div className="metric-box">
-            <span className="metric-val">{stats.bestScore}</span>
-            <span className="metric-lbl">Best Score</span>
+            <span className="metric-val">{stats.bestFeet.toLocaleString('en-US')}</span>
+            <span className="metric-lbl">Best ft</span>
           </div>
         </div>
 

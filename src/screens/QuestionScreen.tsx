@@ -1,94 +1,278 @@
-import React, { useState } from 'react';
-import { QuestionItem } from '../types';
+import React, { useCallback, useMemo, useRef, useState } from 'react';
+import { QuestionItem, QuestionGuessResult, SwingAttempt, GameMode } from '../types';
 import { Timer } from '../components/Timer';
-import { Keypad, Multiplier, computeNumericValue, formatWithCommas } from '../components/Keypad';
+import { Keypad, Multiplier, computeNumericValue } from '../components/Keypad';
+import {
+  calculateScore,
+  getTier,
+  getHintRange,
+  buildRangeChoices,
+  scoreRangePick,
+  MAX_SWINGS,
+  HINT_MULTIPLIER,
+} from '../lib/scoring';
+import { buildResult, formatNumber, formatRange, formatFeet, rangeSeedFor } from '../lib/game';
+import { playFoul, playTick, unlock } from '../lib/sound';
 
 interface QuestionScreenProps {
-  questionNumber: number; // 1 to 5
-  totalQuestions?: number;
+  label: string; // "Question 2 of 5" or "Practice"
   question: QuestionItem;
-  startTime: number;
-  onSubmitGuess: (guess: number) => void;
-  onTimeUp: (guess: number) => void;
+  qIndex: number;
+  dayNumber: number;
+  answer: number; // already in the player's units
+  unitFactor?: number; // shown value = stored value x this
+  mode: GameMode;
+  sprayAngle: number;
+  startTime: number | null; // null = no timer (practice)
+  initialSwings: SwingAttempt[];
+  initialHintUsed: boolean;
+  onSwingsChange?: (swings: SwingAttempt[], hintUsed: boolean) => void;
+  onComplete: (result: QuestionGuessResult) => void;
+  onExit?: () => void;
 }
 
 export const QuestionScreen: React.FC<QuestionScreenProps> = ({
-  questionNumber,
-  totalQuestions = 5,
+  label,
   question,
+  qIndex,
+  dayNumber,
+  answer,
+  unitFactor = 1,
+  mode,
+  sprayAngle,
   startTime,
-  onSubmitGuess,
-  onTimeUp,
+  initialSwings,
+  initialHintUsed,
+  onSwingsChange,
+  onComplete,
+  onExit,
 }) => {
   const [inputString, setInputString] = useState<string>('');
   const [activeMultiplier, setActiveMultiplier] = useState<Multiplier>(null);
-  const [isSubmitting, setIsSubmitting] = useState<boolean>(false);
+  const [swings, setSwings] = useState<SwingAttempt[]>(initialSwings);
+  const [hintUsed, setHintUsed] = useState<boolean>(initialHintUsed);
+  const [isDone, setIsDone] = useState<boolean>(false);
+  const [shakeKey, setShakeKey] = useState<number>(0);
+  const doneRef = useRef(false);
 
   const numericValue = computeNumericValue(inputString, activeMultiplier);
+  const hintRange = useMemo(() => getHintRange(answer), [answer]);
+  const rangeChoices = useMemo(
+    () => (mode === 'easy' ? buildRangeChoices(answer, rangeSeedFor(dayNumber, qIndex)) : null),
+    [mode, answer, dayNumber, qIndex]
+  );
 
-  const handleLockIn = () => {
-    if (numericValue <= 0 || isSubmitting) return;
-    setIsSubmitting(true);
-    onSubmitGuess(numericValue);
+  const finish = useCallback(
+    (finalSwings: SwingAttempt[], extra?: { pickedRange?: { low: number; high: number }; labelOverride?: string }) => {
+      if (doneRef.current) return;
+      doneRef.current = true;
+      setIsDone(true);
+      onComplete({
+        ...buildResult({
+          qIndex,
+          question,
+          answer,
+          swings: finalSwings,
+          hintUsed,
+          mode,
+          sprayAngle,
+          pickedRange: extra?.pickedRange,
+          labelOverride: extra?.labelOverride,
+        }),
+        unitFactor,
+      });
+    },
+    [qIndex, question, answer, hintUsed, mode, sprayAngle, onComplete, unitFactor]
+  );
+
+  const handleSwing = () => {
+    unlock();
+    if (numericValue <= 0 || doneRef.current) return;
+    const swingNumber = swings.length + 1;
+    const score = calculateScore(numericValue, answer, { swingNumber, hintUsed });
+    const attempt: SwingAttempt = { guess: numericValue, points: score.points, direction: score.direction };
+    const next = [...swings, attempt];
+
+    // A deep hit or better ends the at-bat. So does running out of swings.
+    if (score.tier === 'park' || score.tier === 'deep' || score.direction === 'exact' || swingNumber >= MAX_SWINGS) {
+      finish(next);
+      return;
+    }
+
+    playFoul();
+    setSwings(next);
+    onSwingsChange?.(next, hintUsed);
+    setInputString('');
+    setActiveMultiplier(null);
+    setShakeKey((k) => k + 1);
   };
 
-  const handleTimeUp = () => {
-    if (isSubmitting) return;
-    setIsSubmitting(true);
-    // If valid number typed, submit it; else submit 0
-    onTimeUp(numericValue > 0 ? numericValue : 0);
+  const handleTakeIt = () => {
+    if (swings.length === 0) return;
+    finish(swings);
   };
 
-  const formatDisplayValue = () => {
-    if (!inputString) return '0';
-    return inputString;
+  const handleHint = () => {
+    if (hintUsed) return;
+    setHintUsed(true);
+    onSwingsChange?.(swings, true);
   };
+
+  const handlePick = (idx: number) => {
+    unlock();
+    if (!rangeChoices || doneRef.current) return;
+    const opt = rangeChoices.options[idx];
+    const mid = Math.sqrt(Math.max(opt.low, 1e-9) * opt.high);
+    const score = scoreRangePick(idx, rangeChoices, answer, mid);
+    finish([{ guess: mid, points: score.points, direction: score.direction }], {
+      pickedRange: opt,
+      labelOverride: score.bandLabel,
+    });
+  };
+
+  const handleTimeUp = useCallback(() => {
+    if (doneRef.current) return;
+    if (mode === 'easy') {
+      finish([{ guess: 0, points: 0, direction: 'low' }], { labelOverride: "Time's up" });
+      return;
+    }
+    if (numericValue > 0) {
+      const score = calculateScore(numericValue, answer, { swingNumber: swings.length + 1, hintUsed });
+      finish([...swings, { guess: numericValue, points: score.points, direction: score.direction }]);
+    } else if (swings.length > 0) {
+      finish(swings);
+    } else {
+      finish([{ guess: 0, points: 0, direction: 'low' }], { labelOverride: "Time's up" });
+    }
+  }, [mode, numericValue, answer, swings, hintUsed, finish]);
+
+  const handleSecond = useCallback((left: number) => {
+    if (left <= 3) playTick();
+  }, []);
+
+  const lastSwing = swings[swings.length - 1];
+  const bestSoFar = swings.reduce((m, s) => Math.max(m, s.points), 0);
+  const swingsLeft = MAX_SWINGS - swings.length;
 
   return (
-    <div className="screen-container question-screen">
-      {/* Top Bar with Question Progress and Circular Timer */}
+    <div className={`screen-container question-screen ${mode}`}>
       <header className="question-header">
         <div className="question-meta">
-          <span className="question-progress-label">
-            Question {questionNumber} of {totalQuestions}
-          </span>
+          <span className="question-progress-label">{label}</span>
           <span className="question-category-tag">{question.category}</span>
         </div>
-        <Timer startTime={startTime} onTimeUp={handleTimeUp} isRunning={!isSubmitting} />
+        {startTime !== null ? (
+          <Timer startTime={startTime} onTimeUp={handleTimeUp} isRunning={!isDone} onSecond={handleSecond} />
+        ) : (
+          onExit && (
+            <button type="button" className="text-link-button practice-exit" onClick={onExit}>
+              Done
+            </button>
+          )
+        )}
       </header>
 
-      {/* Main Question Display Area */}
       <main className="question-main-content">
-        <h2 className="question-text">{question.question}</h2>
+        {/* The question is never covered: it sits in its own block that does not shrink,
+            and everything after a swing goes inside the compact answer panel below it */}
+        <div className="question-main-inner">
+          <h2 className="question-text">{question.question}</h2>
 
-        {/* Number Input Display Card */}
-        <div className="number-display-card">
-          <div className="unit-label-top">{question.unit}</div>
-          <div className="entered-number-row">
-            <span className="entered-digits">{formatDisplayValue()}</span>
-            {activeMultiplier && (
-              <span className="entered-multiplier-suffix"> {activeMultiplier}</span>
-            )}
-          </div>
-          {activeMultiplier && numericValue > 0 && (
-            <div className="calculated-total-subtext">
-              = {formatWithCommas(numericValue)} {question.unit}
+          {mode === 'classic' && (
+            <div className="answer-panel">
+              <div className="swing-strip">
+                <div className="swing-dots" aria-label={`Swing ${swings.length + 1} of ${MAX_SWINGS}`}>
+                  {Array.from({ length: MAX_SWINGS }).map((_, i) => {
+                    const s = swings[i];
+                    return (
+                      <span
+                        key={i}
+                        className={`swing-dot ${s ? 'used' : ''} ${i === swings.length ? 'current' : ''}`}
+                        style={s ? { backgroundColor: getTier(s.points).color } : undefined}
+                      />
+                    );
+                  })}
+                  <span className="swing-count">
+                    Swing {Math.min(swings.length + 1, MAX_SWINGS)} of {MAX_SWINGS}
+                  </span>
+                </div>
+                {!hintUsed ? (
+                  <button type="button" className="hint-chip" onClick={handleHint} disabled={isDone}>
+                    💡 Hint
+                  </button>
+                ) : (
+                  <span className="hint-chip used" title={`Hints cost ${Math.round((1 - HINT_MULTIPLIER) * 100)}% of your distance`}>
+                    💡 {formatRange(hintRange)}
+                  </span>
+                )}
+              </div>
+
+              {lastSwing && (
+                <div key={shakeKey} className={`swing-feedback ${lastSwing.direction}`} role="status">
+                  <span className="swing-feedback-arrow" aria-hidden="true">
+                    {lastSwing.direction === 'high' ? '↓' : '↑'}
+                  </span>
+                  <span className="swing-feedback-text">
+                    <strong>
+                      {formatNumber(lastSwing.guess)} is too {lastSwing.direction === 'high' ? 'high' : 'low'}
+                    </strong>
+                    <span className="swing-feedback-sub">
+                      {bestSoFar > 0
+                        ? `Best: ${formatFeet(Math.round(bestSoFar * 4.5))}`
+                        : 'No hit yet'}
+                      {' · '}
+                      {swingsLeft} {swingsLeft === 1 ? 'swing' : 'swings'} left
+                    </span>
+                  </span>
+                  {bestSoFar > 0 && (
+                    <button type="button" className="take-it-btn" onClick={handleTakeIt} disabled={isDone}>
+                      Keep best
+                    </button>
+                  )}
+                </div>
+              )}
+
+              <div className="number-display">
+                <span className="unit-label-top">{question.unit}</span>
+                <div className="entered-number-row">
+                  <span className="entered-digits">{inputString || '0'}</span>
+                  {activeMultiplier && <span className="entered-multiplier-suffix"> {activeMultiplier}</span>}
+                </div>
+                {activeMultiplier && numericValue > 0 && (
+                  <div className="calculated-total-subtext">
+                    = {formatNumber(numericValue)} {question.unit}
+                  </div>
+                )}
+              </div>
+            </div>
+          )}
+
+          {mode === 'easy' && rangeChoices && (
+            <div className="range-picks">
+              <span className="range-picks-label">Pick the range ({question.unit})</span>
+              {rangeChoices.options.map((opt, i) => (
+                <button key={i} type="button" className="range-pick-btn" onClick={() => handlePick(i)} disabled={isDone}>
+                  {formatRange(opt)}
+                </button>
+              ))}
             </div>
           )}
         </div>
       </main>
 
-      {/* Keypad & Lock-in Button pinned to bottom */}
-      <footer className="question-footer">
-        <Keypad
-          inputString={inputString}
-          onInputChange={setInputString}
-          activeMultiplier={activeMultiplier}
-          onMultiplierChange={setActiveMultiplier}
-          onLockIn={handleLockIn}
-          disabled={isSubmitting}
-        />
-      </footer>
+      {mode === 'classic' && (
+        <footer className="question-footer">
+          <Keypad
+            inputString={inputString}
+            onInputChange={setInputString}
+            activeMultiplier={activeMultiplier}
+            onMultiplierChange={setActiveMultiplier}
+            onLockIn={handleSwing}
+            disabled={isDone}
+            lockInLabel={swings.length === 0 ? 'Swing' : 'Swing again'}
+          />
+        </footer>
+      )}
     </div>
   );
 };

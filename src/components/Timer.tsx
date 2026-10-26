@@ -5,14 +5,17 @@ interface TimerProps {
   startTime: number; // epoch ms
   onTimeUp: () => void;
   isRunning?: boolean;
+  seconds?: number;
+  onSecond?: (secondsLeft: number) => void;
 }
 
-export const Timer: React.FC<TimerProps> = ({ startTime, onTimeUp, isRunning = true }) => {
-  const [secondsLeft, setSecondsLeft] = useState<number>(SECONDS_PER_QUESTION);
+export const Timer: React.FC<TimerProps> = ({ startTime, onTimeUp, isRunning = true, seconds = SECONDS_PER_QUESTION, onSecond }) => {
+  const [secondsLeft, setSecondsLeft] = useState<number>(seconds);
   const [fractionLeft, setFractionLeft] = useState<number>(1);
   const [ariaAnnouncement, setAriaAnnouncement] = useState<string>('');
   const hasTriggeredTimeUp = useRef<boolean>(false);
   const hasVibrated = useRef<boolean>(false);
+  const lastSecondRef = useRef<number | null>(null);
   const lastAnnouncedSec = useRef<number | null>(null);
 
   useEffect(() => {
@@ -27,11 +30,15 @@ export const Timer: React.FC<TimerProps> = ({ startTime, onTimeUp, isRunning = t
     const interval = setInterval(() => {
       const now = Date.now();
       const elapsedMs = now - startTime;
-      const totalMs = SECONDS_PER_QUESTION * 1000;
+      const totalMs = seconds * 1000;
       const remainingMs = Math.max(0, totalMs - elapsedMs);
       const remainingSec = Math.ceil(remainingMs / 1000);
       const frac = remainingMs / totalMs;
 
+      if (lastSecondRef.current !== remainingSec && remainingMs > 0) {
+        lastSecondRef.current = remainingSec;
+        onSecond?.(remainingSec);
+      }
       setSecondsLeft(remainingSec);
       setFractionLeft(frac);
 
@@ -64,7 +71,7 @@ export const Timer: React.FC<TimerProps> = ({ startTime, onTimeUp, isRunning = t
     }, 50);
 
     return () => clearInterval(interval);
-  }, [startTime, isRunning, onTimeUp]);
+  }, [startTime, isRunning, onTimeUp, seconds, onSecond]);
 
   // SVG ring calculations
   // radius = 22, circumference = 2 * PI * 22 = 138.23

@@ -1,5 +1,5 @@
 import { createClient, SupabaseClient } from '@supabase/supabase-js';
-import { getQueuedGuesses, queueGuess, clearQueuedGuesses } from './storage';
+import { getQueuedGuesses, queueGuess, clearQueuedGuesses, setQueuedGuesses } from './storage';
 import { QueuedGuess } from '../types';
 
 const supabaseUrl = import.meta.env.VITE_SUPABASE_URL;
@@ -14,18 +14,13 @@ export const supabase: SupabaseClient | null = isSupabaseConfigured
 export interface QuestionStatsData {
   total_count: number;
   median_guess: number | null;
-  bands: {
-    exact: number;
-    within_10: number;
-    within_15: number;
-    within_30: number;
-    within_40: number;
-    within_50: number;
-    within_75: number;
-    within_80: number;
-    within_90: number;
-    within_99: number;
-    more_than_99: number;
+  tiers: {
+    park: number;
+    deep: number;
+    solid: number;
+    play: number;
+    caught: number;
+    miss: number;
   };
 }
 
@@ -80,7 +75,7 @@ export async function syncQueuedGuesses(): Promise<void> {
   if (remaining.length === 0) {
     clearQueuedGuesses();
   } else {
-    localStorage.setItem('ballpark_queued_guesses', JSON.stringify(remaining));
+    setQueuedGuesses(remaining);
   }
 }
 
@@ -91,7 +86,7 @@ export async function fetchQuestionStats(
   if (!supabase || !navigator.onLine) return null;
 
   try {
-    const { data, error } = await supabase.rpc('get_question_stats', {
+    const { data, error } = await supabase.rpc('get_question_tiers', {
       p_day: day,
       p_q: qIndex,
     });
@@ -112,8 +107,97 @@ export async function fetchDayAverage(day: number): Promise<number | null> {
     });
 
     if (error || data === null || data === undefined) return null;
-    return Number(data);
+    // The database stores points (0 to 100 per question); players see feet.
+    return Math.round(Number(data) * 4.5);
   } catch {
     return null;
+  }
+}
+
+// ---------- Answer reports ----------
+
+export interface AnswerReport {
+  player_id: string;
+  puzzle_day: number;
+  q_index: number;
+  question: string;
+  shown_answer: string;
+  reason: string;
+  note: string;
+}
+
+const REPORT_QUEUE_KEY = 'ballpark_queued_reports';
+
+function readReportQueue(): AnswerReport[] {
+  try {
+    return JSON.parse(window.localStorage.getItem(REPORT_QUEUE_KEY) || '[]');
+  } catch {
+    return [];
+  }
+}
+
+function writeReportQueue(list: AnswerReport[]): void {
+  try {
+    window.localStorage.setItem(REPORT_QUEUE_KEY, JSON.stringify(list.slice(-50)));
+  } catch {
+    // ignore
+  }
+}
+
+/** Sends a report. If it can't be sent now, it's kept and sent next time the game opens online. */
+export async function submitReport(report: AnswerReport): Promise<'sent' | 'saved'> {
+  if (supabase && navigator.onLine) {
+    try {
+      const { error } = await supabase.from('answer_reports').insert(report);
+      if (!error) return 'sent';
+    } catch {
+      // fall through to the queue
+    }
+  }
+  writeReportQueue([...readReportQueue(), report]);
+  return 'saved';
+}
+
+export async function syncQueuedReports(): Promise<void> {
+  if (!supabase || !navigator.onLine) return;
+  const queued = readReportQueue();
+  if (queued.length === 0) return;
+  try {
+    const { error } = await supabase.from('answer_reports').insert(queued);
+    if (!error) writeReportQueue([]);
+  } catch {
+    // try again next time
+  }
+}
+
+// ---------- Daily reminder subscriptions ----------
+
+export async function savePushSubscription(args: {
+  playerId: string;
+  subscription: PushSubscriptionJSON;
+  hour: number;
+  timeZone: string;
+}): Promise<boolean> {
+  if (!supabase) return false;
+  try {
+    const { error } = await supabase.rpc('save_push_subscription', {
+      p_player_id: args.playerId,
+      p_endpoint: args.subscription.endpoint,
+      p_subscription: args.subscription,
+      p_hour: args.hour,
+      p_time_zone: args.timeZone,
+    });
+    return !error;
+  } catch {
+    return false;
+  }
+}
+
+export async function removePushSubscription(endpoint: string): Promise<void> {
+  if (!supabase) return;
+  try {
+    await supabase.rpc('remove_push_subscription', { p_endpoint: endpoint });
+  } catch {
+    // ignore
   }
 }
