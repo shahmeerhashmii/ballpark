@@ -191,8 +191,14 @@ export const App: React.FC = () => {
   };
 
   const handleSwingsChange = useCallback(
-    (swings: SwingAttempt[], hintUsed: boolean) => {
-      const next = { ...progressRef.current, currentSwings: swings, currentHintUsed: hintUsed };
+    (swings: SwingAttempt[], hintUsed: boolean, swingStartedAt?: number) => {
+      const next = {
+        ...progressRef.current,
+        currentSwings: swings,
+        currentHintUsed: hintUsed,
+        // the clock restarts for every swing; saving it means a refresh doesn't cut the swing short
+        ...(swingStartedAt !== undefined ? { questionStartTime: swingStartedAt } : {}),
+      };
       progressRef.current = next;
       updateAndSaveProgress(next);
     },

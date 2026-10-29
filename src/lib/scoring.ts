@@ -48,6 +48,15 @@ export const FEET_PER_POINT = 4.5;
 export const MAX_FEET_PER_QUESTION = 450;
 export const WALL_FEET = 400;
 
+/**
+ * Whether a question is over after this swing. Every question gets all 3 swings, even after a
+ * great hit (players choose "Keep best" to stop early). The only exception is guessing the exact
+ * answer, since there is nothing left to guess.
+ */
+export function atBatOver(swingNumber: number, direction: 'high' | 'low' | 'exact'): boolean {
+  return direction === 'exact' || swingNumber >= MAX_SWINGS;
+}
+
 export function getTier(points: number): TierInfo {
   for (const tier of TIERS) {
     if (points >= tier.minPoints) return tier;

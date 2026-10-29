@@ -140,3 +140,27 @@ describe('Easy mode fairness', () => {
     for (const p of pos) expect(p / total).toBeGreaterThan(0.15);
   });
 });
+
+describe('Three swings on every question', () => {
+  it('never ends after swing 1 or 2, even on a great hit', async () => {
+    const { atBatOver, calculateScore } = await import('./scoring');
+    const answer = 1000;
+    for (const guess of [1050, 1100, 1250, 900, 3000, 1]) {
+      for (const swing of [1, 2]) {
+        const r = calculateScore(guess, answer, { swingNumber: swing });
+        expect(atBatOver(swing, r.direction)).toBe(false);
+      }
+    }
+  });
+
+  it('ends after swing 3', async () => {
+    const { atBatOver } = await import('./scoring');
+    expect(atBatOver(3, 'high')).toBe(true);
+    expect(atBatOver(3, 'low')).toBe(true);
+  });
+
+  it('ends early only on an exact answer', async () => {
+    const { atBatOver } = await import('./scoring');
+    expect(atBatOver(1, 'exact')).toBe(true);
+  });
+});

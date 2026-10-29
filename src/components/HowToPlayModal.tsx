@@ -46,7 +46,7 @@ export const HowToPlayModal: React.FC<HowToPlayModalProps> = ({ isOpen, onClose 
         <div className="how-to-step">
           <div className="step-badge">3</div>
           <div className="step-text">
-            <strong>Up to 3 swings.</strong> Miss and we tell you if you're too high or too low. Each extra swing flies a little shorter, and your best one counts.
+            <strong>3 swings on every question.</strong> After each one we tell you if you're too high or too low. Each extra swing flies a little shorter, your best one counts, and you can tap Keep best to stop early.
           </div>
         </div>
 
@@ -60,7 +60,7 @@ export const HowToPlayModal: React.FC<HowToPlayModalProps> = ({ isOpen, onClose 
         <div className="how-to-step">
           <div className="step-badge">5</div>
           <div className="step-text">
-            <strong>30 seconds per question,</strong> new questions every midnight Toronto time. Practice mode has no clock.
+            <strong>30 seconds per swing,</strong> new questions every midnight Toronto time. Practice mode has no clock.
             Play 7 days in a row to earn a 🧊 streak freeze, which covers a day you miss.
           </div>
         </div>
