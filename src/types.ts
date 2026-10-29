@@ -84,4 +84,5 @@ export interface QueuedGuess {
   q_index: number;
   guess: number;
   points: number;
+  mode: GameMode; // easy picks are saved so the reminder knows you played, but left out of community stats
 }

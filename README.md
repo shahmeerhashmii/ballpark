@@ -4,36 +4,40 @@
 
 **Live URL:** [https://shahmeerhashmii.github.io/ballpark/](https://shahmeerhashmii.github.io/ballpark/)
 
-Ballpark is a fast-paced daily estimation game designed like a modern sports scoreboard. Every day at midnight America/Toronto time, players get 5 questions with numeric answers. You have 15 seconds per question to lock in your ballpark estimate and see how your guesses stack up against everyone else.
+Ballpark is a daily estimation game played in a ballpark. Every day at midnight Eastern time, everyone gets the same 5 questions with a number for an answer. Your guess is a hit: the closer you are, the further the ball flies.
 
 ---
 
 ## How to Play
 
-1. **5 Questions Daily:** Every player receives the same 5 questions each day.
-2. **15 Seconds per Question:** Use the custom on-screen thumb keypad to type your guess.
-3. **Multiplier Chips:** Quick buttons for `thousand` (k), `million` (m), and `billion` (b) help you enter huge numbers instantly.
-4. **Closest Wins:** Points are awarded based on percentage difference from the true answer (up to 100 points per question, max 500 per day).
-5. **Community Breakdown:** After each question, see how your estimate compares to the crowd.
-6. **Share Your Score:** Copy or share your daily emoji grid with friends.
+1. **5 questions a day.** Everyday trivia, no sports knowledge needed.
+2. **3 swings on every question, 30 seconds per swing.** After each swing you're told if you're too high or too low. Tap **Keep best** to stop early.
+3. **Your closest guess counts.** Later swings fly a little shorter (swing 2 is worth 85%, swing 3 is worth 70%), but a closer guess can never lower your score.
+4. **Hint:** shows a 10x range the answer is in, for a 15% distance cost.
+5. **Easy mode:** pick from 4 ranges instead of typing. Scored as right, close or wrong, and kept separate from Classic stats.
+6. **Practice mode:** unlimited past questions, no timer.
+7. **Streak freezes:** earn one every 7 days in a row (hold up to 2). A freeze covers a day you miss.
+8. **Share:** a text result or a picture card for Instagram.
+
+**Settings:** metric or imperial units, sound, a 1 pm daily reminder, and light or dark mode (dark is the default).
 
 ---
 
-## Scoring Breakdown
+## Scoring
 
-| Accuracy | Points |
-| :--- | :--- |
-| **Exact Match** (within 0.01%) | 100 |
-| **Within 10%** | 90 |
-| **Within 15%** | 75 |
-| **Within 30%** | 60 |
-| **Within 40%** | 50 |
-| **Within 50%** | 30 |
-| **Within 75%** | 15 |
-| **Within 80%** | 10 |
-| **Within 90%** | 5 |
-| **Within 99%** | 1 |
-| **More than 99% off** | 0 |
+Closeness is a ratio (bigger divided by smaller), so guessing double the answer counts the same as guessing half.
+Points run 0 to 100 per question. Players see distance in feet: feet = points x 4.5 (max 450 ft a question, 2,250 a day).
+
+| Your guess | Hit | Distance |
+| :--- | :--- | :--- |
+| Within 10% | Out of the park | 400 to 450 ft |
+| Within 25% | Deep to the wall | 300 to 400 ft |
+| Within 50% | Solid hit | 200 to 300 ft |
+| Within 2x | In play | 100 to 200 ft |
+| Within 4x | Caught | under 100 ft |
+| Further off | Swing and a miss | 0 ft |
+
+Within each band, points slide smoothly, so every bit closer counts. The logic lives in `src/lib/scoring.ts` and `src/lib/game.ts`, and is covered by tests (including a check of the best-swing rule across every question in the game).
 
 ---
 
@@ -58,6 +62,7 @@ npm run dev
 
 ### Dev Mode URL Parameters
 - `?day=N`: Preview any specific day number (e.g. `http://localhost:5173/ballpark/?day=3`).
+- Days run from October 5, 2026 (day 1) to July 31, 2027 (day 300). Add more rows to the spreadsheet before then.
 - `?reset`: Clear local storage state and start fresh.
 
 ### Running Tests

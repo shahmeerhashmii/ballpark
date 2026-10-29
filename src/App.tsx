@@ -17,7 +17,7 @@ import {
   liveStreak,
 } from './lib/storage';
 import { submitGuessToSupabase, syncQueuedGuesses, syncQueuedReports } from './lib/supabase';
-import { getSettings, saveSettings, Settings } from './lib/settings';
+import { getSettings, saveSettings, Settings, applyTheme } from './lib/settings';
 import { localizeAnswer } from './lib/units';
 import { setSoundEnabled } from './lib/sound';
 import { updateReminderMeta } from './lib/reminders';
@@ -120,6 +120,10 @@ export const App: React.FC = () => {
   }, [settings.sound]);
 
   useEffect(() => {
+    applyTheme(settings.theme);
+  }, [settings.theme]);
+
+  useEffect(() => {
     syncQueuedGuesses();
     syncQueuedReports();
     const handleOnline = () => {
@@ -219,9 +223,10 @@ export const App: React.FC = () => {
         q_index: result.qIndex,
         guess: storedGuess > 0 ? storedGuess : 0.0001,
         points: result.points,
+        mode: result.mode ?? 'classic',
       };
-      // Easy picks stay out of the community numbers, which compare classic guesses
-      if (result.mode !== 'easy') submitGuessToSupabase(queuedItem);
+      // Every pick is saved (so the reminder knows you played); the community numbers only count classic
+      submitGuessToSupabase(queuedItem);
 
       const isLast = result.qIndex >= QUESTIONS_PER_DAY;
       const next: DayProgress = {

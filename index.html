@@ -9,6 +9,16 @@
     <meta name="description" content="A daily estimation game. Five questions a day. The closer your guess, the further the ball flies." />
     <meta name="theme-color" content="#0B0B0B" />
     <meta name="color-scheme" content="dark" />
+    <script>
+      // Apply light mode before the page draws, so it never flashes dark first. Dark is the default.
+      try {
+        var s = JSON.parse(localStorage.getItem('ballpark_settings') || '{}');
+        if (s.theme === 'light') {
+          document.documentElement.setAttribute('data-theme', 'light');
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#F3F4EE');
+        }
+      } catch (e) {}
+    </script>
 
     <!-- iOS Specific Meta Tags -->
     <meta name="apple-mobile-web-app-capable" content="yes" />

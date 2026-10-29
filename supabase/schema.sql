@@ -12,6 +12,12 @@ create table if not exists public.guesses (
   constraint uq_player_day_q unique (player_id, puzzle_day, q_index)
 );
 
+-- Which mode the guess came from. Easy picks are saved so the daily reminder knows the player
+-- has played, but every community number below only counts classic guesses.
+alter table public.guesses add column if not exists mode text not null default 'classic';
+alter table public.guesses drop constraint if exists guesses_mode_check;
+alter table public.guesses add constraint guesses_mode_check check (mode in ('classic', 'easy'));
+
 -- Index for speedy aggregate lookups
 create index if not exists idx_guesses_day_q on public.guesses(puzzle_day, q_index);
 create index if not exists idx_guesses_day on public.guesses(puzzle_day);
@@ -55,7 +61,7 @@ declare
 begin
   select count(*) into total_count
   from public.guesses
-  where puzzle_day = p_day and q_index = p_q;
+  where puzzle_day = p_day and q_index = p_q and mode = 'classic';
 
   if total_count = 0 then
     return json_build_object(
@@ -79,7 +85,7 @@ begin
 
   select percentile_cont(0.5) within group (order by guess) into median_val
   from public.guesses
-  where puzzle_day = p_day and q_index = p_q;
+  where puzzle_day = p_day and q_index = p_q and mode = 'classic';
 
   select
     count(*) filter (where points = 100),
@@ -97,7 +103,7 @@ begin
     band_exact, band_10, band_15, band_30, band_40,
     band_50, band_75, band_80, band_90, band_99, band_miss
   from public.guesses
-  where puzzle_day = p_day and q_index = p_q;
+  where puzzle_day = p_day and q_index = p_q and mode = 'classic';
 
   result := json_build_object(
     'total_count', total_count,
@@ -138,7 +144,7 @@ begin
   from (
     select player_id, sum(points) as daily_total, count(q_index) as q_count
     from public.guesses
-    where puzzle_day = p_day
+    where puzzle_day = p_day and mode = 'classic'
     group by player_id
     having count(q_index) = 5
   ) player_totals;
@@ -165,11 +171,11 @@ declare
 begin
   select count(*) into total_count
   from public.guesses
-  where puzzle_day = p_day and q_index = p_q;
+  where puzzle_day = p_day and q_index = p_q and mode = 'classic';
 
   select percentile_cont(0.5) within group (order by guess) into median_val
   from public.guesses
-  where puzzle_day = p_day and q_index = p_q;
+  where puzzle_day = p_day and q_index = p_q and mode = 'classic';
 
   return (
     select json_build_object(
@@ -185,7 +191,7 @@ begin
       )
     )
     from public.guesses
-    where puzzle_day = p_day and q_index = p_q
+    where puzzle_day = p_day and q_index = p_q and mode = 'classic'
   );
 end;
 $$;

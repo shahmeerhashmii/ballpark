@@ -34,6 +34,7 @@ export async function submitGuessToSupabase(guess: QueuedGuess): Promise<boolean
       q_index: guess.q_index,
       guess: guess.guess,
       points: guess.points,
+      mode: guess.mode ?? 'classic',
     });
 
     if (error) {
@@ -63,6 +64,7 @@ export async function syncQueuedGuesses(): Promise<void> {
         q_index: item.q_index,
         guess: item.guess,
         points: item.points,
+        mode: item.mode ?? 'classic',
       });
       if (error && error.code !== '23505') { // 23505 is unique violation, which means it was already inserted
         remaining.push(item);

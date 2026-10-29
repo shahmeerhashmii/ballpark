@@ -80,7 +80,7 @@ export const Timer: React.FC<TimerProps> = ({ startTime, onTimeUp, isRunning = t
   const circumference = 2 * Math.PI * radius;
   const strokeDashoffset = circumference * (1 - fractionLeft);
 
-  let ringColor = 'var(--color-accent)'; // Electric lime
+  let ringColor = 'var(--color-accent-ink)'; // electric lime (darker in light mode so the number stays readable)
   let isPulsing = false;
 
   if (secondsLeft <= 3) {

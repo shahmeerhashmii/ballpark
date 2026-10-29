@@ -60,7 +60,7 @@ export const HowToPlayModal: React.FC<HowToPlayModalProps> = ({ isOpen, onClose 
         <div className="how-to-step">
           <div className="step-badge">5</div>
           <div className="step-text">
-            <strong>30 seconds per swing,</strong> new questions every midnight Toronto time. Practice mode has no clock.
+            <strong>30 seconds per swing,</strong> new questions every midnight EST. Practice mode has no clock.
             Play 7 days in a row to earn a 🧊 streak freeze, which covers a day you miss.
           </div>
         </div>
