@@ -13,18 +13,8 @@ export type Theme = 'dark' | 'light';
 
 const KEY = 'ballpark_settings';
 
-// Canadians are used to metric, Americans to imperial, so the first default follows the phone's region
-function defaultUnits(): UnitSystem {
-  try {
-    const locale = navigator.language || '';
-    return /-(US|LR|MM)$/i.test(locale) ? 'imperial' : 'metric';
-  } catch {
-    return 'metric';
-  }
-}
-
 const DEFAULTS: Settings = {
-  units: 'metric',
+  units: 'metric', // metric for everyone by default; players can switch in Settings
   sound: false,
   reminder: false,
   reminderHour: REMINDER_HOUR,
@@ -38,7 +28,7 @@ export function getSettings(): Settings {
   } catch {
     // storage blocked: fall through to defaults
   }
-  return { ...DEFAULTS, units: defaultUnits() };
+  return { ...DEFAULTS };
 }
 
 export function saveSettings(s: Settings): void {

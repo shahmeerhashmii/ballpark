@@ -2667,13 +2667,6 @@ select {
   color: var(--color-accent-ink);
 }
 
-/* Appearance switch in Settings */
-.theme-toggle .mode-option {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  gap: 6px;
-}
 :root[data-theme="light"] .home-hero-ball {
   stroke: var(--color-text-muted);
   stroke-width: 1.2;

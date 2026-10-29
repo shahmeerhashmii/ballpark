@@ -81,7 +81,6 @@ export const SettingsSheet: React.FC<SettingsSheetProps> = ({ isOpen, onClose, s
                 className={`mode-option ${settings.theme === t ? 'active' : ''}`}
                 onClick={() => onChange({ ...settings, theme: t })}
               >
-                <span aria-hidden="true">{t === 'dark' ? '🌙' : '☀️'}</span>
                 {t === 'dark' ? 'Dark' : 'Light'}
               </button>
             ))}
