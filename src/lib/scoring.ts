@@ -5,9 +5,10 @@
 // treated exactly the same as guessing half of it. The old "% off" maths punished
 // overshooting much harder than undershooting, which is a big reason scores felt low.
 //
-// Points (0 to 100 per question) are still what we store and send to Supabase.
-// Players see distance in feet: feet = points x 4.5, so a perfect guess is 450 ft
-// and anything over 400 ft clears the outfield wall.
+// Distance is worked out to the foot (0 to 450 ft per question), straight from how close the
+// guess is, so even small improvements count: on an answer of 6,000, a guess of 5,800 goes
+// 432 ft and 5,700 goes 423 ft, though both are within 10%. Anything 400 ft or more clears the
+// wall. "points" is the same score on a 0 to 100 scale (feet / 4.5), kept unrounded.
 
 export type HitTier = 'park' | 'deep' | 'solid' | 'play' | 'caught' | 'miss';
 
@@ -17,31 +18,32 @@ export interface TierInfo {
   short: string;
   color: string;
   emoji: string;
-  minPoints: number;
+  minFeet: number;
 }
 
-// Ordered best to worst. minPoints is the lowest point value that still earns the tier.
+// Ordered best to worst. minFeet is the shortest distance that still earns the tier.
 export const TIERS: TierInfo[] = [
-  { key: 'park', label: 'Out of the park!', short: 'Out of the park', color: 'var(--color-result-green)', emoji: '🟢', minPoints: 89 },
-  { key: 'deep', label: 'Deep to the wall', short: 'Deep', color: 'var(--color-result-yellow)', emoji: '🟡', minPoints: 67 },
-  { key: 'solid', label: 'Solid hit', short: 'Solid hit', color: 'var(--color-result-orange)', emoji: '🟠', minPoints: 45 },
-  { key: 'play', label: 'In play', short: 'In play', color: 'var(--color-result-white)', emoji: '⚪', minPoints: 23 },
-  { key: 'caught', label: 'Caught', short: 'Caught', color: 'var(--color-result-red)', emoji: '🔴', minPoints: 1 },
-  { key: 'miss', label: 'Swing and a miss', short: 'Miss', color: 'var(--color-result-miss)', emoji: '❌', minPoints: 0 },
+  { key: 'park', label: 'Out of the park!', short: 'Out of the park', color: 'var(--color-result-green)', emoji: '🟢', minFeet: 400 },
+  { key: 'deep', label: 'Deep to the wall', short: 'Deep', color: 'var(--color-result-yellow)', emoji: '🟡', minFeet: 300 },
+  { key: 'solid', label: 'Solid hit', short: 'Solid hit', color: 'var(--color-result-orange)', emoji: '🟠', minFeet: 200 },
+  { key: 'play', label: 'In play', short: 'In play', color: 'var(--color-result-white)', emoji: '⚪', minFeet: 100 },
+  { key: 'caught', label: 'Caught', short: 'Caught', color: 'var(--color-result-red)', emoji: '🔴', minFeet: 1 },
+  { key: 'miss', label: 'Swing and a miss', short: 'Miss', color: 'var(--color-result-miss)', emoji: '❌', minFeet: 0 },
 ];
 
-// Ratio bands (bigger / smaller) and the points range each one maps onto.
-// Within a band, points slide smoothly on a log scale so every bit closer counts.
-const RATIO_BANDS: { maxRatio: number; hiPoints: number; loPoints: number }[] = [
-  { maxRatio: 1.1, hiPoints: 100, loPoints: 89 }, // within 10%
-  { maxRatio: 1.25, hiPoints: 88, loPoints: 67 }, // within 25%
-  { maxRatio: 1.5, hiPoints: 66, loPoints: 45 }, // within 50%
-  { maxRatio: 2, hiPoints: 44, loPoints: 23 }, // within 2x
-  { maxRatio: 4, hiPoints: 22, loPoints: 1 }, // within 4x
+// Ratio bands (bigger / smaller) and the distance each one covers. Within a band the distance
+// slides smoothly (on a log scale), so the bands join up with no jumps and every bit closer
+// adds distance.
+const RATIO_BANDS: { maxRatio: number; hiFeet: number; loFeet: number }[] = [
+  { maxRatio: 1.1, hiFeet: 450, loFeet: 400 }, // within 10%: out of the park
+  { maxRatio: 1.25, hiFeet: 400, loFeet: 300 }, // within 25%: deep to the wall
+  { maxRatio: 1.5, hiFeet: 300, loFeet: 200 }, // within 50%: solid hit
+  { maxRatio: 2, hiFeet: 200, loFeet: 100 }, // within 2x: in play
+  { maxRatio: 4, hiFeet: 100, loFeet: 0 }, // within 4x: caught
 ];
 
-// Each extra swing on the same question is worth a little less, and so is using a hint.
-export const SWING_MULTIPLIERS = [1, 0.85, 0.7];
+// All 3 swings are worth the same. Only the hint costs distance.
+export const SWING_MULTIPLIERS = [1, 1, 1];
 export const HINT_MULTIPLIER = 0.85;
 export const MAX_SWINGS = SWING_MULTIPLIERS.length;
 export const FEET_PER_POINT = 4.5;
@@ -58,8 +60,9 @@ export function atBatOver(swingNumber: number, direction: 'high' | 'low' | 'exac
 }
 
 export function getTier(points: number): TierInfo {
+  const feet = pointsToFeet(points);
   for (const tier of TIERS) {
-    if (points >= tier.minPoints) return tier;
+    if (feet >= tier.minFeet) return tier;
   }
   return TIERS[TIERS.length - 1];
 }
@@ -81,20 +84,25 @@ export function guessRatio(guess: number, answer: number): number {
   return Math.max(guess, answer) / Math.min(guess, answer);
 }
 
-/** Raw accuracy points (0 to 100) before any swing or hint adjustments. */
-export function accuracyPoints(guess: number, answer: number): number {
+/** Exact distance (0 to 450 ft, not rounded) before any hint adjustment. */
+export function accuracyFeet(guess: number, answer: number): number {
   const ratio = guessRatio(guess, answer);
-  if (ratio <= 1.0001) return 100;
+  if (ratio <= 1.0001) return MAX_FEET_PER_QUESTION;
 
   let prevMax = 1;
   for (const band of RATIO_BANDS) {
     if (ratio <= band.maxRatio + 1e-9) {
       const t = Math.log(ratio / prevMax) / Math.log(band.maxRatio / prevMax);
-      return Math.round(band.hiPoints - (band.hiPoints - band.loPoints) * t);
+      return band.hiFeet - (band.hiFeet - band.loFeet) * t;
     }
     prevMax = band.maxRatio;
   }
   return 0;
+}
+
+/** The same score on a 0 to 100 scale (not rounded). */
+export function accuracyPoints(guess: number, answer: number): number {
+  return accuracyFeet(guess, answer) / FEET_PER_POINT;
 }
 
 export interface ScoreResult {
@@ -115,7 +123,6 @@ export function calculateScore(
   const swingIdx = Math.min(Math.max((opts.swingNumber ?? 1) - 1, 0), SWING_MULTIPLIERS.length - 1);
   let points = accuracyPoints(guess, answer) * SWING_MULTIPLIERS[swingIdx];
   if (opts.hintUsed) points *= HINT_MULTIPLIER;
-  points = Math.round(points);
 
   const tier = getTier(points);
   const percentOff = answer !== 0 ? Math.abs(guess - answer) / answer : guess === 0 ? 0 : 1;

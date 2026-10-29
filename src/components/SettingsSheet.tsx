@@ -68,6 +68,27 @@ export const SettingsSheet: React.FC<SettingsSheetProps> = ({ isOpen, onClose, s
 
         <section className="setting-row">
           <div className="setting-label">
+            <strong>Appearance</strong>
+            <span>Dark is the default.</span>
+          </div>
+          <div className="mode-toggle compact theme-toggle" role="radiogroup" aria-label="Appearance">
+            {(['dark', 'light'] as const).map((t) => (
+              <button
+                key={t}
+                type="button"
+                role="radio"
+                aria-checked={settings.theme === t}
+                className={`mode-option ${settings.theme === t ? 'active' : ''}`}
+                onClick={() => onChange({ ...settings, theme: t })}
+              >
+                {t === 'dark' ? 'Dark' : 'Light'}
+              </button>
+            ))}
+          </div>
+        </section>
+
+        <section className="setting-row">
+          <div className="setting-label">
             <strong>Sound</strong>
             <span>Bat crack, crowd cheers and the clock.</span>
           </div>

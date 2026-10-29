@@ -8,6 +8,10 @@
   --color-text-muted: #9A9A92;
   --color-accent: #C6F432;
   --color-accent-hover: #b4df2c;
+  --color-accent-ink: #C6F432; /* accent when used as text */
+  --color-freeze: #9fd8ff;
+  --shell-glow: #10261a;
+  color-scheme: dark;
 
   /* Result Colors */
   --color-result-green: #C6F432;
@@ -44,6 +48,36 @@
   --sab: env(safe-area-inset-bottom, 0px);
   --sal: env(safe-area-inset-left, 0px);
   --sar: env(safe-area-inset-right, 0px);
+}
+
+/* Light mode: only when the player picks it in Settings. Dark is always the default,
+   and the game never follows the phone's own light/dark setting. The stadium stays a
+   night game in both modes. */
+:root[data-theme="light"] {
+  --color-bg: #F3F4EE;
+  --color-surface: #FFFFFF;
+  --color-raised-surface: #E9EBE3;
+  --color-raised-hover: #DEE1D6;
+  --color-border: #D6D9CC;
+  --color-text: #12140F;
+  --color-text-muted: #5C6055;
+  --color-accent: #B8E62A;
+  --color-accent-hover: #A8D61E;
+  --color-accent-ink: #4C7300;
+  --color-result-white: #CBCCC1;
+  --color-result-miss: #8E8F86;
+  --color-freeze: #1F6FA8;
+  --shell-glow: #DCEBC8;
+  color-scheme: light;
+}
+:root[data-theme="light"] .data-bold-val[style] {
+  color: var(--color-text) !important; /* tier colours as text are too pale on white */
+}
+:root[data-theme="light"] .rating-title-pill {
+  background-color: rgba(76, 115, 0, 0.1);
+}
+:root[data-theme="light"] .ghost-dot {
+  border-color: var(--color-text-muted);
 }
 
 *, *::before, *::after {
@@ -294,7 +328,7 @@ html, body {
   font-size: 20px;
   font-weight: 700;
   font-variant-numeric: tabular-nums;
-  color: var(--color-accent);
+  color: var(--color-accent-ink);
 }
 
 .puzzle-date {
@@ -346,7 +380,7 @@ html, body {
 .question-category-tag {
   font-size: 13px;
   font-weight: 600;
-  color: var(--color-accent);
+  color: var(--color-accent-ink);
   background-color: rgba(198, 244, 50, 0.1);
   padding: 3px 10px;
   border-radius: var(--radius-pill);
@@ -534,7 +568,7 @@ html, body {
   font-family: var(--font-display);
   font-size: 22px;
   font-weight: 700;
-  color: var(--color-accent);
+  color: var(--color-accent-ink);
 }
 
 .calculated-total-subtext {
@@ -613,7 +647,7 @@ html, body {
 
 .keypad-btn:active {
   transform: scale(0.95);
-  background-color: #333333;
+  background-color: var(--color-raised-hover);
 }
 
 .lock-in-btn {
@@ -766,7 +800,7 @@ html, body {
 
 .beat-percentage-text {
   font-size: 15px;
-  color: var(--color-accent);
+  color: var(--color-accent-ink);
   font-weight: 500;
 }
 
@@ -793,7 +827,7 @@ html, body {
 }
 
 .dist-bar-row.player-row {
-  color: var(--color-accent);
+  color: var(--color-accent-ink);
   font-weight: 700;
 }
 
@@ -903,7 +937,7 @@ html, body {
   font-family: var(--font-display);
   font-size: 17px;
   font-weight: 700;
-  color: var(--color-accent);
+  color: var(--color-accent-ink);
   background-color: rgba(198, 244, 50, 0.1);
   padding: 6px 18px;
   border-radius: var(--radius-pill);
@@ -933,7 +967,7 @@ html, body {
 }
 
 .result-tile-btn.selected {
-  border-color: #ffffff;
+  border-color: var(--color-text);
 }
 
 .tile-points-num {
@@ -966,7 +1000,7 @@ html, body {
   font-size: 12px;
   font-weight: 700;
   text-transform: uppercase;
-  color: var(--color-accent);
+  color: var(--color-accent-ink);
 }
 
 .inspector-close-btn {
@@ -1067,7 +1101,7 @@ html, body {
   font-size: 13px;
   font-weight: 700;
   text-transform: uppercase;
-  color: var(--color-accent);
+  color: var(--color-accent-ink);
 }
 
 .countdown-big-text, .ended-big-text {
@@ -1176,7 +1210,7 @@ html, body {
 
 .step-badge {
   background-color: var(--color-raised-surface);
-  color: var(--color-accent);
+  color: var(--color-accent-ink);
   font-family: var(--font-display);
   font-weight: 800;
   width: 28px;
@@ -1233,11 +1267,11 @@ html, body {
   font-family: var(--font-display);
   font-weight: 700;
   font-variant-numeric: tabular-nums;
-  color: var(--color-accent);
+  color: var(--color-accent-ink);
 }
 
 .badge-exact {
-  color: var(--color-accent);
+  color: var(--color-accent-ink);
   font-weight: 700;
 }
 
@@ -1396,7 +1430,7 @@ html, body {
 }
 .secondary-button:hover {
   background-color: var(--color-raised-surface);
-  border-color: #3a3a3a;
+  border-color: var(--color-text-muted);
 }
 
 /* Home hero: a little ball sailing over the wall */
@@ -1918,7 +1952,7 @@ html, body {
   font-weight: 800;
   text-transform: uppercase;
   letter-spacing: 0.8px;
-  color: var(--color-accent);
+  color: var(--color-accent-ink);
   border: 1px solid var(--color-accent);
   border-radius: var(--radius-pill);
   padding: 3px 10px;
@@ -2226,7 +2260,7 @@ html, body {
 /* Big screens: give the phone-shaped game a little framing instead of floating in black */
 @media (min-width: 900px) and (min-height: 700px) {
   .app-shell {
-    background: radial-gradient(ellipse at 50% 120%, #10261a 0%, var(--color-bg) 60%);
+    background: radial-gradient(ellipse at 50% 120%, var(--shell-glow) 0%, var(--color-bg) 60%);
   }
   .app-container {
     background-color: transparent;
@@ -2482,7 +2516,7 @@ select {
   font-family: var(--font-display);
   font-size: 22px;
   font-weight: 800;
-  color: var(--color-accent);
+  color: var(--color-accent-ink);
 }
 
 /* Ghost ball */
@@ -2599,7 +2633,7 @@ select {
   color: var(--color-text);
 }
 .freeze-chip {
-  color: #9fd8ff;
+  color: var(--color-freeze);
 }
 .freeze-note,
 .streak-note {
@@ -2608,7 +2642,7 @@ select {
   text-align: center;
 }
 .freeze-note {
-  color: #9fd8ff;
+  color: var(--color-freeze);
   background: rgba(159, 216, 255, 0.08);
   border: 1px solid rgba(159, 216, 255, 0.3);
   border-radius: 12px;
@@ -2630,5 +2664,10 @@ select {
   border-left-color: var(--color-accent);
 }
 .swing-feedback.great .swing-feedback-arrow {
-  color: var(--color-accent);
+  color: var(--color-accent-ink);
+}
+
+:root[data-theme="light"] .home-hero-ball {
+  stroke: var(--color-text-muted);
+  stroke-width: 1.2;
 }

@@ -9,6 +9,16 @@
     <meta name="description" content="A daily estimation game. Five questions a day. The closer your guess, the further the ball flies." />
     <meta name="theme-color" content="#0B0B0B" />
     <meta name="color-scheme" content="dark" />
+    <script>
+      // Apply light mode before the page draws, so it never flashes dark first. Dark is the default.
+      try {
+        var s = JSON.parse(localStorage.getItem('ballpark_settings') || '{}');
+        if (s.theme === 'light') {
+          document.documentElement.setAttribute('data-theme', 'light');
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#F3F4EE');
+        }
+      } catch (e) {}
+    </script>
 
     <!-- iOS Specific Meta Tags -->
     <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -34,8 +44,8 @@
     <link rel="icon" type="image/svg+xml" href="/ballpark/favicon.svg" />
     <link rel="icon" type="image/png" sizes="32x32" href="/ballpark/favicon-32.png" />
     <link rel="apple-touch-icon" sizes="180x180" href="/ballpark/apple-touch-icon.png" />
-    <script type="module" crossorigin src="/ballpark/assets/index-BKxJ3rq7.js"></script>
-    <link rel="stylesheet" crossorigin href="/ballpark/assets/index-DOPvbgf8.css">
+    <script type="module" crossorigin src="/ballpark/assets/index-BQ5r9lHr.js"></script>
+    <link rel="stylesheet" crossorigin href="/ballpark/assets/index-B-I7BxUd.css">
   <link rel="manifest" href="/ballpark/manifest.webmanifest"><script id="vite-plugin-pwa:register-sw" src="/ballpark/registerSW.js"></script></head>
   <body>
     <div id="root"></div>

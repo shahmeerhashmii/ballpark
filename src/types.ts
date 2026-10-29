@@ -83,5 +83,6 @@ export interface QueuedGuess {
   puzzle_day: number;
   q_index: number;
   guess: number;
-  points: number;
+  feet: number; // distance of the counted swing, 0 to 450
+  mode: GameMode; // easy picks are saved so the reminder knows you played, but left out of community stats
 }

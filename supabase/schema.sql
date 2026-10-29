@@ -7,10 +7,16 @@ create table if not exists public.guesses (
   puzzle_day int not null,
   q_index int not null check (q_index between 1 and 5),
   guess numeric not null check (guess > 0),
-  points int not null check (points between 0 and 100),
+  feet int not null check (feet between 0 and 450), -- distance of the counted swing, to the foot
   created_at timestamptz not null default now(),
   constraint uq_player_day_q unique (player_id, puzzle_day, q_index)
 );
+
+-- Which mode the guess came from. Easy picks are saved so the daily reminder knows the player
+-- has played, but every community number below only counts classic guesses.
+alter table public.guesses add column if not exists mode text not null default 'classic';
+alter table public.guesses drop constraint if exists guesses_mode_check;
+alter table public.guesses add constraint guesses_mode_check check (mode in ('classic', 'easy'));
 
 -- Index for speedy aggregate lookups
 create index if not exists idx_guesses_day_q on public.guesses(puzzle_day, q_index);
@@ -31,98 +37,8 @@ create policy "Allow anonymous insert"
 revoke select, update, delete on table public.guesses from anon;
 revoke select, update, delete on table public.guesses from authenticated;
 
--- 3. SQL function get_question_stats(p_day int, p_q int)
-create or replace function public.get_question_stats(p_day int, p_q int)
-returns json
-language plpgsql
-security definer
-as $$
-declare
-  total_count int;
-  median_val numeric;
-  band_exact int;
-  band_10 int;
-  band_15 int;
-  band_30 int;
-  band_40 int;
-  band_50 int;
-  band_75 int;
-  band_80 int;
-  band_90 int;
-  band_99 int;
-  band_miss int;
-  result json;
-begin
-  select count(*) into total_count
-  from public.guesses
-  where puzzle_day = p_day and q_index = p_q;
-
-  if total_count = 0 then
-    return json_build_object(
-      'total_count', 0,
-      'median_guess', null,
-      'bands', json_build_object(
-        'exact', 0,
-        'within_10', 0,
-        'within_15', 0,
-        'within_30', 0,
-        'within_40', 0,
-        'within_50', 0,
-        'within_75', 0,
-        'within_80', 0,
-        'within_90', 0,
-        'within_99', 0,
-        'more_than_99', 0
-      )
-    );
-  end if;
-
-  select percentile_cont(0.5) within group (order by guess) into median_val
-  from public.guesses
-  where puzzle_day = p_day and q_index = p_q;
-
-  select
-    count(*) filter (where points = 100),
-    count(*) filter (where points = 90),
-    count(*) filter (where points = 75),
-    count(*) filter (where points = 60),
-    count(*) filter (where points = 50),
-    count(*) filter (where points = 30),
-    count(*) filter (where points = 15),
-    count(*) filter (where points = 10),
-    count(*) filter (where points = 5),
-    count(*) filter (where points = 1),
-    count(*) filter (where points = 0)
-  into
-    band_exact, band_10, band_15, band_30, band_40,
-    band_50, band_75, band_80, band_90, band_99, band_miss
-  from public.guesses
-  where puzzle_day = p_day and q_index = p_q;
-
-  result := json_build_object(
-    'total_count', total_count,
-    'median_guess', median_val,
-    'bands', json_build_object(
-      'exact', band_exact,
-      'within_10', band_10,
-      'within_15', band_15,
-      'within_30', band_30,
-      'within_40', band_40,
-      'within_50', band_50,
-      'within_75', band_75,
-      'within_80', band_80,
-      'within_90', band_90,
-      'within_99', band_99,
-      'more_than_99', band_miss
-    )
-  );
-
-  return result;
-end;
-$$;
-
-grant execute on function public.get_question_stats(int, int) to anon;
-grant execute on function public.get_question_stats(int, int) to authenticated;
+-- 3. (Removed) get_question_stats was the old points-based breakdown. get_question_tiers below replaces it.
+drop function if exists public.get_question_stats(int, int);
 
 -- 4. SQL function get_day_average(p_day int)
 create or replace function public.get_day_average(p_day int)
@@ -136,9 +52,9 @@ begin
   -- Average daily total score across players who completed all 5 questions
   select round(avg(daily_total), 1) into avg_score
   from (
-    select player_id, sum(points) as daily_total, count(q_index) as q_count
+    select player_id, sum(feet) as daily_total, count(q_index) as q_count
     from public.guesses
-    where puzzle_day = p_day
+    where puzzle_day = p_day and mode = 'classic'
     group by player_id
     having count(q_index) = 5
   ) player_totals;
@@ -150,10 +66,8 @@ $$;
 grant execute on function public.get_day_average(int) to anon;
 grant execute on function public.get_day_average(int) to authenticated;
 
--- 5. Distance tiers (added with the "out of the park" scoring update)
--- Points are still 0 to 100 per question. Feet shown in the app = points x 4.5.
--- Tiers: park 89+, deep 67-88, solid 45-66, play 23-44, caught 1-22, miss 0.
--- Run this block once in the Supabase SQL editor. The old get_question_stats stays for older clients.
+-- 5. Distance tiers: how everyone hit each question.
+-- Tiers by distance: park 400+ ft, deep 300-399, solid 200-299, play 100-199, caught 1-99, miss 0.
 create or replace function public.get_question_tiers(p_day int, p_q int)
 returns json
 language plpgsql
@@ -165,27 +79,27 @@ declare
 begin
   select count(*) into total_count
   from public.guesses
-  where puzzle_day = p_day and q_index = p_q;
+  where puzzle_day = p_day and q_index = p_q and mode = 'classic';
 
   select percentile_cont(0.5) within group (order by guess) into median_val
   from public.guesses
-  where puzzle_day = p_day and q_index = p_q;
+  where puzzle_day = p_day and q_index = p_q and mode = 'classic';
 
   return (
     select json_build_object(
       'total_count', total_count,
       'median_guess', median_val,
       'tiers', json_build_object(
-        'park', count(*) filter (where points >= 89),
-        'deep', count(*) filter (where points between 67 and 88),
-        'solid', count(*) filter (where points between 45 and 66),
-        'play', count(*) filter (where points between 23 and 44),
-        'caught', count(*) filter (where points between 1 and 22),
-        'miss', count(*) filter (where points = 0)
+        'park', count(*) filter (where feet >= 400),
+        'deep', count(*) filter (where feet between 300 and 399),
+        'solid', count(*) filter (where feet between 200 and 299),
+        'play', count(*) filter (where feet between 100 and 199),
+        'caught', count(*) filter (where feet between 1 and 99),
+        'miss', count(*) filter (where feet = 0)
       )
     )
     from public.guesses
-    where puzzle_day = p_day and q_index = p_q
+    where puzzle_day = p_day and q_index = p_q and mode = 'classic'
   );
 end;
 $$;

@@ -15,8 +15,8 @@ This document records architectural, styling, and structural decisions made duri
 - **Reasoning:** Prevents virtual OS keyboard pops, viewport resizing issues, layout jumps on iOS Safari and Android Chrome, and keeps controls comfortably placed in the mobile thumb zone.
 
 ### 4. Timer Mechanics
-- **Decision:** Built the 15-second countdown timer on absolute wall-clock timestamps (`Date.now()`) with interval polling and haptic feedback.
-- **Reasoning:** Counter-based timers pause when browsers background inactive tabs or minimize. Absolute timestamp comparison guarantees fair 15-second limits even across tab switches and refreshes.
+- **Decision:** Each swing gets its own 30-second countdown, built on absolute wall-clock timestamps (`Date.now()`) with interval polling and haptic feedback. The start of the current swing is saved, so a refresh keeps the right time.
+- **Reasoning:** Counter-based timers pause when browsers background inactive tabs or minimize. Wall-clock timing keeps the limit fair across tab switches and refreshes. The clock deliberately keeps running if a player leaves the app, so nobody can pause to look an answer up.
 
 ### 5. Resilient Community Stats Architecture
 - **Decision:** Implemented optimistic offline queueing in `localStorage` for Supabase guess submissions and statistical aggregations.
@@ -27,5 +27,17 @@ This document records architectural, styling, and structural decisions made duri
 - **Reasoning:** Delivers crisp icon renderings for standalone mobile install states on Android, iOS, and desktop PWA shells with zero manual image editing required.
 
 ### 7. Strict Copy & Typography Rules
-- **Decision:** Maintained high-contrast dark theme (#0B0B0B background with #C6F432 electric lime accents) using Bricolage Grotesque and Instrument Sans, strictly omitting em dashes.
+- **Decision:** High-contrast dark theme by default (#0B0B0B background with #C6F432 electric lime accents) using Bricolage Grotesque and Instrument Sans, strictly omitting em dashes. A light theme is available only from Settings; the game never follows the phone's own light/dark setting.
 - **Reasoning:** Adheres to the scoreboard aesthetic and all prompt typography and copy constraints.
+
+### 8. Distance Scoring and the Best Swing
+- **Decision:** Score closeness as a ratio and turn it into distance worked out to the foot (0 to 450 ft). Every question gets 3 swings, all worth the same, and the closest guess counts. The How to Play table only shows 10% steps.
+- **Reasoning:** The old percent-off scoring punished overshooting far more than undershooting, which made high scores rare. Discounting later swings let a farther early guess beat a much closer later one. Scoring to the foot makes every small improvement count, so close games between friends still have a winner.
+
+### 9. Easy Mode Data
+- **Decision:** Easy picks are saved to Supabase with `mode = 'easy'`. Every community number (tiers, median guess, daily average) filters to `mode = 'classic'`.
+- **Reasoning:** The daily reminder needs to know that Easy players have played, but Easy picks would skew comparisons between typed guesses.
+
+### 10. Units
+- **Decision:** Answers are stored in the spreadsheet's units. Imperial players see converted answers, and their guesses are converted back before being sent to Supabase.
+- **Reasoning:** Scoring is a ratio, so it is unit-free, and community numbers stay comparable across players.

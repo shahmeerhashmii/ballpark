@@ -1,29 +1,24 @@
 import React from 'react';
 import { BottomSheet } from './BottomSheet';
-import { TIERS } from '../lib/scoring';
 
 interface HowToPlayModalProps {
   isOpen: boolean;
   onClose: () => void;
 }
 
-const TIER_RULES: Record<string, string> = {
-  park: 'Within 10%',
-  deep: 'Within 25%',
-  solid: 'Within 50%',
-  play: 'Within 2x',
-  caught: 'Within 4x',
-  miss: 'Further off',
-};
-
-const TIER_FEET: Record<string, string> = {
-  park: '400+ ft',
-  deep: '300 to 400',
-  solid: '200 to 300',
-  play: '100 to 200',
-  caught: 'under 100',
-  miss: '0 ft',
-};
+// Shown to players in simple 10% steps. The real scoring is worked out to the foot
+// (see src/lib/scoring.ts), so every bit closer goes further. Each row is the shortest
+// distance for that step: going under lands a little shorter than going over by the same
+// percent, because double the answer and half of it count the same.
+const DISTANCE_STEPS: { guess: string; distance: string }[] = [
+  { guess: 'Spot on', distance: '450 ft' },
+  { guess: 'Within 10%', distance: '390 to 450 ft' },
+  { guess: 'Within 20%', distance: '300 ft or more' },
+  { guess: 'Within 30%', distance: '225 ft or more' },
+  { guess: 'Within 40%', distance: '160 ft or more' },
+  { guess: 'Within 50%', distance: '100 ft or more' },
+  { guess: 'Further off', distance: 'under 100 ft' },
+];
 
 export const HowToPlayModal: React.FC<HowToPlayModalProps> = ({ isOpen, onClose }) => {
   return (
@@ -39,14 +34,14 @@ export const HowToPlayModal: React.FC<HowToPlayModalProps> = ({ isOpen, onClose 
         <div className="how-to-step">
           <div className="step-badge">2</div>
           <div className="step-text">
-            <strong>Your guess is a hit.</strong> The closer you are, the further the ball flies. Within 10% clears the wall.
+            <strong>Your guess is a hit.</strong> The closer you are, the further the ball flies, down to the foot. Get within about 10% to clear the 400 ft wall.
           </div>
         </div>
 
         <div className="how-to-step">
           <div className="step-badge">3</div>
           <div className="step-text">
-            <strong>3 swings on every question.</strong> After each one we tell you if you're too high or too low. Each extra swing flies a little shorter, your best one counts, and you can tap Keep best to stop early.
+            <strong>3 swings on every question.</strong> After each one we tell you if you're too high or too low. All 3 count the same, your closest guess counts, and you can tap Keep best to stop early.
           </div>
         </div>
 
@@ -60,7 +55,7 @@ export const HowToPlayModal: React.FC<HowToPlayModalProps> = ({ isOpen, onClose 
         <div className="how-to-step">
           <div className="step-badge">5</div>
           <div className="step-text">
-            <strong>30 seconds per swing,</strong> new questions every midnight Toronto time. Practice mode has no clock.
+            <strong>30 seconds per swing,</strong> new questions every midnight EST. Practice mode has no clock.
             Play 7 days in a row to earn a 🧊 streak freeze, which covers a day you miss.
           </div>
         </div>
@@ -70,19 +65,16 @@ export const HowToPlayModal: React.FC<HowToPlayModalProps> = ({ isOpen, onClose 
           <div className="scoring-grid">
             <div className="scoring-row header">
               <span>Your guess</span>
-              <span>Hit</span>
+              <span>Distance</span>
             </div>
-            {TIERS.map((t) => (
-              <div key={t.key} className="scoring-row">
-                <span>{TIER_RULES[t.key]}</span>
-                <span className="tier-cell">
-                  <span className="tier-dot" style={{ backgroundColor: t.color }} />
-                  {t.short} <em>{TIER_FEET[t.key]}</em>
-                </span>
+            {DISTANCE_STEPS.map((row) => (
+              <div key={row.guess} className="scoring-row">
+                <span>{row.guess}</span>
+                <span className="points-highlight">{row.distance}</span>
               </div>
             ))}
           </div>
-          <p className="scoring-footnote">Double the answer counts the same as half of it. Max is 450 ft a question, 2,250 a day.</p>
+          <p className="scoring-footnote">Every foot counts, so a closer guess always goes further. Double the answer counts the same as half of it. A hint costs 15% of your distance. Max is 450 ft a question, 2,250 a day.</p>
         </div>
 
         <button type="button" className="primary-button" style={{ marginTop: '24px' }} onClick={onClose}>

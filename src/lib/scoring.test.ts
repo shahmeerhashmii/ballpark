@@ -28,14 +28,15 @@ describe('Distance scoring', () => {
   it('clears the wall within 10%', () => {
     expect(calculateScore(1100, answer).tier).toBe('park');
     expect(calculateScore(910, answer).tier).toBe('park');
-    expect(calculateScore(1100, answer).feet).toBeGreaterThan(400);
+    expect(calculateScore(1100, answer).feet).toBeGreaterThanOrEqual(400);
   });
 
   it('maps the tier edges', () => {
     expect(calculateScore(1250, answer).tier).toBe('deep');
     expect(calculateScore(1500, answer).tier).toBe('solid');
     expect(calculateScore(2000, answer).tier).toBe('play');
-    expect(calculateScore(4000, answer).tier).toBe('caught');
+    expect(calculateScore(3900, answer).tier).toBe('caught');
+    expect(calculateScore(4000, answer).tier).toBe('miss');
     expect(calculateScore(4100, answer).tier).toBe('miss');
     expect(calculateScore(0, answer).tier).toBe('miss');
   });
@@ -49,11 +50,40 @@ describe('Distance scoring', () => {
     }
   });
 
-  it('makes later swings and hints worth less', () => {
-    expect(calculateScore(1000, answer, { swingNumber: 2 }).points).toBe(85);
-    expect(calculateScore(1000, answer, { swingNumber: 3 }).points).toBe(70);
-    expect(calculateScore(1000, answer, { hintUsed: true }).points).toBe(85);
-    expect(calculateScore(1000, answer, { swingNumber: 3 }).tier).toBe('deep');
+  it('makes all 3 swings worth the same, and only the hint costs distance', () => {
+    for (const g of [1000, 1040, 1300, 2500]) {
+      const s1 = calculateScore(g, answer, { swingNumber: 1 }).feet;
+      expect(calculateScore(g, answer, { swingNumber: 2 }).feet).toBe(s1);
+      expect(calculateScore(g, answer, { swingNumber: 3 }).feet).toBe(s1);
+    }
+    expect(calculateScore(1000, answer, { hintUsed: true }).feet).toBe(383); // 450 x 0.85
+  });
+
+  it('scores to the foot, so closer always goes further, even inside the same band', () => {
+    // the example from the request: both within 10% of 6,000, but 5,800 must beat 5,700
+    expect(calculateScore(5800, 6000).feet).toBeGreaterThan(calculateScore(5700, 6000).feet);
+    expect(calculateScore(5810, 6000).feet).toBeGreaterThan(calculateScore(5800, 6000).feet);
+    expect(calculateScore(5800, 6000).tier).toBe('park');
+    expect(calculateScore(5700, 6000).tier).toBe('park');
+    // every step closer adds distance, on both sides of the answer
+    let lastHigh = -1;
+    let lastLow = -1;
+    for (let off = 3.0; off >= 0; off -= 0.01) {
+      const high = calculateScore(1000 * (1 + off), 1000).points;
+      const low = calculateScore(1000 / (1 + off), 1000).points;
+      expect(high).toBeGreaterThanOrEqual(lastHigh);
+      expect(low).toBeGreaterThanOrEqual(lastLow);
+      lastHigh = high;
+      lastLow = low;
+    }
+  });
+
+  it('joins the bands up with no jumps', () => {
+    for (const edge of [1.1, 1.25, 1.5, 2]) {
+      const before = calculateScore(1000 * (edge - 1e-6), 1000).points;
+      const after = calculateScore(1000 * (edge + 1e-6), 1000).points;
+      expect(Math.abs(before - after)).toBeLessThan(0.01);
+    }
   });
 
   it('reports direction', () => {

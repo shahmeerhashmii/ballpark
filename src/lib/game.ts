@@ -1,5 +1,5 @@
 import { QuestionItem, QuestionGuessResult, SwingAttempt, GameMode } from '../types';
-import { getTier, pointsToFeet, seededRandom, RangeOption } from './scoring';
+import { getTier, pointsToFeet, seededRandom, RangeOption, guessRatio } from './scoring';
 
 /** A fixed spray angle per question so the ball flies the same way for everyone. */
 export function sprayAngleFor(dayNumber: number, qIndex: number): number {
@@ -10,6 +10,24 @@ export function sprayAngleFor(dayNumber: number, qIndex: number): number {
 
 export function rangeSeedFor(dayNumber: number, qIndex: number): number {
   return dayNumber * 1000 + qIndex * 31 + 5;
+}
+
+/**
+ * The swing that counts on a question.
+ * - The guess that counts is always the CLOSEST one to the answer (by ratio, so 2x high and
+ *   2x low are equally far). If two guesses are equally close, the earlier one counts.
+ * - Its distance is the best distance from any swing. Later swings are worth a bit less, but a
+ *   closer guess can never score lower than an earlier, further one.
+ */
+export function pickBestSwing(swings: SwingAttempt[], answer: number): SwingAttempt {
+  const real = swings.filter((s) => s.guess > 0);
+  if (real.length === 0) return swings[0] ?? { guess: 0, points: 0, direction: 'low' };
+  let closest = real[0];
+  for (const s of real) {
+    if (guessRatio(s.guess, answer) < guessRatio(closest.guess, answer)) closest = s;
+  }
+  const points = Math.max(...real.map((s) => s.points));
+  return { ...closest, points };
 }
 
 /** Turn the swings on one question into the result that counts (the best swing). */
@@ -26,10 +44,7 @@ export function buildResult(args: {
 }): QuestionGuessResult {
   const { qIndex, question, answer, swings, hintUsed, mode, sprayAngle, pickedRange, labelOverride } = args;
 
-  let best: SwingAttempt = { guess: 0, points: 0, direction: 'low' };
-  for (const s of swings) {
-    if (s.points >= best.points) best = s;
-  }
+  const best = pickBestSwing(swings, answer);
 
   const tier = getTier(best.points);
   const percentOff = answer !== 0 ? Math.abs(best.guess - answer) / answer : 0;
