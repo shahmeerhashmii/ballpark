@@ -20,7 +20,7 @@ interface HomeScreenProps {
 }
 
 const MODE_COPY: Record<GameMode, string> = {
-  classic: 'Type your guess. Up to 3 swings and a hint.',
+  classic: 'Type your guess. 3 swings on every question, plus a hint.',
   easy: 'Just pick the right range from 4 choices.',
 };
 

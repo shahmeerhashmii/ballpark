@@ -2624,3 +2624,11 @@ select {
     max-width: 180px;
   }
 }
+
+/* A great swing with swings left: cheer it instead of showing it as a miss */
+.swing-feedback.great {
+  border-left-color: var(--color-accent);
+}
+.swing-feedback.great .swing-feedback-arrow {
+  color: var(--color-accent);
+}

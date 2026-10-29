@@ -9,6 +9,7 @@ import {
   buildRangeChoices,
   scoreRangePick,
   MAX_SWINGS,
+  atBatOver,
   HINT_MULTIPLIER,
 } from '../lib/scoring';
 import { buildResult, formatNumber, formatRange, formatFeet, rangeSeedFor } from '../lib/game';
@@ -26,7 +27,8 @@ interface QuestionScreenProps {
   startTime: number | null; // null = no timer (practice)
   initialSwings: SwingAttempt[];
   initialHintUsed: boolean;
-  onSwingsChange?: (swings: SwingAttempt[], hintUsed: boolean) => void;
+  // swingStartedAt: when the clock restarted for the next swing, so a refresh keeps the right time
+  onSwingsChange?: (swings: SwingAttempt[], hintUsed: boolean, swingStartedAt?: number) => void;
   onComplete: (result: QuestionGuessResult) => void;
   onExit?: () => void;
 }
@@ -54,6 +56,8 @@ export const QuestionScreen: React.FC<QuestionScreenProps> = ({
   const [isDone, setIsDone] = useState<boolean>(false);
   const [shakeKey, setShakeKey] = useState<number>(0);
   const doneRef = useRef(false);
+  // Each swing gets its own full clock, so a slow first swing can't use up the other two
+  const [swingStart, setSwingStart] = useState<number | null>(startTime);
 
   const numericValue = computeNumericValue(inputString, activeMultiplier);
   const hintRange = useMemo(() => getHintRange(answer), [answer]);
@@ -93,15 +97,17 @@ export const QuestionScreen: React.FC<QuestionScreenProps> = ({
     const attempt: SwingAttempt = { guess: numericValue, points: score.points, direction: score.direction };
     const next = [...swings, attempt];
 
-    // A deep hit or better ends the at-bat. So does running out of swings.
-    if (score.tier === 'park' || score.tier === 'deep' || score.direction === 'exact' || swingNumber >= MAX_SWINGS) {
+    // Every question gets all 3 swings, even after a great hit. Only an exact guess ends it early.
+    if (atBatOver(swingNumber, score.direction)) {
       finish(next);
       return;
     }
 
-    playFoul();
+    if (score.tier !== 'park' && score.tier !== 'deep') playFoul();
+    const restartedAt = startTime !== null ? Date.now() : undefined;
+    if (restartedAt !== undefined) setSwingStart(restartedAt);
     setSwings(next);
-    onSwingsChange?.(next, hintUsed);
+    onSwingsChange?.(next, hintUsed, restartedAt);
     setInputString('');
     setActiveMultiplier(null);
     setShakeKey((k) => k + 1);
@@ -151,6 +157,8 @@ export const QuestionScreen: React.FC<QuestionScreenProps> = ({
   }, []);
 
   const lastSwing = swings[swings.length - 1];
+  // a deep or out of the park swing that still has swings left: cheer it, don't treat it as a miss
+  const lastGreat = !!lastSwing && (getTier(lastSwing.points).key === 'park' || getTier(lastSwing.points).key === 'deep');
   const bestSoFar = swings.reduce((m, s) => Math.max(m, s.points), 0);
   const swingsLeft = MAX_SWINGS - swings.length;
 
@@ -162,7 +170,7 @@ export const QuestionScreen: React.FC<QuestionScreenProps> = ({
           <span className="question-category-tag">{question.category}</span>
         </div>
         {startTime !== null ? (
-          <Timer startTime={startTime} onTimeUp={handleTimeUp} isRunning={!isDone} onSecond={handleSecond} />
+          <Timer startTime={swingStart ?? startTime} onTimeUp={handleTimeUp} isRunning={!isDone} onSecond={handleSecond} />
         ) : (
           onExit && (
             <button type="button" className="text-link-button practice-exit" onClick={onExit}>
@@ -208,13 +216,15 @@ export const QuestionScreen: React.FC<QuestionScreenProps> = ({
               </div>
 
               {lastSwing && (
-                <div key={shakeKey} className={`swing-feedback ${lastSwing.direction}`} role="status">
+                <div key={shakeKey} className={`swing-feedback ${lastSwing.direction} ${lastGreat ? 'great' : ''}`} role="status">
                   <span className="swing-feedback-arrow" aria-hidden="true">
                     {lastSwing.direction === 'high' ? '↓' : '↑'}
                   </span>
                   <span className="swing-feedback-text">
                     <strong>
-                      {formatNumber(lastSwing.guess)} is too {lastSwing.direction === 'high' ? 'high' : 'low'}
+                      {lastGreat
+                        ? `${getTier(lastSwing.points).label.replace(/[^!.]$/, '$&!')} ${formatNumber(lastSwing.guess)} is a little ${lastSwing.direction === 'high' ? 'high' : 'low'}`
+                        : `${formatNumber(lastSwing.guess)} is too ${lastSwing.direction === 'high' ? 'high' : 'low'}`}
                     </strong>
                     <span className="swing-feedback-sub">
                       {bestSoFar > 0
