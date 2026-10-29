@@ -31,8 +31,8 @@ This document records architectural, styling, and structural decisions made duri
 - **Reasoning:** Adheres to the scoreboard aesthetic and all prompt typography and copy constraints.
 
 ### 8. Distance Scoring and the Best Swing
-- **Decision:** Score closeness as a ratio and show it as distance in feet (points x 4.5). Every question gets 3 swings; the closest guess counts, and its distance is the best distance from any swing.
-- **Reasoning:** The old percent-off scoring punished overshooting far more than undershooting, which made high scores rare. Picking the best swing by discounted points let a farther early guess beat a much closer later one, so the closest guess now always counts and can never lower a score.
+- **Decision:** Score closeness as a ratio and turn it into distance worked out to the foot (0 to 450 ft). Every question gets 3 swings, all worth the same, and the closest guess counts. The How to Play table only shows 10% steps.
+- **Reasoning:** The old percent-off scoring punished overshooting far more than undershooting, which made high scores rare. Discounting later swings let a farther early guess beat a much closer later one. Scoring to the foot makes every small improvement count, so close games between friends still have a winner.
 
 ### 9. Easy Mode Data
 - **Decision:** Easy picks are saved to Supabase with `mode = 'easy'`. Every community number (tiers, median guess, daily average) filters to `mode = 'classic'`.

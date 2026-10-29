@@ -12,7 +12,7 @@ Ballpark is a daily estimation game played in a ballpark. Every day at midnight 
 
 1. **5 questions a day.** Everyday trivia, no sports knowledge needed.
 2. **3 swings on every question, 30 seconds per swing.** After each swing you're told if you're too high or too low. Tap **Keep best** to stop early.
-3. **Your closest guess counts.** Later swings fly a little shorter (swing 2 is worth 85%, swing 3 is worth 70%), but a closer guess can never lower your score.
+3. **Your closest guess counts.** All 3 swings are worth the same.
 4. **Hint:** shows a 10x range the answer is in, for a 15% distance cost.
 5. **Easy mode:** pick from 4 ranges instead of typing. Scored as right, close or wrong, and kept separate from Classic stats.
 6. **Practice mode:** unlimited past questions, no timer.
@@ -26,18 +26,19 @@ Ballpark is a daily estimation game played in a ballpark. Every day at midnight 
 ## Scoring
 
 Closeness is a ratio (bigger divided by smaller), so guessing double the answer counts the same as guessing half.
-Points run 0 to 100 per question. Players see distance in feet: feet = points x 4.5 (max 450 ft a question, 2,250 a day).
+Distance is worked out to the foot, from 0 to 450 ft per question (2,250 a day), so every bit closer goes further.
+On an answer of 6,000, a guess of 5,800 goes 432 ft and 5,700 goes 423 ft, even though both are within 10%.
 
-| Your guess | Hit | Distance |
+| Closeness (ratio) | Hit | Distance |
 | :--- | :--- | :--- |
-| Within 10% | Out of the park | 400 to 450 ft |
-| Within 25% | Deep to the wall | 300 to 400 ft |
-| Within 50% | Solid hit | 200 to 300 ft |
+| Within 1.1x (about 10%) | Out of the park | 400 to 450 ft |
+| Within 1.25x | Deep to the wall | 300 to 400 ft |
+| Within 1.5x | Solid hit | 200 to 300 ft |
 | Within 2x | In play | 100 to 200 ft |
-| Within 4x | Caught | under 100 ft |
+| Within 4x | Caught | 1 to 100 ft |
 | Further off | Swing and a miss | 0 ft |
 
-Within each band, points slide smoothly, so every bit closer counts. The logic lives in `src/lib/scoring.ts` and `src/lib/game.ts`, and is covered by tests (including a check of the best-swing rule across every question in the game).
+Inside each band the distance slides smoothly on a log scale and the bands join with no jumps. All 3 swings are worth the same; a hint costs 15%. Players only see a simple table in 10% steps on the How to Play screen. The database stores the counted distance in feet. The logic lives in `src/lib/scoring.ts` and `src/lib/game.ts`, and is covered by tests (including a check of the best-swing rule across every question in the game).
 
 ---
 

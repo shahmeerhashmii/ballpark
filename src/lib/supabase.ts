@@ -33,7 +33,7 @@ export async function submitGuessToSupabase(guess: QueuedGuess): Promise<boolean
       puzzle_day: guess.puzzle_day,
       q_index: guess.q_index,
       guess: guess.guess,
-      points: guess.points,
+      feet: guess.feet,
       mode: guess.mode ?? 'classic',
     });
 
@@ -63,7 +63,8 @@ export async function syncQueuedGuesses(): Promise<void> {
         puzzle_day: item.puzzle_day,
         q_index: item.q_index,
         guess: item.guess,
-        points: item.points,
+        // older queued guesses (from before feet were stored) are converted on the way out
+        feet: item.feet ?? Math.round(((item as unknown as { points?: number }).points ?? 0) * 4.5),
         mode: item.mode ?? 'classic',
       });
       if (error && error.code !== '23505') { // 23505 is unique violation, which means it was already inserted
@@ -109,8 +110,7 @@ export async function fetchDayAverage(day: number): Promise<number | null> {
     });
 
     if (error || data === null || data === undefined) return null;
-    // The database stores points (0 to 100 per question); players see feet.
-    return Math.round(Number(data) * 4.5);
+    return Math.round(Number(data));
   } catch {
     return null;
   }

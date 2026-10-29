@@ -222,7 +222,7 @@ export const App: React.FC = () => {
         puzzle_day: dayNumber,
         q_index: result.qIndex,
         guess: storedGuess > 0 ? storedGuess : 0.0001,
-        points: result.points,
+        feet: result.feet,
         mode: result.mode ?? 'classic',
       };
       // Every pick is saved (so the reminder knows you played); the community numbers only count classic

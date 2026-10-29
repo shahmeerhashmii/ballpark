@@ -27,7 +27,8 @@ describe('Units', () => {
 
   it('scores the same in either unit', () => {
     const m = localizeAnswer('How tall is Mount Everest?', 8849, 'metres', 'imperial');
-    expect(accuracyPoints(9000 * m.factor, m.answer)).toBe(accuracyPoints(9000, 8849));
+    // same distance to the foot (the converted answer is rounded to a sensible number of digits)
+    expect(Math.round(accuracyPoints(9000 * m.factor, m.answer) * 4.5)).toBe(Math.round(accuracyPoints(9000, 8849) * 4.5));
   });
 });
 
